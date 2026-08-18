@@ -6,10 +6,10 @@ import {
   X, 
   ChevronDown, 
   Phone, 
-  MessageSquare, 
-  Mail, 
-  Heart, 
-  Send, 
+  Lightbulb,
+  Code2, 
+  Rocket,
+  MessageSquare,  
   MessageCircle
 } from 'lucide-react';
 
@@ -269,27 +269,27 @@ export default function Page() {
             {/* Three Evenly Spaced Vertical Rounded-Rectangle Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-10 max-w-xl mx-auto w-full">
               {/* Plan Card */}
-              <div className="w-full sm:w-28 h-33 mx-auto bg-[linear-gradient(180deg,rgba(15,23,42,0.95),rgba(30,41,59,0.85))] border border-slate-700/50 rounded-lg p-4 flex flex-col items-center justify-center space-y-3 backdrop-blur-sm transition-transform hover:scale-105 duration-300">
-                <svg className="w-6 h-6 text-slate-200" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.75 6.75 0 000-13.5m0 13.5a6.75 6.75 0 010-13.5m0 13.5V6m0 0h.008v.008H12V6z" />
-                </svg>
-                <span className="text-white text-xs sm:text-sm font-medium tracking-wide">Plan</span>
+              <div className="group w-full sm:w-28 h-33 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-4 flex flex-col items-center justify-center space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
+                <div className="p-2 rounded-xl bg-white/5 group-hover:bg-[#cbfb45]/10 transition-colors">
+                  <Lightbulb className="w-5 h-5 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
+                </div>
+                <span className="text-slate-200 group-hover:text-white text-xs sm:text-sm font-semibold tracking-wide transition-colors">Plan</span>
               </div>
 
               {/* Develop Card */}
-              <div className="w-full sm:w-28 h-33 mx-auto bg-[linear-gradient(180deg,rgba(15,23,42,0.95),rgba(30,41,59,0.85))] border border-slate-700/50 rounded-lg p-4 flex flex-col items-center justify-center space-y-3 backdrop-blur-sm transition-transform hover:scale-105 duration-300">
-                <svg className="w-6 h-6 text-slate-200" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 172.25v1.5a2.25 2.25 0 002.25 2.25h1.5a2.25 2.25 0 002.25-2.25v-1.5m3-13.5H6a2.25 2.25 0 00-2.25 2.25v7.5A2.25 2.25 0 006 15.75h12a2.25 2.25 0 002.25-2.25v-7.5A2.25 2.25 0 0018 3.75z" />
-                </svg>
-                <span className="text-white text-xs sm:text-sm font-medium tracking-wide">Develop</span>
+              <div className="group w-full sm:w-28 h-33 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-4 flex flex-col items-center justify-center space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
+                <div className="p-2 rounded-xl bg-white/5 group-hover:bg-[#cbfb45]/10 transition-colors">
+                  <Code2 className="w-5 h-5 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
+                </div>
+                <span className="text-slate-200 group-hover:text-white text-xs sm:text-sm font-semibold tracking-wide transition-colors">Develop</span>
               </div>
 
               {/* Launch Card */}
-              <div className="w-full sm:w-28 h-33 mx-auto bg-[linear-gradient(180deg,rgba(15,23,42,0.95),rgba(30,41,59,0.85))] border border-slate-700/50 rounded-lg p-4 flex flex-col items-center justify-center space-y-3 backdrop-blur-sm transition-transform hover:scale-105 duration-300">
-                <svg className="w-6 h-6 text-slate-200" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.38 5.84h4.8m2.58-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.5 4.5 0 01-6.364-6.364l4.5 4.5a4.5 4.5 0 001.864 1.864l4.5 4.5z" />
-                </svg>
-                <span className="text-white text-xs sm:text-sm font-medium tracking-wide">Launch</span>
+              <div className="group w-full sm:w-28 h-33 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-4 flex flex-col items-center justify-center space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
+                <div className="p-2 rounded-xl bg-white/5 group-hover:bg-[#cbfb45]/10 transition-colors">
+                  <Rocket className="w-5 h-5 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
+                </div>
+                <span className="text-slate-200 group-hover:text-white text-xs sm:text-sm font-semibold tracking-wide transition-colors">Launch</span>
               </div>
             </div>
           </div>
@@ -312,27 +312,27 @@ export default function Page() {
               {
                 title: "BlueTerra, UAE",
                 desc: "Boutique travel company website developed in Next.js & Python",
-                image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80"
+                image: "https://maktalseo.com/wp-content/uploads/2025/10/blueterra-travel-website-development-work-1.avif"
               },
               {
                 title: "Drizzla, USA",
                 desc: "Outcome-as-a-Service (OaaS) partner website developed in React.js & Python",
-                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                image: "https://maktalseo.com/wp-content/uploads/2025/10/drizzla-react-js-website-development-1.avif"
               },
               {
                 title: "Solo Flowers, UAE",
                 desc: "Flower delivery E-commerce website development in WordPress & WooCommerce.",
-                image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80"
+                image: "https://maktalseo.com/wp-content/uploads/2025/10/solo-flowers-ecommerce-website-development.avif"
               },
               {
                 title: "World of Appliances, Bahrain",
                 desc: "WordPress based E-commerce website development project with Shipping and Payment options.",
-                image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80"
+                image: "https://maktalseo.com/wp-content/uploads/2025/10/ecommerce-development-wordpress.avif"
               }
             ].map((project, index) => (
               <div 
                 key={index}
-                className="group relative rounded-2xl overflow-hidden border border-[#141416]/40 hover:border-[#cbfb45] transition-all duration-300 hover:shadow-2xl hover:shadow-[#cbfb45]/10 hover:-translate-y-1 flex flex-col justify-between backdrop-blur-sm bg-[linear-gradient(180deg,rgba(15,16,17,0.95),rgba(20,20,22,0.92))]"
+                className="group relative rounded-2xl overflow-hidden border border-[#141416]/40 hover:border-[#cbfb45] transition-all duration-300 hover:shadow-2xl hover:shadow-[#cbfb45]/10 hover:-translate-y-1 flex flex-col justify-between  ]"
               >
                 {/* Project Image Mockup Container */}
                 <div className="relative w-full h-64 sm:h-72 overflow-hidden bg-[#0B1020]">
