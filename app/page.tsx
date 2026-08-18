@@ -201,78 +201,78 @@ export default function Page() {
 
         {/* Section 1: Our Works / Projects Showcase */}
         <section id="works" className="space-y-12 max-w-5xl mx-auto">
-  <div className="text-center space-y-3">
-    <span className="text-purple-400 text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase">
-      OUR WORKS
-    </span>
-    <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-      Few of our favorite projects
-    </h2>
-  </div>
-
-  {/* 2-Column Responsive Grid */}
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-    {[
-      {
-        title: "BlueTerra, UAE",
-        desc: "Boutique travel company website developed in Next.js & Python",
-        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        title: "Drizzla, USA",
-        desc: "Outcome-as-a-Service (OaaS) partner website developed in React.js & Python",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        title: "Solo Flowers, UAE",
-        desc: "Flower delivery E-commerce website development in WordPress & WooCommerce.",
-        image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80"
-      },
-      {
-        title: "World of Appliances, Bahrain",
-        desc: "WordPress based E-commerce website development project with Shipping and Payment options.",
-        image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80"
-      }
-    ].map((project, index) => (
-      <div 
-        key={index}
-        className="group relative bg-slate-900/60 rounded-2xl overflow-hidden border border-[#7c2bbd]/40 hover:border-[#7c2bbd] transition-all duration-300 hover:shadow-2xl hover:shadow-purple-900/20 hover:-translate-y-1 flex flex-col justify-between backdrop-blur-sm"
-      >
-        {/* Project Image Mockup Container */}
-        <div className="relative w-full h-64 sm:h-72 overflow-hidden bg-slate-950">
-          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-transparent z-10 opacity-60" />
-          <img 
-            src={project.image} 
-            alt={project.title}
-            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-
-        {/* Card Content */}
-        <div className="p-6 sm:p-8 flex flex-col grow justify-between space-y-4">
-          <div className="space-y-2">
-            <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
-              {project.title}
-            </h3>
-            <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-              {project.desc}
-            </p>
+          <div className="text-center space-y-3">
+            <span className="text-purple-400 text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase">
+              OUR WORKS
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Few of our favorite projects
+            </h2>
           </div>
-          
-          <div className="pt-2">
-            <a 
-              href="#contact" 
-              className="inline-flex items-center space-x-2 text-purple-400 hover:text-cyan-400 font-medium text-sm sm:text-base transition-colors group/link"
-            >
-              <span>Visit Website</span>
-              <span className="transform group-hover/link:translate-x-1 transition-transform">→</span>
-            </a>
+
+          {/* 2-Column Responsive Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "BlueTerra, UAE",
+                desc: "Boutique travel company website developed in Next.js & Python",
+                image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80"
+              },
+              {
+                title: "Drizzla, USA",
+                desc: "Outcome-as-a-Service (OaaS) partner website developed in React.js & Python",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+              },
+              {
+                title: "Solo Flowers, UAE",
+                desc: "Flower delivery E-commerce website development in WordPress & WooCommerce.",
+                image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80"
+              },
+              {
+                title: "World of Appliances, Bahrain",
+                desc: "WordPress based E-commerce website development project with Shipping and Payment options.",
+                image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80"
+              }
+            ].map((project, index) => (
+              <div 
+                key={index}
+                className="group relative bg-slate-900/60 rounded-2xl overflow-hidden border border-[#7c2bbd]/40 hover:border-[#7c2bbd] transition-all duration-300 hover:shadow-2xl hover:shadow-purple-900/20 hover:-translate-y-1 flex flex-col justify-between backdrop-blur-sm"
+              >
+                {/* Project Image Mockup Container */}
+                <div className="relative w-full h-64 sm:h-72 overflow-hidden bg-slate-950">
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-transparent z-10 opacity-60" />
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+
+                {/* Card Content */}
+                <div className="p-6 sm:p-8 flex flex-col grow justify-between space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+                      {project.desc}
+                    </p>
+                  </div>
+                  
+                  <div className="pt-2">
+                    <a 
+                      href="#contact" 
+                      className="inline-flex items-center space-x-2 text-purple-400 hover:text-cyan-400 font-medium text-sm sm:text-base transition-colors group/link"
+                    >
+                      <span>Visit Website</span>
+                      <span className="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-      </div>
-    ))}
-  </div>
-</section>
+        </section>
 
         {/* Section 2: Ambient CTA / Next Section */}
         <section className="relative overflow-hidden rounded-3xl bg-linear-to-br from-slate-900 via-slate-900/90 to-slate-950 border border-purple-500/20 p-8 sm:p-14 text-center space-y-6 shadow-2xl">
