@@ -73,12 +73,10 @@ const socialLinks = [
   },
 ];
 
-/* ─── Component ────────────────────────────────────────────────── */
 
 export default function Footer() {
   return (
     <footer className="w-full text-slate-300">
-      {/* ── Main Footer ─────────────────────────────────────────── */}
       <div className="bg-[#141416] border-t border-white/5">
         <div className="mx-auto max-w-450 px-6 lg:px-12 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">

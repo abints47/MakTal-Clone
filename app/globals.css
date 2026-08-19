@@ -46,3 +46,9 @@ body {
 .scroll-reveal-stagger > *:nth-child(2) { transition-delay: 100ms; }
 .scroll-reveal-stagger > *:nth-child(3) { transition-delay: 200ms; }
 .scroll-reveal-stagger > *:nth-child(4) { transition-delay: 300ms; }
+
+/* Marquee Ticker */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}

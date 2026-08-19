@@ -16,6 +16,8 @@ import Link from 'next/link';
 import Footer from '@/components/Footer/Footer';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import WhatsAppFloat from '@/components/WhatsAppFloat/WhatsAppFloat';
+import BlogSection from '@/components/BlogSection/BlogSection';
+import GoogleReviews from '@/components/GoogleReviews/GoogleReviews';
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -104,7 +106,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-[linear-gradient(180deg,#0a0a0b_0%,#141416_50%,#0a0a0b_100%)] text-[#f6f6f4] font-sans selection:bg-[#cbfb45] selection:text-[#0a0a0b] relative overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-screen min-h-[350px] sm:min-h-[450px] overflow-hidden flex flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.45),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.25),transparent_30%),linear-gradient(135deg,#0a0a0b_0%,#141416_40%,#0f1112_100%)]">
+      <section className="relative w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-screen min-h-87.5 sm:min-h-112.5 overflow-hidden flex flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.45),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.25),transparent_30%),linear-gradient(135deg,#0a0a0b_0%,#141416_40%,#0f1112_100%)]">
         {/* Video Background with Dark Overlay */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
@@ -209,7 +211,7 @@ export default function Page() {
         {/* Mobile Navigation Drawer */}
         <div className={`fixed inset-0 bg-black/50 z-30 lg:hidden transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setMobileMenuOpen(false)} />
 
-        <aside className={`fixed inset-y-0 left-0 w-1/2 min-w-[250px] max-w-[350px] bg-[#0a0a0b] z-40 lg:hidden transform transition-transform duration-300 shadow-2xl ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`} aria-hidden={!mobileMenuOpen}>
+        <aside className={`fixed inset-y-0 left-0 w-1/2 min-w-62.5 max-w-87.5 bg-[#0a0a0b] z-40 lg:hidden transform transition-transform duration-300 shadow-2xl ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`} aria-hidden={!mobileMenuOpen}>
           <div className="p-6 flex flex-col h-full">
             {/* Brand Logo & Name */}
             <div className="flex items-center space-x-2 mb-8">
@@ -263,58 +265,45 @@ export default function Page() {
     <main className="max-w-full mx-auto bg-transparent">
 
         {/* New Creative Digital Agency Section matching reference */}
-       <section ref={containerRef} className="w-full relative overflow-hidden rounded-b-4xl border border-[#141416]/30 pt-20 pb-0 px-6 text-center shadow-6xl bg-[linear-gradient(180deg,#0a0a0b_0%,#141416_50%,#0a0a0b_100%)]">
-          <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-[#cbfb45]/10 rounded-full blur-[100px] pointer-events-none" />
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#cbfb45]/10 rounded-full blur-[100px] pointer-events-none" />
+       <ScrollReveal>
+       <section ref={containerRef} id="works" className="w-full relative overflow-hidden bg-[#0a0a0b]">
+          {/* Subtle radial glows — Momentum-style clean dark theme */}
+          <div className="absolute top-0 left-1/4 w-175 h-175 bg-[#cbfb45]/4 rounded-full blur-[150px] pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-150 h-150 bg-[#cbfb45]/3 rounded-full blur-[140px] pointer-events-none" />
 
-          <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-center space-y-6">
-            {/* Headlines */}
-            <div className="space-y-1">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-8 sm:pt-12 lg:pt-15 font-bold text-[#f6f6f4] tracking-tight">
-                One-stop Solution for
-              </h2>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#cbfb45] tracking-tight font-mono h-10 sm:h-12 lg:h-14 flex items-center justify-center">
-                {displayBrandingText}
-              </h1>
-            </div>
-
-            {/* Supporting Paragraph */}
-            <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto pt-2 px-2 sm:px-0">
+          {/* ── Hero / Services ── */}
+          <div className="relative z-10 max-w-5xl mx-auto px-6 pt-24 sm:pt-32 lg:pt-40 pb-16 text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#f6f6f4] tracking-tight leading-tight">
+              One-stop Solution for
+            </h2>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#cbfb45] tracking-tight font-mono mt-1">
+              {displayBrandingText}
+            </h1>
+            <p className="mt-6 text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
               We create stunning, user-friendly websites to help your business stand out and succeed. With expertise in secure web development, we&apos;ll bring your business online and boost sales.
             </p>
+          </div>
 
-            {/* Three Evenly Spaced Vertical Rounded-Rectangle Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 py-12 sm:py-20 lg:py-25 max-w-xs sm:max-w-lg md:max-w-xl mx-auto w-full">
-              {/* Plan Card */}
-              <div className="group w-full sm:w-28 lg:w-30 h-28 sm:h-30 lg:h-33 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-3 sm:p-4 flex flex-col items-center justify-center space-y-2 sm:space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
-                <div className="p-2 rounded-xl bg-white/5 group-hover:bg-[#cbfb45]/10 transition-colors">
-                  <Lightbulb className="w-8 h-8 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
+          {/* ── Process Steps ── */}
+          <div className="relative z-10 max-w-5xl mx-auto px-28 py-12 sm:py-20 lg:py-15">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2">
+              {[
+                { icon: Lightbulb, label: "Plan" },
+                { icon: Code2, label: "Develop" },
+                { icon: Rocket, label: "Launch" },
+              ].map((step, i) => (
+                <div key={i} className="group w-full sm:w-28 lg:w-40 h-28 sm:h-30 lg:h-43 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-3 sm:p-4 flex flex-col items-center justify-center space-y-2 sm:space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
+                  <div className="p-2 rounded-xl bg-white/5 group-hover:bg-[#cbfb45]/10 transition-colors">
+                    <step.icon className="w-8 h-8 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
+                  </div>
+                  <span className="text-slate-200 group-hover:text-white text-xs sm:text-sm font-semibold tracking-wide transition-colors">{step.label}</span>
                 </div>
-                <span className="text-slate-200 group-hover:text-white text-xs sm:text-sm font-semibold tracking-wide transition-colors">Plan</span>
-              </div>
-
-              {/* Develop Card */}
-              <div className="group w-full sm:w-28 lg:w-30 h-28 sm:h-30 lg:h-33 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-3 sm:p-4 flex flex-col items-center justify-center space-y-2 sm:space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
-                <div className="p-2 rounded-xl bg-white/5 group-hover:bg-[#cbfb45]/10 transition-colors">
-                  <Code2 className="w-8 h-8 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
-                </div>
-                <span className="text-slate-200 group-hover:text-white text-xs sm:text-sm font-semibold tracking-wide transition-colors">Develop</span>
-              </div>
-
-              {/* Launch Card */}
-              <div className="group w-full sm:w-28 lg:w-30 h-28 sm:h-30 lg:h-33 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-3 sm:p-4 flex flex-col items-center justify-center space-y-2 sm:space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
-                <div className="p-2 rounded-xl bg-white/5 group-hover:bg-[#cbfb45]/10 transition-colors">
-                  <Rocket className="w-8 h-8 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
-                </div>
-                <span className="text-slate-200 group-hover:text-white text-xs sm:text-sm font-semibold tracking-wide transition-colors">Launch</span>
-              </div>
+              ))}
             </div>
           </div>
-        </section>
 
-        {/* Section 1: Our Works / Projects Showcase */}
-        <ScrollReveal>
-        <section id="works" className="w-full px-4 sm:px-8 md:px-12 py-12 sm:py-16 lg:py-20 bg-[linear-gradient(180deg,#0a0a0b_0%,#141416_50%,#0a0a0b_100%)]">
+          {/* ── Our Works ── */}
+          <div className="relative z-10 w-full px-4 sm:px-8 md:px-12 py-12 sm:py-16 lg:py-50 space-y-16 sm:space-y-20 lg:space-y-24">
           <div className="text-center">
             <span className="text-[#cbfb45] text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase">
               OUR WORKS
@@ -324,40 +313,38 @@ export default function Page() {
             </h2>
           </div>
 
-          {/* 2-Column Responsive Grid with Decreased Card Size */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 pt-8 sm:pt-12 lg:pt-15 max-w-4xl mx-auto">
-            {[
-              {
-                title: "BlueTerra, UAE",
-                desc: "Boutique travel company website developed in Next.js & Python",
-                image: "https://maktalseo.com/wp-content/uploads/2025/10/blueterra-travel-website-development-work-1.avif",
-                url: "https://www.myblueterra.com/"
-              },
-              {
-                title: "Drizzla, USA",
-                desc: "Outcome-as-a-Service (OaaS) partner website developed in React.js & Python",
-                image: "https://maktalseo.com/wp-content/uploads/2025/10/drizzla-react-js-website-development-1.avif",
-                url: "https://www.drizzla.com/"
-              },
-              {
-                title: "Solo Flowers, UAE",
-                desc: "Flower delivery E-commerce website development in WordPress & WooCommerce.",
-                image: "https://maktalseo.com/wp-content/uploads/2025/10/solo-flowers-ecommerce-website-development.avif",
-                url: "https://www.soloflowers.ae"
-              },
-              {
-                title: "World of Appliances, Bahrain",
-                desc: "WordPress based E-commerce website development project with Shipping and Payment options.",
-                image: "https://maktalseo.com/wp-content/uploads/2025/10/ecommerce-development-wordpress.avif",
-                url: "https://www.worldofappliancesbh.com/"
-              }
-            ].map((project, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-20 pt-8 sm:pt-12 lg:pt-15 max-w-5xl mx-auto">
+              {[
+                {
+                  title: "BlueTerra, UAE",
+                  desc: "Boutique travel company website developed in Next.js & Python",
+                  image: "https://maktalseo.com/wp-content/uploads/2025/10/blueterra-travel-website-development-work-1.avif",
+                  url: "https://www.myblueterra.com/"
+                },
+                {
+                  title: "Drizzla, USA",
+                  desc: "Outcome-as-a-Service (OaaS) partner website developed in React.js & Python",
+                  image: "https://maktalseo.com/wp-content/uploads/2025/10/drizzla-react-js-website-development-1.avif",
+                  url: "https://www.drizzla.com/"
+                },
+                {
+                  title: "Solo Flowers, UAE",
+                  desc: "Flower delivery E-commerce website development in WordPress & WooCommerce.",
+                  image: "https://maktalseo.com/wp-content/uploads/2025/10/solo-flowers-ecommerce-website-development.avif",
+                  url: "https://www.soloflowers.ae"
+                },
+                {
+                  title: "World of Appliances, Bahrain",
+                  desc: "WordPress based E-commerce website development project with Shipping and Payment options.",
+                  image: "https://maktalseo.com/wp-content/uploads/2025/10/ecommerce-development-wordpress.avif",
+                  url: "https://www.worldofappliancesbh.com/"
+                }
+              ].map((project, index) => (
               <ScrollReveal key={index} delay={index * 150}>
               <div 
                 className="group relative rounded-2xl overflow-hidden bg-[#141416]/50 border border-[#141416]/40 hover:border-[#cbfb45] transition-all duration-300 hover:shadow-2xl hover:shadow-[#cbfb45]/10 hover:-translate-y-1 flex flex-col justify-between"
               >
-                {/* Project Image Mockup Container with Reduced Height */}
-                <div className="relative w-full h-44 sm:h-52 md:h-56 overflow-hidden bg-[#141416]">
+                <div className="relative w-full h-44 sm:h-52 md:h-66 overflow-hidden bg-[#141416]">
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,11,23,0.2),rgba(7,11,23,0.6))] z-10" />
                   <img 
                     src={project.image} 
@@ -366,7 +353,6 @@ export default function Page() {
                   />
                 </div>
 
-                {/* Card Content with Compact Spacing */}
                 <div className="p-5 sm:p-6 flex flex-col grow justify-between space-y-3">
                   <div className="space-y-1.5">
                     <h3 className="text-lg sm:text-xl font-bold text-[#f6f6f4] group-hover:text-[#cbfb45] transition-colors">
@@ -393,34 +379,46 @@ export default function Page() {
               </ScrollReveal>
             ))}
           </div>
-        </section>
-        </ScrollReveal>
 
-        {/* Section 2: Ambient CTA / Next Section */}
-        <ScrollReveal delay={100}>
-        <section className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#141416]/20 px-6 py-12 sm:p-16 lg:p-20 xl:p-30 text-center space-y-4 sm:space-y-6 shadow-2xl bg-[linear-gradient(135deg,#0a0a0b_0%,#141416_40%)]">
-          <div className="absolute -top-24 -left-24 w-72 h-72 bg-[#cbfb45]/14 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-[#cbfb45]/12 rounded-full blur-3xl pointer-events-none" />
+          <div className="flex justify-center pt-1">
+            <a 
+              href="#works" 
+              className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-white/20 bg-transparent hover:bg-white/5 text-[#f6f6f4] font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#cbfb45]/50"
+            >
+              View All
+            </a>
+          </div>
+          </div>
 
-          <div className="relative z-10 max-w-2xl mx-auto space-y-4">
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight">
+          {/* ── Blog ── */}
+          <BlogSection />
+
+          {/* ── CTA ── */}
+          <ScrollReveal delay={100}>
+          <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 sm:py-28 lg:py-32 text-center">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-125 h-125 bg-[#cbfb45]/3 rounded-full blur-[150px]" />
+            </div>
+            <h2 className="relative text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#f6f6f4] tracking-tight">
               Have Something in Mind?
             </h2>
-            <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
+            <p className="relative mt-4 text-white/40 text-sm sm:text-base leading-relaxed max-w-lg mx-auto">
               We build custom websites that grow your business and attract more customers. Our expert team creates tailored sites designed to exceed your goals.
             </p>
-            <div className="pt-4">
-              <a 
-                href="#contact" 
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#cbfb45] text-[#0a0a0b] font-medium text-sm sm:text-base tracking-wide transition-all shadow-lg shadow-[#cbfb45]/25 hover:scale-105"
-              >
-                Talk to Us
-              </a>
-            </div>
+            <a 
+              href="#contact" 
+              className="relative mt-8 inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#cbfb45] text-[#0a0a0b] font-medium text-sm tracking-wide transition-all hover:scale-105 shadow-lg shadow-[#cbfb45]/20"
+            >
+              Talk to Us
+            </a>
           </div>
+          </ScrollReveal>
         </section>
         </ScrollReveal>
       </main>
+
+      {/* Google Reviews */}
+      <GoogleReviews />
 
       {/* Footer */}
       <Footer />
