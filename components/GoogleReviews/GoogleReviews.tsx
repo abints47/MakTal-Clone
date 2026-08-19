@@ -188,7 +188,7 @@ export default function GoogleReviews() {
   return (
     <section className="w-full bg-[#0a0a0b] overflow-hidden">
       {/* ── Decorative Gradient Strip ── */}
-      <div className="w-full h-[18px] sm:h-[20px]" style={{ background: "linear-gradient(90deg, #1a2e05 0%, #3d6b08 15%, #65a30d 30%, #cbfb45 50%, #65a30d 70%, #3d6b08 85%, #1a2e05 100%)" }} />
+      <div className="w-full h-[18px] sm:h-[20px]" style={{ background: "linear-gradient(90deg, #1a2e05 0%, #3d6b08 15%, #65a30d 30%, #4a8c0a 50%, #65a30d 70%, #3d6b08 85%, #1a2e05 100%)" }} />
 
       <div className="py-16 sm:py-[60px] lg:py-[75px]">
         <div className="max-w-[1540px] mx-auto px-5 sm:px-8 md:px-12">
