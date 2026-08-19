@@ -209,9 +209,21 @@ export default function Page() {
         {/* Mobile Navigation Drawer */}
         <div className={`fixed inset-0 bg-black/50 z-30 lg:hidden transition-opacity duration-300 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setMobileMenuOpen(false)} />
 
-        <aside className={`fixed inset-y-0 left-0 w-72 max-w-full bg-[#0a0a0b] z-40 lg:hidden transform transition-transform duration-300 shadow-2xl ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`} aria-hidden={!mobileMenuOpen}>
+        <aside className={`fixed inset-y-0 left-0 w-1/2 min-w-[250px] max-w-[350px] bg-[#0a0a0b] z-40 lg:hidden transform transition-transform duration-300 shadow-2xl ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`} aria-hidden={!mobileMenuOpen}>
           <div className="p-6 flex flex-col h-full">
-            <nav className="flex flex-col space-y-4 mt-6">
+            {/* Brand Logo & Name */}
+            <div className="flex items-center space-x-2 mb-8">
+              <span 
+                className="text-2xl font-extrabold tracking-tight text-white uppercase select-none"
+                style={{
+                  fontFamily: 'Montserrat, Gotham, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                }}
+              >
+                MAKTAL
+              </span>
+              <sup className="pb-4 text-xs font-bold text-white select-none">®</sup>
+            </div>
+            <nav className="flex flex-col space-y-4">
               <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-[#cbfb45] font-medium">About</a>
               <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-[#cbfb45] font-medium">Services</a>
               <a href="#works" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-[#cbfb45] font-medium">Our Works</a>
