@@ -12,6 +12,10 @@ import {
   MessageSquare,  
   MessageCircle
 } from 'lucide-react';
+import Link from 'next/link';
+import Footer from '@/components/Footer/Footer';
+import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
+import WhatsAppFloat from '@/components/WhatsAppFloat/WhatsAppFloat';
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -98,30 +102,31 @@ export default function Page() {
   }, [currentIndex, isVisible]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0b] text-[#f6f6f4] font-sans selection:bg-[#cbfb45] selection:text-[#0a0a0b]">
+    <div className="min-h-screen bg-[linear-gradient(180deg,#0a0a0b_0%,#141416_50%,#0a0a0b_100%)] text-[#f6f6f4] font-sans selection:bg-[#cbfb45] selection:text-[#0a0a0b] relative overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative w-full h-230 overflow-hidden flex flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.45),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.25),transparent_30%),linear-gradient(135deg,#0a0a0b_0%,#141416_40%,#0f1112_100%)]">
-        {/* Background Image with Dark Semi-Transparent Overlay */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center z-0 scale-105 transform transition-transform duration-1000"
-          style={{ 
-            backgroundImage: `linear-gradient(rgba(10,10,11,0.38), rgba(10,10,11,0.62)), url('/images/it.jpg')`,
-            backgroundBlendMode: 'multiply',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'saturate(0.9) contrast(1.05)'
-          }}
-        >
-          {/* professional, subtle darkening to keep the image visible while matching the site */}
-          <div className="absolute inset-0 bg-black/20" />
+      <section className="relative w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-screen min-h-[350px] sm:min-h-[450px] overflow-hidden flex flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.45),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.25),transparent_30%),linear-gradient(135deg,#0a0a0b_0%,#141416_40%,#0f1112_100%)]">
+        {/* Video Background with Dark Overlay */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/it.jpg"
+            className="w-full h-full object-cover"
+            style={{ filter: 'saturate(0.85) contrast(1.1) brightness(0.5)' }}
+          >
+            <source src="https://assets.mixkit.co/videos/46635/46635-720.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-[#0a0a0b]/40" />
         </div>
 
         {/* Navbar */}
         <header className="relative z-20 w-full px-6 lg:px-12 py-5 flex items-center justify-between  bg-transparent">
           {/* Logo */}
-          <div className="relative inline-flex items-center pl-15 pt-6">
+          <div className="relative inline-flex items-center pl-4 sm:pl-10 lg:pl-15 pt-2 sm:pt-4 lg:pt-6">
             <span 
-              className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white uppercase select-none"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white uppercase select-none"
               style={{
                 fontFamily: 'Montserrat, Gotham, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
               }}
@@ -243,51 +248,51 @@ export default function Page() {
         <div className="pb-6"></div>
       </section>
 
-     <main className="max-w-full mx-auto px-6 py-20 space-y-24">
+    <main className="max-w-full mx-auto bg-transparent">
 
         {/* New Creative Digital Agency Section matching reference */}
-        <section ref={containerRef} className="relative overflow-hidden rounded-4xl border border-[#141416]/30 py-20 px-6 text-center shadow-6xl bg-[linear-gradient(180deg,#0a0a0b_0%,#141416_40%)]">
+       <section ref={containerRef} className="w-full relative overflow-hidden rounded-b-4xl border border-[#141416]/30 pt-20 pb-0 px-6 text-center shadow-6xl bg-[linear-gradient(180deg,#0a0a0b_0%,#141416_50%,#0a0a0b_100%)]">
           <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-[#cbfb45]/10 rounded-full blur-[100px] pointer-events-none" />
           <div className="absolute top-0 right-0 w-80 h-80 bg-[#cbfb45]/10 rounded-full blur-[100px] pointer-events-none" />
 
           <div className="relative z-10 max-w-6xl mx-auto flex flex-col items-center space-y-6">
             {/* Headlines */}
             <div className="space-y-1">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f6f6f4] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl pt-8 sm:pt-12 lg:pt-15 font-bold text-[#f6f6f4] tracking-tight">
                 One-stop Solution for
               </h2>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#cbfb45] tracking-tight font-mono h-14 flex items-center justify-center">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#cbfb45] tracking-tight font-mono h-10 sm:h-12 lg:h-14 flex items-center justify-center">
                 {displayBrandingText}
               </h1>
             </div>
 
             {/* Supporting Paragraph */}
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-150 mx-auto pt-2">
+            <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs sm:max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto pt-2 px-2 sm:px-0">
               We create stunning, user-friendly websites to help your business stand out and succeed. With expertise in secure web development, we&apos;ll bring your business online and boost sales.
             </p>
 
             {/* Three Evenly Spaced Vertical Rounded-Rectangle Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-10 max-w-xl mx-auto w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 py-12 sm:py-20 lg:py-25 max-w-xs sm:max-w-lg md:max-w-xl mx-auto w-full">
               {/* Plan Card */}
-              <div className="group w-full sm:w-28 h-33 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-4 flex flex-col items-center justify-center space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
+              <div className="group w-full sm:w-28 lg:w-30 h-28 sm:h-30 lg:h-33 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-3 sm:p-4 flex flex-col items-center justify-center space-y-2 sm:space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
                 <div className="p-2 rounded-xl bg-white/5 group-hover:bg-[#cbfb45]/10 transition-colors">
-                  <Lightbulb className="w-5 h-5 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
+                  <Lightbulb className="w-8 h-8 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
                 </div>
                 <span className="text-slate-200 group-hover:text-white text-xs sm:text-sm font-semibold tracking-wide transition-colors">Plan</span>
               </div>
 
               {/* Develop Card */}
-              <div className="group w-full sm:w-28 h-33 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-4 flex flex-col items-center justify-center space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
+              <div className="group w-full sm:w-28 lg:w-30 h-28 sm:h-30 lg:h-33 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-3 sm:p-4 flex flex-col items-center justify-center space-y-2 sm:space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
                 <div className="p-2 rounded-xl bg-white/5 group-hover:bg-[#cbfb45]/10 transition-colors">
-                  <Code2 className="w-5 h-5 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
+                  <Code2 className="w-8 h-8 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
                 </div>
                 <span className="text-slate-200 group-hover:text-white text-xs sm:text-sm font-semibold tracking-wide transition-colors">Develop</span>
               </div>
 
               {/* Launch Card */}
-              <div className="group w-full sm:w-28 h-33 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-4 flex flex-col items-center justify-center space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
+              <div className="group w-full sm:w-28 lg:w-30 h-28 sm:h-30 lg:h-33 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-3 sm:p-4 flex flex-col items-center justify-center space-y-2 sm:space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
                 <div className="p-2 rounded-xl bg-white/5 group-hover:bg-[#cbfb45]/10 transition-colors">
-                  <Rocket className="w-5 h-5 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
+                  <Rocket className="w-8 h-8 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
                 </div>
                 <span className="text-slate-200 group-hover:text-white text-xs sm:text-sm font-semibold tracking-wide transition-colors">Launch</span>
               </div>
@@ -296,8 +301,9 @@ export default function Page() {
         </section>
 
         {/* Section 1: Our Works / Projects Showcase */}
-        <section id="works" className="space-y-12 max-w-5xl mx-auto">
-          <div className="text-center space-y-3">
+        <ScrollReveal>
+        <section id="works" className="w-full px-4 sm:px-8 md:px-12 py-12 sm:py-16 lg:py-20 bg-[linear-gradient(180deg,#0a0a0b_0%,#141416_50%,#0a0a0b_100%)]">
+          <div className="text-center">
             <span className="text-[#cbfb45] text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase">
               OUR WORKS
             </span>
@@ -306,36 +312,40 @@ export default function Page() {
             </h2>
           </div>
 
-          {/* 2-Column Responsive Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* 2-Column Responsive Grid with Decreased Card Size */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 pt-8 sm:pt-12 lg:pt-15 max-w-4xl mx-auto">
             {[
               {
                 title: "BlueTerra, UAE",
                 desc: "Boutique travel company website developed in Next.js & Python",
-                image: "https://maktalseo.com/wp-content/uploads/2025/10/blueterra-travel-website-development-work-1.avif"
+                image: "https://maktalseo.com/wp-content/uploads/2025/10/blueterra-travel-website-development-work-1.avif",
+                url: "https://www.myblueterra.com/"
               },
               {
                 title: "Drizzla, USA",
                 desc: "Outcome-as-a-Service (OaaS) partner website developed in React.js & Python",
-                image: "https://maktalseo.com/wp-content/uploads/2025/10/drizzla-react-js-website-development-1.avif"
+                image: "https://maktalseo.com/wp-content/uploads/2025/10/drizzla-react-js-website-development-1.avif",
+                url: "https://www.drizzla.com/"
               },
               {
                 title: "Solo Flowers, UAE",
                 desc: "Flower delivery E-commerce website development in WordPress & WooCommerce.",
-                image: "https://maktalseo.com/wp-content/uploads/2025/10/solo-flowers-ecommerce-website-development.avif"
+                image: "https://maktalseo.com/wp-content/uploads/2025/10/solo-flowers-ecommerce-website-development.avif",
+                url: "https://www.soloflowers.ae"
               },
               {
                 title: "World of Appliances, Bahrain",
                 desc: "WordPress based E-commerce website development project with Shipping and Payment options.",
-                image: "https://maktalseo.com/wp-content/uploads/2025/10/ecommerce-development-wordpress.avif"
+                image: "https://maktalseo.com/wp-content/uploads/2025/10/ecommerce-development-wordpress.avif",
+                url: "https://www.worldofappliancesbh.com/"
               }
             ].map((project, index) => (
+              <ScrollReveal key={index} delay={index * 150}>
               <div 
-                key={index}
-                className="group relative rounded-2xl overflow-hidden border border-[#141416]/40 hover:border-[#cbfb45] transition-all duration-300 hover:shadow-2xl hover:shadow-[#cbfb45]/10 hover:-translate-y-1 flex flex-col justify-between  ]"
+                className="group relative rounded-2xl overflow-hidden bg-[#141416]/50 border border-[#141416]/40 hover:border-[#cbfb45] transition-all duration-300 hover:shadow-2xl hover:shadow-[#cbfb45]/10 hover:-translate-y-1 flex flex-col justify-between"
               >
-                {/* Project Image Mockup Container */}
-                <div className="relative w-full h-64 sm:h-72 overflow-hidden bg-[#0B1020]">
+                {/* Project Image Mockup Container with Reduced Height */}
+                <div className="relative w-full h-44 sm:h-52 md:h-56 overflow-hidden bg-[#141416]">
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,11,23,0.2),rgba(7,11,23,0.6))] z-10" />
                   <img 
                     src={project.image} 
@@ -344,55 +354,67 @@ export default function Page() {
                   />
                 </div>
 
-                {/* Card Content */}
-                <div className="p-6 sm:p-8 flex flex-col grow justify-between space-y-4">
-                  <div className="space-y-2">
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#f6f6f4] group-hover:text-[#cbfb45] transition-colors">
+                {/* Card Content with Compact Spacing */}
+                <div className="p-5 sm:p-6 flex flex-col grow justify-between space-y-3">
+                  <div className="space-y-1.5">
+                    <h3 className="text-lg sm:text-xl font-bold text-[#f6f6f4] group-hover:text-[#cbfb45] transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+                    <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
                       {project.desc}
                     </p>
                   </div>
                   
                   <div className="pt-2">
-                    <a 
-                      href="#contact" 
-                      className="inline-flex items-center space-x-2 text-[#94A3B8] hover:text-[#cbfb45] font-medium text-sm sm:text-base transition-colors group/link"
+                    <Link 
+                      href={project.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center space-x-2 text-[#94A3B8] hover:text-[#cbfb45] font-medium text-xs sm:text-sm transition-colors group/link"
                     >
                       <span>Visit Website</span>
                       <span className="transform group-hover/link:translate-x-1 transition-transform">→</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
+              </ScrollReveal>
             ))}
           </div>
         </section>
+        </ScrollReveal>
 
         {/* Section 2: Ambient CTA / Next Section */}
-        <section className="relative overflow-hidden rounded-3xl border border-[#141416]/20 p-8 sm:p-14 text-center space-y-6 shadow-2xl bg-[linear-gradient(135deg,#0a0a0b_0%,#141416_40%)]">
+        <ScrollReveal delay={100}>
+        <section className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#141416]/20 px-6 py-12 sm:p-16 lg:p-20 xl:p-30 text-center space-y-4 sm:space-y-6 shadow-2xl bg-[linear-gradient(135deg,#0a0a0b_0%,#141416_40%)]">
           <div className="absolute -top-24 -left-24 w-72 h-72 bg-[#cbfb45]/14 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-[#cbfb45]/12 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl mx-auto space-y-4">
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight">
-              Ready to elevate your digital presence?
+              Have Something in Mind?
             </h2>
             <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
-              Partner with Maktal Technologies to craft high-performance websites and effective digital strategies customized for your brand's growth.
+              We build custom websites that grow your business and attract more customers. Our expert team creates tailored sites designed to exceed your goals.
             </p>
             <div className="pt-4">
               <a 
                 href="#contact" 
                 className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#cbfb45] text-[#0a0a0b] font-medium text-sm sm:text-base tracking-wide transition-all shadow-lg shadow-[#cbfb45]/25 hover:scale-105"
               >
-                Start Your Project Today
+                Talk to Us
               </a>
             </div>
           </div>
         </section>
+        </ScrollReveal>
       </main>
+
+      {/* Footer */}
+      <Footer />
+
+      {/* WhatsApp Float Button */}
+      <WhatsAppFloat />
     </div>
   );
 }
