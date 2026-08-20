@@ -104,7 +104,7 @@ export default function Page() {
   }, [currentIndex, isVisible]);
 
   return (
-    <div className="min-h-screen bg-[linear-gradient(180deg,#0a0a0b_0%,#141416_50%,#0a0a0b_100%)] text-[#f6f6f4] font-sans selection:bg-[#cbfb45] selection:text-[#0a0a0b] relative overflow-x-hidden">
+    <div className="min-h-screen text-[#f6f6f4] font-sans selection:bg-[#cbfb45] selection:text-[#0a0a0b] relative overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-screen min-h-87.5 sm:min-h-112.5 overflow-hidden flex flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.45),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.25),transparent_30%),linear-gradient(135deg,#0a0a0b_0%,#141416_40%,#0f1112_100%)]">
         {/* Video Background with Dark Overlay */}
@@ -262,11 +262,11 @@ export default function Page() {
         <div className="pb-6"></div>
       </section>
 
-    <main className="max-w-full mx-auto bg-transparent">
+    <main className="max-w-full mx-auto">
 
         {/* New Creative Digital Agency Section matching reference */}
        <ScrollReveal>
-       <section ref={containerRef} id="works" className="w-full relative overflow-hidden bg-[#0a0a0b]">
+       <section ref={containerRef} id="works" className="w-full relative overflow-hidden">
           {/* Subtle radial glows — Momentum-style clean dark theme */}
           <div className="absolute top-0 left-1/4 w-175 h-175 bg-[#cbfb45]/4 rounded-full blur-[150px] pointer-events-none" />
           <div className="absolute bottom-0 right-1/4 w-150 h-150 bg-[#cbfb45]/3 rounded-full blur-[140px] pointer-events-none" />

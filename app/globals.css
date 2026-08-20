@@ -22,12 +22,95 @@
 }
 
 body {
-  background: linear-gradient(180deg, #0a0a0b 0%, #141416 50%, #0a0a0b 100%);
+  background: #0a0a0b;
   color: var(--text);
   font-family: "Hanken Grotesk", Arial, Helvetica, sans-serif;
   min-height: 100vh;
   background-attachment: fixed;
+  position: relative;
+  overflow-x: hidden;
 }
+
+/* Background gradient orbs */
+.bg-orbs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.bg-orb-1 {
+  top: -15%;
+  left: -8%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(203, 251, 69, 0.15) 0%, transparent 70%);
+}
+
+.bg-orb-2 {
+  bottom: -12%;
+  right: -10%;
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, rgba(203, 251, 69, 0.10) 0%, transparent 70%);
+}
+
+.bg-orb-3 {
+  top: 55%;
+  right: 5%;
+  width: 30vw;
+  height: 30vw;
+  background: radial-gradient(circle, rgba(120, 180, 255, 0.10) 0%, transparent 70%);
+  filter: blur(90px);
+}
+
+.bg-orb-4 {
+  top: 60%;
+  left: 10%;
+  width: 35vw;
+  height: 35vw;
+  background: radial-gradient(circle, rgba(180, 130, 255, 0.10) 0%, transparent 70%);
+  filter: blur(100px);
+}
+
+/* Orb drift animations */
+@keyframes orb-drift-1 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(4vw, 3vh); }
+  50% { transform: translate(-2vw, 6vh); }
+  75% { transform: translate(3vw, -2vh); }
+}
+
+@keyframes orb-drift-2 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-3vw, -4vh); }
+  50% { transform: translate(5vw, -1vh); }
+  75% { transform: translate(-1vw, 3vh); }
+}
+
+@keyframes orb-drift-3 {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(-4vw, 5vh); }
+  66% { transform: translate(2vw, -3vh); }
+}
+
+@keyframes orb-drift-4 {
+  0%, 100% { transform: translate(0, 0); }
+  30% { transform: translate(3vw, -5vh); }
+  60% { transform: translate(-5vw, 2vh); }
+}
+
+.bg-orb-1 { animation: orb-drift-1 20s ease-in-out infinite; }
+.bg-orb-2 { animation: orb-drift-2 25s ease-in-out infinite; }
+.bg-orb-3 { animation: orb-drift-3 22s ease-in-out infinite; }
+.bg-orb-4 { animation: orb-drift-4 28s ease-in-out infinite; }
 
 /* Scroll Reveal Animations */
 .scroll-reveal {
