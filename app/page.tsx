@@ -18,6 +18,7 @@ import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import WhatsAppFloat from '@/components/WhatsAppFloat/WhatsAppFloat';
 import BlogSection from '@/components/BlogSection/BlogSection';
 import GoogleReviews from '@/components/GoogleReviews/GoogleReviews';
+import TeamSection from '@/components/TeamSection/TeamSection';
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -62,18 +63,15 @@ export default function Page() {
 
   // Effect to cycle through the texts every 3 seconds
   useEffect(() => {
-    if (!isVisible) return;
-
     const cycleInterval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % textsToCycle.length);
     }, 3000);
 
     return () => clearInterval(cycleInterval);
-  }, [isVisible, textsToCycle.length]);
+  }, [textsToCycle.length]);
 
   // Encryption / Scramble effect runner whenever targetText changes
   useEffect(() => {
-    if (!isVisible) return;
 
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*<>/-_+";
     let iteration = 0;
@@ -273,10 +271,10 @@ export default function Page() {
 
           {/* ── Hero / Services ── */}
           <div className="relative z-10 max-w-5xl mx-auto px-6 pt-24 sm:pt-32 lg:pt-40 pb-16 text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#f6f6f4] tracking-tight leading-tight">
+            <h2 className="text-xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-[#f6f6f4] tracking-tight leading-tight">
               One-stop Solution for
             </h2>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#cbfb45] tracking-tight font-mono mt-1">
+            <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold text-[#cbfb45] tracking-tight font-mono mt-1">
               {displayBrandingText}
             </h1>
             <p className="mt-6 text-slate-400 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
@@ -285,35 +283,36 @@ export default function Page() {
           </div>
 
           {/* ── Process Steps ── */}
-          <div className="relative z-10 max-w-5xl mx-auto px-28 py-12 sm:py-20 lg:py-15">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-2">
+          <div className="relative z-10 w-full mx-auto px-6 py-10 sm:py-16 lg:py-12 flex justify-center">
+            <div className="grid grid-cols-3 gap-10 place-items-center">
               {[
                 { icon: Lightbulb, label: "Plan" },
                 { icon: Code2, label: "Develop" },
                 { icon: Rocket, label: "Launch" },
               ].map((step, i) => (
-                <div key={i} className="group w-full sm:w-28 lg:w-40 h-28 sm:h-30 lg:h-43 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-3 sm:p-4 flex flex-col items-center justify-center space-y-2 sm:space-y-3 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
+                <div key={i} className="group w-full sm:w-24 lg:w-32 h-24 sm:h-26 lg:h-34 mx-auto bg-[#141416] border border-white/10 hover:border-[#cbfb45]/65 rounded-2xl p-3 sm:p-4 flex flex-col items-center justify-center space-y-2 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#cbfb45]/10">
                   <div className="p-2 rounded-xl bg-white/5 group-hover:bg-[#cbfb45]/10 transition-colors">
-                    <step.icon className="w-8 h-8 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
+                    <step.icon className="w-6 h-6 text-slate-300 group-hover:text-[#cbfb45] transition-colors" />
                   </div>
-                  <span className="text-slate-200 group-hover:text-white text-xs sm:text-sm font-semibold tracking-wide transition-colors">{step.label}</span>
+                  <span className="text-slate-200 group-hover:text-white text-[11px] sm:text-xs font-semibold tracking-wide transition-colors">{step.label}</span>
                 </div>
               ))}
             </div>
           </div>
 
+
           {/* ── Our Works ── */}
-          <div className="relative z-10 w-full px-4 sm:px-8 md:px-12 py-12 sm:py-16 lg:py-50 space-y-16 sm:space-y-20 lg:space-y-24">
+          <div className="relative z-10 w-full px-4 sm:px-8 md:px-12 pt-12 sm:pt-16 lg:pt-70 space-y-16 sm:space-y-20 lg:space-y-10">
           <div className="text-center">
-            <span className="text-[#cbfb45] text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase">
+            <span className="text-[#cbfb45] text-sm sm:text-sm font-semibold  tracking-[0.2em] uppercase">
               OUR WORKS
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight">
+            <h2 className="text-3xl sm:text-5xl pt-6 font-extrabold text-[#F8FAFC] tracking-tight">
               Few of our favorite projects
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-20 pt-8 sm:pt-12 lg:pt-15 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-20 pt-3 sm:pt-12 lg:pt-15 max-w-5xl mx-auto">
               {[
                 {
                   title: "BlueTerra, UAE",
@@ -380,15 +379,20 @@ export default function Page() {
             ))}
           </div>
 
-          <div className="flex justify-center pt-1">
-            <a 
-              href="#works" 
-              className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-white/20 bg-transparent hover:bg-white/5 text-[#f6f6f4] font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#cbfb45]/50"
-            >
-              View All
-            </a>
+          <ScrollReveal delay={200}>
+            <div className="flex justify-center pt-1">
+              <a 
+                href="#works" 
+                className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-white/20 bg-transparent hover:bg-white/5 text-[#f6f6f4] font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#cbfb45]/50"
+              >
+                View All
+              </a>
+            </div>
+          </ScrollReveal>
           </div>
-          </div>
+
+          {/* ── Team Section ── */}
+          <TeamSection />
 
           {/* ── Blog ── */}
           <BlogSection />

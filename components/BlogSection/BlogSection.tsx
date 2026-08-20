@@ -21,7 +21,7 @@ const blogPosts = [
 
 export default function BlogSection() {
   return (
-    <section className="w-full bg-[#0a0a0b] py-20 sm:py-24 lg:py-21.25">
+    <section className="w-full bg-[#0a0a0b] py-20 sm:py-24 lg:pt-50">
       <div className="max-w-[1600px] mx-auto px-5 sm:px-6 lg:px-8">
         {/* ── Eyebrow ── */}
         <p className="text-center text-[#cbfb45] text-sm sm:text-[15px] font-medium tracking-[0.12em] uppercase mb-4">

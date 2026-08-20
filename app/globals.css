@@ -135,3 +135,12 @@ body {
   0% { transform: translateX(0); }
   100% { transform: translateX(-33.333%); }
 }
+
+/* Hide scrollbar */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

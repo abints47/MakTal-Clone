@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect, useCallback } from "react";
 
-/* ── Data ─────────────────────────────────────────────────────── */
+
 const reviews = [
   {
     name: "David Wilson",
@@ -60,7 +60,7 @@ const reviews = [
   },
 ];
 
-/* ── Icons ────────────────────────────────────────────────────── */
+
 function StarIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 20 20" fill="currentColor">
@@ -117,7 +117,6 @@ function CheckBadge() {
   );
 }
 
-/* ── Component ────────────────────────────────────────────────── */
 export default function GoogleReviews() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -188,25 +187,25 @@ export default function GoogleReviews() {
   return (
     <section className="w-full bg-[#0a0a0b] overflow-hidden">
       {/* ── Decorative Gradient Strip ── */}
-      <div className="w-full h-[18px] sm:h-[20px]" style={{ background: "linear-gradient(90deg, #1a2e05 0%, #3d6b08 15%, #65a30d 30%, #4a8c0a 50%, #65a30d 70%, #3d6b08 85%, #1a2e05 100%)" }} />
+      <div className="w-full h-4.5 sm:h-5" style={{ background: "linear-gradient(90deg, #1a2e05 0%, #3d6b08 15%, #65a30d 30%, #4a8c0a 50%, #65a30d 70%, #3d6b08 85%, #1a2e05 100%)" }} />
 
-      <div className="py-16 sm:py-[60px] lg:py-[75px]">
+      <div className="py-16 sm:py-15 lg:py-18.75">
         <div className="max-w-[1540px] mx-auto px-5 sm:px-8 md:px-12">
           {/* ── Heading ── */}
-          <h2 className="text-center text-[#f6f6f4] font-bold sm:font-extrabold text-[30px] sm:text-[36px] lg:text-[40px] leading-[1.2] mb-10 sm:mb-[40px]">
+          <h2 className="text-center text-[#f6f6f4] font-bold sm:font-extrabold text-[30px] sm:text-[36px] lg:text-[40px] leading-[1.2] mb-10 sm:mb-10">
             Our Satisfied Clients
           </h2>
 
           {/* ── Desktop/Tablet: Horizontal layout ── */}
-          <div className="hidden sm:flex items-stretch gap-4 lg:gap-[16px]">
+          <div className="hidden sm:flex items-stretch gap-4 lg:gap-4">
             {/* ── Left: Rating Summary ── */}
-            <div className="flex-shrink-0 w-[180px] lg:w-[210px] flex flex-col items-center justify-center text-center gap-3 py-4">
+            <div className="shrink-0 w-45 lg:w-52.5 flex flex-col items-center justify-center text-center gap-3 py-4">
               <p className="text-[#f6f6f4] font-bold text-[21px] lg:text-[24px] tracking-wide">
                 EXCELLENT
               </p>
-              <div className="flex gap-[3px]">
+              <div className="flex gap-0.75">
                 {[...Array(5)].map((_, i) => (
-                  <StarIcon key={i} className="w-[30px] h-[30px] lg:w-[36px] lg:h-[36px] text-[#FFC107]" />
+                  <StarIcon key={i} className="w-7.5 h-7.5 lg:w-9 lg:h-9 text-[#FFC107]" />
                 ))}
               </div>
               <p className="text-[#f6f6f4] text-[13px] lg:text-[15px]">
@@ -218,7 +217,7 @@ export default function GoogleReviews() {
             {/* ── Arrow Left ── */}
             <button
               onClick={goPrev}
-              className="flex-shrink-0 self-center w-[34px] h-[34px] rounded-full bg-[#1a1a1a] hover:bg-[#252525] border border-white/10 flex items-center justify-center text-[#999] hover:text-white transition-all duration-200 z-10"
+              className="shrink-0 self-center w-8.5 h-8.5 rounded-full bg-[#1a1a1a] hover:bg-[#252525] border border-white/10 flex items-center justify-center text-[#999] hover:text-white transition-all duration-200 z-10"
               aria-label="Previous review"
             >
               <ChevronLeft />
@@ -227,7 +226,7 @@ export default function GoogleReviews() {
             {/* ── Cards Carousel ── */}
             <div
               ref={scrollRef}
-              className="flex-1 min-w-0 flex gap-[15px] lg:gap-[17px] overflow-x-auto snap-x snap-mandatory pb-2 scrollbar-hide scroll-smooth"
+              className="flex-1 min-w-0 flex gap-3.75 lg:gap-4.25 overflow-x-auto snap-x snap-mandatory pb-2 scrollbar-hide scroll-smooth"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
@@ -235,13 +234,13 @@ export default function GoogleReviews() {
                 <div
                   key={index}
                   data-review-card
-                  className="flex-shrink-0 w-[250px] lg:w-[265px] snap-start rounded-[13px] bg-[#191919] p-[18px] lg:p-[20px] flex flex-col transition-all duration-[250ms] hover:bg-[#222] cursor-default"
+                  className="shrink-0 w-62.5 lg:w-66.25 snap-start rounded-[13px] bg-[#191919] p-4.5 lg:p-5  flex flex-col transition-all duration-250 hover:bg-[#222] cursor-default"
                   style={{ minHeight: "230px" }}
                 >
                   {/* Card Header */}
                   <div className="flex items-center gap-3 mb-3">
                     <div
-                      className="w-[40px] h-[40px] rounded-full flex items-center justify-center text-[11px] font-bold text-[#0a0a0b] flex-shrink-0"
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-[11px] font-bold text-[#0a0a0b] shrink-0"
                       style={{ backgroundColor: review.color }}
                     >
                       {review.initials}
@@ -252,19 +251,19 @@ export default function GoogleReviews() {
                       </p>
                       <p className="text-[#888] text-[12px]">{review.date}</p>
                     </div>
-                    <GoogleGIcon className="w-[18px] h-[18px] flex-shrink-0" />
+                    <GoogleGIcon className="w-4.5 h-4.5  shrink-0" />
                   </div>
 
                   {/* Stars + Badge */}
                   <div className="flex items-center gap-0.5 mb-3">
                     {[...Array(review.rating)].map((_, i) => (
-                      <StarIcon key={i} className="w-[18px] h-[18px] text-[#FFC107]" />
+                      <StarIcon key={i} className="w-4.5 h-4.5 text-[#FFC107]" />
                     ))}
                     <CheckBadge />
                   </div>
 
                   {/* Review Text */}
-                  <p className="text-[#ddd] text-[14px] leading-[1.5] flex-1">
+                  <p className="text-[#ddd] text-[14px] leading-normal flex-1">
                     &ldquo;{review.text}&rdquo;
                   </p>
 
@@ -281,7 +280,7 @@ export default function GoogleReviews() {
             {/* ── Arrow Right ── */}
             <button
               onClick={goNext}
-              className="flex-shrink-0 self-center w-[34px] h-[34px] rounded-full bg-[#1a1a1a] hover:bg-[#252525] border border-white/10 flex items-center justify-center text-[#999] hover:text-white transition-all duration-200 z-10"
+              className="shrink-0 self-center w-8.5 h-8.5 rounded-full bg-[#1a1a1a] hover:bg-[#252525] border border-white/10 flex items-center justify-center text-[#999] hover:text-white transition-all duration-200 z-10"
               aria-label="Next review"
             >
               <ChevronRight />
@@ -302,7 +301,7 @@ export default function GoogleReviews() {
               </p>
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <StarIcon key={i} className="w-[28px] h-[28px] text-[#FFC107]" />
+                  <StarIcon key={i} className="w-7 h-7 text-[#FFC107]" />
                 ))}
               </div>
               <p className="text-[#f6f6f4] text-[14px]">
@@ -322,13 +321,13 @@ export default function GoogleReviews() {
                 <div
                   key={index}
                   data-review-card
-                  className="flex-shrink-0 w-[88vw] snap-start rounded-[13px] bg-[#191919] p-[18px] flex flex-col transition-all duration-[250ms] hover:bg-[#222]"
+                  className="shrink-0 w-[88vw] snap-start rounded-[13px] bg-[#191919] p-4.5 flex flex-col transition-all duration-250 hover:bg-[#222]"
                   style={{ minHeight: "230px" }}
                 >
                   {/* Card Header */}
                   <div className="flex items-center gap-3 mb-3">
                     <div
-                      className="w-[40px] h-[40px] rounded-full flex items-center justify-center text-[11px] font-bold text-[#0a0a0b] flex-shrink-0"
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-[11px] font-bold text-[#0a0a0b] shrink-0"
                       style={{ backgroundColor: review.color }}
                     >
                       {review.initials}
@@ -339,19 +338,19 @@ export default function GoogleReviews() {
                       </p>
                       <p className="text-[#888] text-[12px]">{review.date}</p>
                     </div>
-                    <GoogleGIcon className="w-[18px] h-[18px] flex-shrink-0" />
+                    <GoogleGIcon className="w-4.5 h-4.5 shrink-0" />
                   </div>
 
                   {/* Stars + Badge */}
                   <div className="flex items-center gap-0.5 mb-3">
                     {[...Array(review.rating)].map((_, i) => (
-                      <StarIcon key={i} className="w-[18px] h-[18px] text-[#FFC107]" />
+                      <StarIcon key={i} className="w-4.5 h-4.5 text-[#FFC107]" />
                     ))}
                     <CheckBadge />
                   </div>
 
                   {/* Review Text */}
-                  <p className="text-[#ddd] text-[14px] leading-[1.5] flex-1">
+                  <p className="text-[#ddd] text-[14px] leading-normal flex-1">
                     &ldquo;{review.text}&rdquo;
                   </p>
 
@@ -368,7 +367,7 @@ export default function GoogleReviews() {
             <div className="flex items-center gap-3 mt-2">
               <button
                 onClick={goPrev}
-                className="w-[30px] h-[30px] rounded-full bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-[#999] hover:text-white transition-all duration-200"
+                className="w-7.5 h-7.5 rounded-full bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-[#999] hover:text-white transition-all duration-200"
                 aria-label="Previous"
               >
                 <ChevronLeft />
@@ -387,7 +386,7 @@ export default function GoogleReviews() {
               </div>
               <button
                 onClick={goNext}
-                className="w-[30px] h-[30px] rounded-full bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-[#999] hover:text-white transition-all duration-200"
+                className="w-7.5 h-7.5 rounded-full bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-[#999] hover:text-white transition-all duration-200"
                 aria-label="Next"
               >
                 <ChevronRight />
