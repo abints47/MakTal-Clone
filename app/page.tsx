@@ -19,6 +19,7 @@ import WhatsAppFloat from '@/components/WhatsAppFloat/WhatsAppFloat';
 import BlogSection from '@/components/BlogSection/BlogSection';
 import GoogleReviews from '@/components/GoogleReviews/GoogleReviews';
 import TeamSection from '@/components/TeamSection/TeamSection';
+import StatsCounter from '@/components/StatsCounter/StatsCounter';
 
 export default function Page() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -128,7 +129,7 @@ export default function Page() {
             <span 
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white uppercase select-none"
               style={{
-                fontFamily: 'Montserrat, Gotham, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                fontFamily: "var(--font-inter), 'Inter', system-ui, sans-serif",
               }}
             >
               MAKTAL
@@ -216,14 +217,14 @@ export default function Page() {
               <span 
                 className="text-2xl font-extrabold tracking-tight text-white uppercase select-none"
                 style={{
-                  fontFamily: 'Montserrat, Gotham, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                  fontFamily: "var(--font-inter), 'Inter', system-ui, sans-serif",
                 }}
               >
                 MAKTAL
               </span>
-              <sup className="pb-4 text-xs font-bold text-white select-none">®</sup>
+              <sup className="pb-10 text-xs font-bold text-white select-none">®</sup>
             </div>
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-5 text-xl font-medium">
               <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-[#cbfb45] font-medium">About</a>
               <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-[#cbfb45] font-medium">Services</a>
               <a href="#works" onClick={() => setMobileMenuOpen(false)} className="text-slate-200 hover:text-[#cbfb45] font-medium">Our Works</a>
@@ -301,6 +302,9 @@ export default function Page() {
           </div>
 
 
+          {/* ── Stats Counter ── */}
+          <StatsCounter />
+
           {/* ── Our Works ── */}
           <div className="relative z-10 w-full px-4 sm:px-8 md:px-12 pt-12 sm:pt-16 lg:pt-70 space-y-16 sm:space-y-20 lg:space-y-10">
           <div className="text-center">
@@ -349,7 +353,17 @@ export default function Page() {
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.style.display = 'none';
+                      const fallback = target.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
                   />
+                  <div className="absolute inset-0 z-20 hidden flex-col items-center justify-center bg-[#141416] text-slate-600">
+                    <svg className="w-10 h-10 mb-2 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
+                    <span className="text-xs font-medium opacity-50">{project.title}</span>
+                  </div>
                 </div>
 
                 <div className="p-5 sm:p-6 flex flex-col grow justify-between space-y-3">
@@ -381,12 +395,12 @@ export default function Page() {
 
           <ScrollReveal delay={200}>
             <div className="flex justify-center pt-1">
-              <a 
-                href="#works" 
+              <Link 
+                href="/works" 
                 className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-white/20 bg-transparent hover:bg-white/5 text-[#f6f6f4] font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#cbfb45]/50"
               >
                 View All
-              </a>
+              </Link>
             </div>
           </ScrollReveal>
           </div>
