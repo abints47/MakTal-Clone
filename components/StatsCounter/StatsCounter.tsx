@@ -39,7 +39,7 @@ function StatItem({ value, suffix, label }: { value: number; suffix: string; lab
   const count = useCountUp(value, isVisible);
   return (
     <div ref={ref} className="text-center">
-      <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#059669] tabular-nums">{count}{suffix}</span>
+      <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#00ccff] tabular-nums">{count}{suffix}</span>
       <p className="mt-2 text-gray-500 text-xs sm:text-sm tracking-wide">{label}</p>
     </div>
   );

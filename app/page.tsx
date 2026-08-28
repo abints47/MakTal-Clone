@@ -128,25 +128,83 @@ export default function Page() {
         </div>
       </section>
 
-      <main className="max-w-full mx-auto bg-white">
-        <ScrollReveal>
-        <section ref={containerRef} id="works" className="w-full relative overflow-hidden bg-white">
-          <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 text-center">
-            <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#111827] tracking-tight leading-tight">One stop Solution for</h2>
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-extrabold text-[#09bdeb] tracking-tight font-mono mt-1">{displayBrandingText}</h1>
-            <p className="mt-5 sm:mt-6 text-gray-500 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-              We create stunning, user-friendly websites to help your business stand out and succeed. With expertise in secure web development, we bring your business online and boost sales.
-            </p>
-          </div>
+      <main className="max-w-full mx-auto">
+        <section ref={containerRef} id="works" className="w-full relative overflow-hidden">
+          {/* Premium Light Section */}
+          <div className="relative w-full overflow-hidden bg-[#f8f9fa]">
+            {/* Background layers */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(9,189,235,0.06),transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(5,150,105,0.04),transparent_50%)]" />
+            {/* Subtle grid pattern */}
+            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(0,0,0,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.08) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+            {/* Floating orbs */}
+            <div className="absolute top-20 left-[10%] w-72 h-72 bg-[#09bdeb]/5 rounded-full blur-[120px] animate-pulse" />
+            <div className="absolute bottom-20 right-[10%] w-64 h-64 bg-[#059669]/5 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }} />
 
-          <div className="relative z-10 w-full mx-auto px-5 sm:px-6 py-8 sm:py-12 flex justify-center">
-            <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-sm sm:max-w-md place-items-center">
-              {[{ icon: Lightbulb, label: "Plan" }, { icon: Code2, label: "Develop" }, { icon: Rocket, label: "Launch" }].map((step, i) => (
-                <div key={i} className="group w-full aspect-square max-w-[100px] sm:max-w-[120px] mx-auto bg-gray-50 border border-gray-200 hover:border-[#09bdeb]/65 rounded-2xl p-3 sm:p-4 flex flex-col items-center justify-center space-y-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#09bdeb]/10">
-                  <div className="p-2 rounded-xl bg-[#09bdeb]/5 group-hover:bg-[#09bdeb]/10 transition-colors"><step.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500 group-hover:text-[#09bdeb] transition-colors" /></div>
-                  <span className="text-gray-600 group-hover:text-[#111827] text-[10px] sm:text-xs font-semibold tracking-wide transition-colors">{step.label}</span>
+            <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 pt-20 sm:pt-28 lg:pt-36 pb-8 sm:pb-12">
+              {/* Badge */}
+              <ScrollReveal>
+                <div className="flex justify-center mb-8">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 bg-white backdrop-blur-sm shadow-sm">
+                    
+                    <span className="text-[#09bdeb] text-xs font-medium tracking-[0.15em] uppercase">Our Expertise</span>
+                  </div>
                 </div>
-              ))}
+              </ScrollReveal>
+
+              {/* Heading */}
+              <ScrollReveal>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#111827] tracking-tight leading-tight">
+                  One Stop Solution for
+                </h2>
+              </ScrollReveal>
+
+              {/* Animated Scrambler Text */}
+              <ScrollReveal>
+                <div className="mt-3 sm:mt-4">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
+                    <span className="text-[#111827]">
+                      {displayBrandingText}
+                    </span>
+                  </h1>
+                </div>
+              </ScrollReveal>
+
+              {/* Description */}
+              <ScrollReveal>
+                <p className="mt-6 sm:mt-8 text-gray-500 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                  We create stunning, user-friendly websites to help your business stand out and succeed. With expertise in secure web development, we bring your business online and boost sales.
+                </p>
+              </ScrollReveal>
+            </div>
+
+            {/* Process Steps - Premium Glass Cards */}
+            <div className="relative z-10 w-full max-w-4xl mx-auto px-5 sm:px-6 py-12 sm:py-16 lg:py-20">
+              <div className="relative flex items-center justify-between">
+                {/* Connecting line */}
+                <div className="absolute top-1/2 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent -translate-y-1/2" />
+                <div className="absolute top-1/2 left-[16%] right-[16%] h-px bg-gradient-to-r from-[#09bdeb]/40 via-[#09bdeb]/15 to-[#059669]/40 -translate-y-1/2" style={{ filter: 'blur(1px)' }} />
+
+                {[{ icon: Lightbulb, label: 'Plan', desc: 'Strategy & Discovery', step: '01' }, { icon: Code2, label: 'Develop', desc: 'Build & Refine', step: '02' }, { icon: Rocket, label: 'Launch', desc: 'Deploy & Grow', step: '03' }].map((item, i) => (
+                  <ScrollReveal key={i} delay={i * 200}>
+                    <div className="group relative flex flex-col items-center text-center">
+                      {/* Glow behind card */}
+                      <div className="absolute -inset-4 bg-[#09bdeb]/5 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      {/* Card */}
+                      <div className="relative w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 rounded-2xl border border-gray-200 bg-white backdrop-blur-md flex flex-col items-center justify-center space-y-2 sm:space-y-3 transition-all duration-500 group-hover:border-[#09bdeb]/40 group-hover:shadow-xl group-hover:shadow-[#09bdeb]/10 group-hover:scale-105">
+                        <div className="absolute top-3 left-3 text-[10px] sm:text-xs font-mono text-gray-300 group-hover:text-[#09bdeb]/40 transition-colors">{item.step}</div>
+                        <div className="p-2.5 sm:p-3 rounded-xl bg-[#09bdeb]/10 group-hover:bg-[#09bdeb]/15 transition-colors duration-500">
+                          <item.icon className="w-6 h-6 sm:w-7 sm:h-7 text-gray-400 group-hover:text-[#09bdeb] transition-colors duration-500" />
+                        </div>
+                        <span className="text-gray-700 group-hover:text-[#111827] text-xs sm:text-sm font-semibold tracking-wide transition-colors duration-300">{item.label}</span>
+                        <span className="text-gray-400 group-hover:text-gray-500 text-[10px] sm:text-xs transition-colors duration-300 hidden sm:block">{item.desc}</span>
+                      </div>
+                      {/* Node dot on the line */}
+                      <div className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 border-gray-300 bg-white group-hover:border-[#09bdeb] group-hover:bg-[#09bdeb]/10 transition-all duration-500" style={{ top: 'calc(50% + 4rem)' }} />
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -213,7 +271,6 @@ export default function Page() {
             </div>
           </ScrollReveal>
         </section>
-        </ScrollReveal>
       </main>
 
       <GoogleReviews />
