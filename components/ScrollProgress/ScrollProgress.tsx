@@ -20,15 +20,20 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-0.75 z-9999 bg-transparent pointer-events-none">
+    <div className="fixed top-0 left-0 w-full h-[2px] z-[9999] pointer-events-none">
       <div
-        className="h-full bg-[#61d9f7] transition-[width] duration-150 ease-out"
-        style={{ width: `${scrollProgress}%` }}
+        className="h-full transition-[width] duration-150 ease-out"
+        style={{
+          width: `${scrollProgress}%`,
+          background: 'linear-gradient(90deg, #00AEEF, #0077B6)',
+        }}
       />
-      {/* Glow effect at the tip */}
       <div
-        className="absolute top-0 h-0.75 w-20 blur-sm opacity-80 bg-[#30a9c7] transition-[left] duration-150 ease-out"
-        style={{ left: `calc(${scrollProgress}% - 40px)` }}
+        className="absolute top-0 h-[2px] w-20 blur-sm opacity-90 transition-[left] duration-150 ease-out"
+        style={{
+          left: `calc(${scrollProgress}% - 40px)`,
+          background: 'linear-gradient(90deg, transparent, #00AEEF, transparent)',
+        }}
       />
     </div>
   );

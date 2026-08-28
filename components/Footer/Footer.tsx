@@ -1,8 +1,6 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
-import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 const services = ['E-Commerce Development', 'Malware Removal', 'Search Engine Optimisation', 'Social Media Management', 'Website Development', 'Website Security and Maintenance'];
 const usefulLinks = [{ label: 'About', href: '#about' }, { label: 'Blog', href: '#blog' }, { label: 'Contact', href: '#contact' }, { label: 'Terms and Conditions', href: '#terms' }, { label: 'Privacy Policy', href: '#privacy' }, { label: 'Delivery & Refunds', href: '#delivery' }];
@@ -17,42 +15,40 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full text-gray-600 bg-white">
-      <div className="bg-gray-50 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-            <div className="space-y-4">
-              <div className="flex items-center gap-1">
-                <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-gray-900 uppercase select-none" style={{ fontFamily: "var(--font-poppins), 'Poppins', system-ui, sans-serif" }}>MAKTAL</span>
-                <sup className="text-xs font-bold text-gray-900 select-none">{'\u00AE'}</sup>
-              </div>
-              <p className="text-sm leading-relaxed text-gray-500">MakTal Technologies is a registered website development and digital marketing company providing top notch services at reasonable prices.</p>
-              <a href="tel:+917736101555" className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#059669] transition-colors"><Phone className="w-4 h-4 text-[#059669] shrink-0" /><span>+91 7736 101 555</span></a>
-              <a href="mailto:info@maktal.com" className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#059669] transition-colors"><Mail className="w-4 h-4 text-[#059669] shrink-0" /><span>Click to email</span></a>
-              <div className="flex items-center gap-2 pt-1">
-                {socialLinks.map((social) => (
-                  <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="p-2 rounded-lg bg-gray-100 text-gray-500 hover:bg-[#059669]/15 hover:text-[#059669] transition-all">{social.icon}</a>
-                ))}
-              </div>
+    <footer className="w-full bg-[#f8f9fb] text-black/50 border-t border-black/[0.06]">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+          <div className="space-y-5">
+            <div className="flex items-center gap-1">
+              <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-black uppercase">MAKTA<span className="text-[#00AEEF]">L</span></span>
+              <sup className="text-[10px] font-bold text-black/20 -top-1 relative">®</sup>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-gray-900 tracking-wide uppercase mb-4">Services</h3>
-              <ul className="space-y-2.5">{services.map((s) => (<li key={s}><a href="#services" className="text-sm text-gray-500 hover:text-[#059669] transition-colors">{s}</a></li>))}</ul>
+            <p className="text-sm leading-relaxed text-black/40">MakTal Technologies is a registered website development and digital marketing company providing top notch services at reasonable prices.</p>
+            <a href="tel:+917736101555" className="flex items-center gap-2 text-sm text-black/50 hover:text-[#00AEEF] transition-colors"><Phone className="w-4 h-4 text-[#00AEEF] shrink-0" /><span>+91 7736 101 555</span></a>
+            <a href="mailto:info@maktal.com" className="flex items-center gap-2 text-sm text-black/50 hover:text-[#00AEEF] transition-colors"><Mail className="w-4 h-4 text-[#00AEEF] shrink-0" /><span>Click to email</span></a>
+            <div className="flex items-center gap-2 pt-1">
+              {socialLinks.map((social) => (
+                <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="p-2 rounded-xl bg-black/[0.04] text-black/30 hover:bg-[#00AEEF]/10 hover:text-[#00AEEF] transition-all border border-black/[0.06]">{social.icon}</a>
+              ))}
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-gray-900 tracking-wide uppercase mb-4">Useful Links</h3>
-              <ul className="space-y-2.5">{usefulLinks.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-gray-500 hover:text-[#059669] transition-colors">{l.label}</a></li>))}</ul>
-            </div>
-            <div>
-              <h3 className="text-sm font-semibold text-gray-900 tracking-wide uppercase mb-4">Locations</h3>
-              <ul className="space-y-4">{locations.map((loc, i) => (<li key={i} className="flex gap-2.5"><MapPin className="w-4 h-4 text-[#059669] shrink-0 mt-0.5" /><span className="text-sm leading-relaxed text-gray-500">{loc}</span></li>))}</ul>
-            </div>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-black tracking-wide uppercase mb-5">Services</h3>
+            <ul className="space-y-3">{services.map((s) => (<li key={s}><a href="#services" className="text-sm text-black/40 hover:text-[#00AEEF] transition-colors">{s}</a></li>))}</ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-black tracking-wide uppercase mb-5">Useful Links</h3>
+            <ul className="space-y-3">{usefulLinks.map((l) => (<li key={l.label}><a href={l.href} className="text-sm text-black/40 hover:text-[#00AEEF] transition-colors">{l.label}</a></li>))}</ul>
+          </div>
+          <div>
+            <h3 className="text-sm font-semibold text-black tracking-wide uppercase mb-5">Locations</h3>
+            <ul className="space-y-4">{locations.map((loc, i) => (<li key={i} className="flex gap-2.5"><MapPin className="w-4 h-4 text-[#00AEEF] shrink-0 mt-0.5" /><span className="text-sm leading-relaxed text-black/40">{loc}</span></li>))}</ul>
           </div>
         </div>
       </div>
-      <div className="bg-white border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-4 sm:py-5 text-center">
-          <p className="text-xs sm:text-sm text-gray-400">Copyright {'\u00A9'} 2026 MakTal. All Rights Reserved | CIN: U72900KL2022PTC075074</p>
+      <div className="border-t border-black/[0.06]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-5 text-center">
+          <p className="text-xs sm:text-sm text-black/25">Copyright {'\u00A9'} 2026 MakTal. All Rights Reserved | CIN: U72900KL2022PTC075074</p>
         </div>
       </div>
     </footer>

@@ -11,11 +11,20 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "MakTal Technologies | Website Development & Digital Marketing",
-  description: "MakTal Technologies is a registered website development and digital marketing company providing top-notch services at reasonable prices. Based in Kerala, India.",
-  keywords: ["website development", "digital marketing", "SEO", "web design", "Kerala", "India"],
+  description:
+    "MakTal Technologies is a registered website development and digital marketing company providing top-notch services at reasonable prices. Based in Kerala, India.",
+  keywords: [
+    "website development",
+    "digital marketing",
+    "SEO",
+    "web design",
+    "Kerala",
+    "India",
+  ],
   openGraph: {
     title: "MakTal Technologies | Website Development & Digital Marketing",
-    description: "Custom websites and digital marketing solutions to grow your business.",
+    description:
+      "Custom websites and digital marketing solutions to grow your business.",
     type: "website",
   },
   icons: {
@@ -34,15 +43,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${poppins.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
+    <html
+      lang="en"
+      className={`${poppins.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col noise-overlay">
         <ScrollProgress />
-        <div className="bg-orbs">
-          <div className="bg-orb bg-orb-1" />
-          <div className="bg-orb bg-orb-2" />
-          <div className="bg-orb bg-orb-3" />
-          <div className="bg-orb bg-orb-4" />
-        </div>
         {children}
       </body>
     </html>

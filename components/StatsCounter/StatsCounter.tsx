@@ -28,29 +28,38 @@ function useCountUp(target: number, isVisible: boolean, duration = 2000) {
   return count;
 }
 
-function StatItem({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+function StatItem({ value, suffix, label, index }: { value: number; suffix: string; label: string; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); } }, { threshold: 0.3 });
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.disconnect(); } },
+      { threshold: 0.3 }
+    );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
   const count = useCountUp(value, isVisible);
   return (
-    <div ref={ref} className="text-center">
-      <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#00ccff] tabular-nums">{count}{suffix}</span>
-      <p className="mt-2 text-gray-500 text-xs sm:text-sm tracking-wide">{label}</p>
+    <div ref={ref} className="text-center group">
+      <div className="glass-card rounded-2xl p-6 sm:p-8 transition-all duration-500 group-hover:border-[#00AEEF]/20 group-hover:shadow-lg group-hover:shadow-[#00AEEF]/5">
+        <span className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text tabular-nums">
+          {count}{suffix}
+        </span>
+        <p className="mt-3 text-black/40 text-xs sm:text-sm tracking-wide font-medium">{label}</p>
+      </div>
     </div>
   );
 }
 
 export default function StatsCounter() {
   return (
-    <section className="w-full py-10 sm:py-16">
-      <div className="max-w-4xl mx-auto px-5 sm:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10">
-          {stats.map((stat, i) => (<StatItem key={i} {...stat} />))}
+    <section className="w-full py-16 sm:py-20">
+      <div className="max-w-5xl mx-auto px-5 sm:px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          {stats.map((stat, i) => (
+            <StatItem key={i} {...stat} index={i} />
+          ))}
         </div>
       </div>
     </section>
