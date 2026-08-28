@@ -1,34 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0a0b;
-  --card: #141416;
-  --line: rgba(255, 255, 255, 0.08);
-  --text: #f6f6f4;
-  --mut: rgba(246, 246, 244, 0.52);
+  --bg: #ffffff;
+  --card: #f9fafb;
+  --line: rgba(0, 0, 0, 0.06);
+  --text: #111827;
+  --mut: rgba(17, 24, 39, 0.5);
   --lime: #cbfb45;
-  --background: #0a0a0b;
-  --foreground: #f6f6f4;
+  --background: #ffffff;
+  --foreground: #111827;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-poppins);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
-  background: #0a0a0b;
+  background: #ffffff;
   color: var(--text);
-  font-family: var(--font-inter), "Inter", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-poppins), "Poppins", system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
-/* Background gradient orbs — kept subtle */
+/* Background gradient orbs — subtle on white */
 .bg-orbs {
   position: fixed;
   inset: 0;
@@ -48,7 +54,7 @@ body {
   left: -10%;
   width: 50vw;
   height: 50vw;
-  background: radial-gradient(circle, rgba(203, 251, 69, 0.07) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(203, 251, 69, 0.06) 0%, transparent 70%);
 }
 
 .bg-orb-2 {
@@ -56,7 +62,7 @@ body {
   right: -12%;
   width: 45vw;
   height: 45vw;
-  background: radial-gradient(circle, rgba(203, 251, 69, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(203, 251, 69, 0.04) 0%, transparent 70%);
 }
 
 .bg-orb-3 {
@@ -64,7 +70,7 @@ body {
   right: 5%;
   width: 30vw;
   height: 30vw;
-  background: radial-gradient(circle, rgba(120, 180, 255, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(120, 180, 255, 0.04) 0%, transparent 70%);
 }
 
 .bg-orb-4 {
@@ -72,10 +78,9 @@ body {
   left: 10%;
   width: 35vw;
   height: 35vw;
-  background: radial-gradient(circle, rgba(180, 130, 255, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(180, 130, 255, 0.04) 0%, transparent 70%);
 }
 
-/* Orb drift animations */
 @keyframes orb-drift-1 {
   0%, 100% { transform: translate(0, 0); }
   50% { transform: translate(3vw, 4vh); }
@@ -113,13 +118,11 @@ body {
   transform: translateY(0);
 }
 
-/* Staggered children animation */
 .scroll-reveal-stagger > *:nth-child(1) { transition-delay: 0ms; }
 .scroll-reveal-stagger > *:nth-child(2) { transition-delay: 80ms; }
 .scroll-reveal-stagger > *:nth-child(3) { transition-delay: 160ms; }
 .scroll-reveal-stagger > *:nth-child(4) { transition-delay: 240ms; }
 
-/* Hide scrollbar */
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

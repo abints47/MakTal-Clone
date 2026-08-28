@@ -17,19 +17,19 @@ export default function WorksPage() {
     : projects;
 
   return (
-    <div className="min-h-screen text-[#f6f6f4] font-sans selection:bg-[#cbfb45] selection:text-[#0a0a0b] relative overflow-x-hidden">
+    <div className="min-h-screen text-[#111827] font-sans selection:bg-[#cbfb45] selection:text-[#111827] relative overflow-x-hidden">
       {/* Header */}
       <header className="relative z-20 w-full px-6 lg:px-12 py-5 flex items-center justify-between">
         <Link
           href="/"
-          className="inline-flex items-center space-x-2 text-slate-400 hover:text-[#cbfb45] transition-colors text-sm font-medium"
+          className="inline-flex items-center space-x-2 text-gray-500 hover:text-[#cbfb45] transition-colors text-sm font-medium"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Home</span>
         </Link>
         <span
           className="text-xl sm:text-2xl font-extrabold tracking-tight text-white uppercase select-none"
-          style={{ fontFamily: "var(--font-inter), 'Inter', system-ui, sans-serif" }}
+          style={{ fontFamily: "var(--font-poppins), 'Inter', system-ui, sans-serif" }}
         >
           MAKTAL
           <sup className="pb-4 text-xs font-bold text-white select-none">®</sup>
@@ -44,7 +44,7 @@ export default function WorksPage() {
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#F8FAFC] tracking-tight mt-3">
           Full Portfolio
         </h1>
-        <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+        <p className="mt-4 text-gray-500 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
           A collection of projects we&apos;ve delivered across industries — from travel and e-commerce to SaaS and digital agencies.
         </p>
       </section>
@@ -56,8 +56,8 @@ export default function WorksPage() {
             onClick={() => setActiveFilter(null)}
             className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
               activeFilter === null
-                ? 'bg-[#cbfb45] text-[#0a0a0b]'
-                : 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white border border-white/10'
+                ? 'bg-[#cbfb45] text-[#111827]'
+                : 'bg-white/5 text-gray-500 hover:bg-white/10 hover:text-[#111827] border border-white/10'
             }`}
           >
             All
@@ -68,8 +68,8 @@ export default function WorksPage() {
               onClick={() => setActiveFilter(activeFilter === tag ? null : tag)}
               className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
                 activeFilter === tag
-                  ? 'bg-[#cbfb45] text-[#0a0a0b]'
-                  : 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white border border-white/10'
+                  ? 'bg-[#cbfb45] text-[#111827]'
+                  : 'bg-white/5 text-gray-500 hover:bg-white/10 hover:text-[#111827] border border-white/10'
               }`}
             >
               {tag}
@@ -83,8 +83,8 @@ export default function WorksPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {filtered.map((project, index) => (
             <ScrollReveal key={project.title} delay={index * 100}>
-              <div className="group relative rounded-2xl overflow-hidden bg-[#141416]/50 border border-[#141416]/40 hover:border-[#cbfb45] transition-all duration-300 hover:shadow-2xl hover:shadow-[#cbfb45]/10 hover:-translate-y-1 flex flex-col justify-between">
-                <div className="relative w-full h-52 sm:h-64 overflow-hidden bg-[#141416]">
+              <div className="group relative rounded-2xl overflow-hidden bg-white border border-gray-200 hover:border-[#cbfb45] transition-all duration-300 hover:shadow-2xl hover:shadow-[#cbfb45]/10 hover:-translate-y-1 flex flex-col justify-between">
+                <div className="relative w-full h-52 sm:h-64 overflow-hidden bg-gray-100">
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,11,23,0.2),rgba(7,11,23,0.6))] z-10" />
                   <img
                     src={project.image}
@@ -98,7 +98,7 @@ export default function WorksPage() {
                     }}
                   />
                   <div
-                    className="absolute inset-0 z-20 hidden flex-col items-center justify-center bg-[#141416] text-slate-600"
+                    className="absolute inset-0 z-20 hidden flex-col items-center justify-center bg-gray-100 text-slate-600"
                   >
                     <ImageIcon className="w-10 h-10 mb-2 opacity-40" />
                     <span className="text-xs font-medium opacity-50">{project.title}</span>
@@ -107,10 +107,10 @@ export default function WorksPage() {
 
                 <div className="p-5 sm:p-6 flex flex-col grow justify-between space-y-3">
                   <div className="space-y-2">
-                    <h3 className="text-lg sm:text-xl font-bold text-[#f6f6f4] group-hover:text-[#cbfb45] transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-[#111827] group-hover:text-[#cbfb45] transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                    <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">
                       {project.desc}
                     </p>
                     {project.tags && (
@@ -118,7 +118,7 @@ export default function WorksPage() {
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="px-2 py-0.5 rounded-full bg-white/5 text-slate-500 text-[10px] font-medium border border-white/5"
+                            className="px-2 py-0.5 rounded-full bg-white/5 text-gray-400 text-[10px] font-medium border border-white/5"
                           >
                             {tag}
                           </span>
@@ -145,7 +145,7 @@ export default function WorksPage() {
         </div>
 
         {filtered.length === 0 && (
-          <div className="text-center py-20 text-slate-500">
+          <div className="text-center py-20 text-gray-400">
             No projects found for this filter.
           </div>
         )}
@@ -156,7 +156,7 @@ export default function WorksPage() {
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="w-100 h-100 bg-[#cbfb45]/3 rounded-full blur-[150px]" />
         </div>
-        <h2 className="relative text-3xl sm:text-4xl font-extrabold text-[#f6f6f4] tracking-tight">
+        <h2 className="relative text-3xl sm:text-4xl font-extrabold text-[#111827] tracking-tight">
           Want a project like these?
         </h2>
         <p className="relative mt-4 text-white/40 text-sm sm:text-base max-w-md mx-auto">
@@ -164,7 +164,7 @@ export default function WorksPage() {
         </p>
         <Link
           href="/#contact"
-          className="relative mt-8 inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#cbfb45] text-[#0a0a0b] font-medium text-sm tracking-wide transition-all hover:scale-105 shadow-lg shadow-[#cbfb45]/20"
+          className="relative mt-8 inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#cbfb45] text-[#111827] font-medium text-sm tracking-wide transition-all hover:scale-105 shadow-lg shadow-[#cbfb45]/20"
         >
           Talk to Us
         </Link>
