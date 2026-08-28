@@ -15,7 +15,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#f8f9fb] text-black/50 border-t border-black/[0.06]">
+    <footer className="w-full bg-[#f8f9fb] text-black/50 border-t border-black/6">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           <div className="space-y-5">
@@ -28,7 +28,7 @@ export default function Footer() {
             <a href="mailto:info@maktal.com" className="flex items-center gap-2 text-sm text-black/50 hover:text-[#00AEEF] transition-colors"><Mail className="w-4 h-4 text-[#00AEEF] shrink-0" /><span>Click to email</span></a>
             <div className="flex items-center gap-2 pt-1">
               {socialLinks.map((social) => (
-                <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="p-2 rounded-xl bg-black/[0.04] text-black/30 hover:bg-[#00AEEF]/10 hover:text-[#00AEEF] transition-all border border-black/[0.06]">{social.icon}</a>
+                <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="p-2 rounded-xl bg-black/4 text-black/30 hover:bg-[#00AEEF]/10 hover:text-[#00AEEF] transition-all border border-black/6">{social.icon}</a>
               ))}
             </div>
           </div>
@@ -46,7 +46,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-black/[0.06]">
+      <div className="border-t border-black/6">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-5 text-center">
           <p className="text-xs sm:text-sm text-black/25">Copyright {'\u00A9'} 2026 MakTal. All Rights Reserved | CIN: U72900KL2022PTC075074</p>
         </div>

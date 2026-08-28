@@ -104,7 +104,7 @@ export default function Page() {
       <FloatingNav />
 
       {/* ═══ HERO SECTION ═══ */}
-      <section className="relative w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-screen min-h-[35rem] overflow-hidden flex flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.45),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.25),transparent_30%),linear-gradient(135deg,#0a0a0b_0%,#141416_40%,#0f1112_100%)]">
+      <section className="relative w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-screen min-h-140 overflow-hidden flex flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.45),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.25),transparent_30%),linear-gradient(135deg,#0a0a0b_0%,#141416_40%,#0f1112_100%)]">
         {/* Video Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video autoPlay loop muted playsInline poster="/images/it.jpg" className="w-full h-full object-cover" style={{ filter: 'saturate(0.85) contrast(1.1) brightness(0.5)' }}>
@@ -122,10 +122,10 @@ export default function Page() {
         <div className="absolute top-60 left-[60%] w-2.5 h-2.5 rounded-full bg-[#00AEEF]/50 animate-float z-10" style={{ animationDelay: '3s' }} />
 
         {/* Orbit rings on video */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] pointer-events-none z-10">
-          <div className="absolute inset-0 rounded-full border border-white/[0.04] animate-spin-slow" />
-          <div className="absolute inset-12 rounded-full border border-[#00AEEF]/[0.08] animate-spin-slow" style={{ animationDuration: '30s', animationDirection: 'reverse' }} />
-          <div className="absolute inset-24 rounded-full border border-white/[0.03] animate-spin-slow" style={{ animationDuration: '25s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 md:w-200 md:h-200 pointer-events-none z-10">
+          <div className="absolute inset-0 rounded-full border border-white/4 animate-spin-slow" />
+          <div className="absolute inset-12 rounded-full border border-[#00AEEF]/0.08 animate-spin-slow" style={{ animationDuration: '30s', animationDirection: 'reverse' }} />
+          <div className="absolute inset-24 rounded-full border border-white/0.03 animate-spin-slow" style={{ animationDuration: '25s' }} />
         </div>
 
         {/* Content on video */}
@@ -196,7 +196,7 @@ export default function Page() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.2 + i * 0.08 }}
-                className="px-3 py-1.5 rounded-lg border border-white/[0.08] bg-white/[0.04] text-white/30 text-[11px] font-medium tracking-wide backdrop-blur-sm"
+                className="px-3 py-1.5 rounded-lg border border-white/8 bg-white/4 text-white/30 text-[11px] font-medium tracking-wide backdrop-blur-sm"
               >
                 {tech}
               </motion.span>
@@ -221,8 +221,8 @@ export default function Page() {
       </section>
 
       {/* ═══ TRUSTED BY MARQUEE ═══ */}
-      <section className="relative w-full py-12 sm:py-16 overflow-hidden border-y border-black/[0.06] bg-[#f8f9fb]">
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white z-10 pointer-events-none" />
+      <section className="relative w-full py-12 sm:py-16 overflow-hidden border-y border-black/6 bg-[#f8f9fb]">
+        <div className="absolute inset-0 bg-linear-to-r from-white via-transparent to-white z-10 pointer-events-none" />
         <div className="flex animate-marquee whitespace-nowrap">
           {[...Array(2)].map((_, setIdx) => (
             <React.Fragment key={setIdx}>
@@ -255,7 +255,7 @@ export default function Page() {
           <ScrollReveal delay={200}>
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
               {features.map((feature, i) => (
-                <div key={i} className="bg-[#f8f9fb] rounded-xl p-4 text-center border border-black/[0.06] transition-all duration-300 hover:border-[#00AEEF]/20 hover:shadow-lg hover:shadow-[#00AEEF]/5 group">
+                <div key={i} className="bg-[#f8f9fb] rounded-xl p-4 text-center border border-black/6 transition-all duration-300 hover:border-[#00AEEF]/20 hover:shadow-lg hover:shadow-[#00AEEF]/5 group">
                   <feature.icon className="w-5 h-5 mx-auto mb-2 text-black/15 group-hover:text-[#00AEEF] transition-colors" />
                   <span className="text-[11px] text-black/40 font-medium">{feature.title}</span>
                 </div>
@@ -267,7 +267,7 @@ export default function Page() {
 
       {/* ═══ SERVICES SECTION ═══ */}
       <section id="services" className="relative w-full py-24 sm:py-32 lg:py-40 bg-[#f8f9fb]">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00AEEF]/4 rounded-full blur-[200px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-125 h-125 bg-[#00AEEF]/4 rounded-full blur-[200px] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
@@ -293,7 +293,7 @@ export default function Page() {
                   glowColor={`${service.color}12`}
                   className="h-full"
                 >
-                  <div className="bg-white rounded-2xl p-6 sm:p-8 h-full border border-black/[0.06] shadow-sm transition-all duration-500 hover:shadow-xl hover:shadow-[#00AEEF]/5 hover:border-[#00AEEF]/15 group">
+                  <div className="bg-white rounded-2xl p-6 sm:p-8 h-full border border-black/6 shadow-sm transition-all duration-500 hover:shadow-xl hover:shadow-[#00AEEF]/5 hover:border-[#00AEEF]/15 group">
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110"
                       style={{ backgroundColor: `${service.color}10`, border: `1px solid ${service.color}20` }}
@@ -310,7 +310,7 @@ export default function Page() {
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2.5 py-1 rounded-md bg-[#f8f9fb] border border-black/[0.06] text-black/30 text-[10px] font-medium"
+                          className="px-2.5 py-1 rounded-md bg-[#f8f9fb] border border-black/6 text-black/30 text-[10px] font-medium"
                         >
                           {tag}
                         </span>
@@ -326,7 +326,7 @@ export default function Page() {
 
       {/* ═══ PROCESS SECTION ═══ */}
       <section className="relative w-full py-24 sm:py-32">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#00AEEF]/[0.02] to-white pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-white via-[#00AEEF]/2 to-white pointer-events-none" />
         <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16 sm:mb-20">
@@ -342,14 +342,14 @@ export default function Page() {
 
           <div className="relative">
             <div className="hidden md:block absolute top-1/2 left-[16%] right-[16%] h-px -translate-y-1/2">
-              <div className="w-full h-full bg-gradient-to-r from-[#00AEEF]/20 via-[#0077B6]/15 to-[#00AEEF]/20" />
+              <div className="w-full h-full bg-linear-to-r from-[#00AEEF]/20 via-[#0077B6]/15 to-[#00AEEF]/20" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {processSteps.map((item, i) => (
                 <ScrollReveal key={i} delay={i * 200}>
                   <div className="group relative flex flex-col items-center text-center">
-                    <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-white border border-black/[0.08] flex flex-col items-center justify-center space-y-3 transition-all duration-500 group-hover:border-[#00AEEF]/20 group-hover:shadow-xl group-hover:shadow-[#00AEEF]/5 mb-6">
+                    <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-white border border-black/8 flex flex-col items-center justify-center space-y-3 transition-all duration-500 group-hover:border-[#00AEEF]/20 group-hover:shadow-xl group-hover:shadow-[#00AEEF]/5 mb-6">
                       <div className="absolute top-3 left-3 text-[10px] font-mono text-black/10 group-hover:text-[#00AEEF]/30 transition-colors">
                         {item.step}
                       </div>
@@ -398,9 +398,9 @@ export default function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {projects.map((project, index) => (
               <ScrollReveal key={index} delay={index * 100}>
-                <div className="group relative bg-white rounded-2xl overflow-hidden border border-black/[0.06] shadow-sm transition-all duration-500 hover:shadow-xl hover:shadow-[#00AEEF]/5 hover:border-[#00AEEF]/15 hover:-translate-y-1 flex flex-col">
+                <div className="group relative bg-white rounded-2xl overflow-hidden border border-black/6 shadow-sm transition-all duration-500 hover:shadow-xl hover:shadow-[#00AEEF]/5 hover:border-[#00AEEF]/15 hover:-translate-y-1 flex flex-col">
                   <div className="relative w-full h-52 sm:h-60 md:h-64 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60 z-10" />
+                    <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white/60 z-10" />
                     <img
                       src={project.image}
                       alt={project.title}
@@ -437,7 +437,7 @@ export default function Page() {
             <div className="flex justify-center mt-12">
               <Link
                 href="/works"
-                className="group inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-black/[0.1] bg-transparent text-black/60 font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#00AEEF]/30 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5"
+                className="group inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-black/1 bg-transparent text-black/60 font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#00AEEF]/30 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5"
               >
                 View All Projects
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -458,11 +458,11 @@ export default function Page() {
         <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
             <div className="relative rounded-3xl overflow-hidden">
-              <div className="absolute inset-0 rounded-3xl p-px bg-gradient-to-r from-[#00AEEF]/40 via-[#0077B6]/40 to-[#00AEEF]/40" style={{ backgroundSize: '300% 300%', animation: 'gradient-border-shift 6s ease infinite' }}>
+              <div className="absolute inset-0 rounded-3xl p-px bg-linear-to-r from-[#00AEEF]/40 via-[#0077B6]/40 to-[#00AEEF]/40" style={{ backgroundSize: '300% 300%', animation: 'gradient-border-shift 6s ease infinite' }}>
                 <div className="absolute inset-0 rounded-3xl bg-white" />
               </div>
               <div className="relative rounded-3xl bg-white p-10 sm:p-14 lg:p-20 shadow-sm">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-[#00AEEF]/5 rounded-full blur-[100px] pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 bg-[#00AEEF]/5 rounded-full blur-[100px] pointer-events-none" />
 
                 <h2 className="relative text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight mb-5">
                   Have Something{' '}
@@ -491,7 +491,7 @@ export default function Page() {
 
       {/* ═══ CONTACT SECTION ═══ */}
       <section id="contact" className="relative w-full py-24 sm:py-32 lg:py-40">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#00AEEF]/[0.02] to-white pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-white via-[#00AEEF]/2 to-white pointer-events-none" />
         <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-14 sm:mb-20">
@@ -510,7 +510,7 @@ export default function Page() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
               {/* Contact Info */}
               <div className="space-y-8">
-                <div className="bg-white rounded-2xl p-6 sm:p-8 space-y-6 border border-black/[0.06] shadow-sm">
+                <div className="bg-white rounded-2xl p-6 sm:p-8 space-y-6 border border-black/6 shadow-sm">
                   <h3 className="text-lg font-bold text-black">Contact Information</h3>
                   <div className="space-y-4">
                     <a href="tel:+917736101555" className="flex items-center gap-3 text-black/50 hover:text-[#00AEEF] transition-colors group">
@@ -544,7 +544,7 @@ export default function Page() {
               </div>
 
               {/* Contact Form */}
-              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-black/[0.06] shadow-sm">
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-black/6 shadow-sm">
                 <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -552,7 +552,7 @@ export default function Page() {
                       <input
                         type="text"
                         placeholder="Your name"
-                        className="w-full px-4 py-3 rounded-xl bg-[#f8f9fb] border border-black/[0.08] text-black text-sm placeholder:text-black/20 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white focus:shadow-sm transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-xl bg-[#f8f9fb] border border-black/8 text-black text-sm placeholder:text-black/20 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white focus:shadow-sm transition-all duration-300"
                       />
                     </div>
                     <div>
@@ -560,13 +560,13 @@ export default function Page() {
                       <input
                         type="email"
                         placeholder="you@company.com"
-                        className="w-full px-4 py-3 rounded-xl bg-[#f8f9fb] border border-black/[0.08] text-black text-sm placeholder:text-black/20 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white focus:shadow-sm transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-xl bg-[#f8f9fb] border border-black/8 text-black text-sm placeholder:text-black/20 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white focus:shadow-sm transition-all duration-300"
                       />
                     </div>
                   </div>
                   <div>
                     <label className="block text-xs text-black/40 font-medium mb-2 uppercase tracking-wider">Service</label>
-                    <select className="w-full px-4 py-3 rounded-xl bg-[#f8f9fb] border border-black/[0.08] text-black/50 text-sm focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white focus:shadow-sm transition-all duration-300 appearance-none">
+                    <select className="w-full px-4 py-3 rounded-xl bg-[#f8f9fb] border border-black/8 text-black/50 text-sm focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white focus:shadow-sm transition-all duration-300 appearance-none">
                       <option value="">Select a service</option>
                       <option value="web">Website Development</option>
                       <option value="marketing">Digital Marketing</option>
@@ -579,7 +579,7 @@ export default function Page() {
                     <textarea
                       rows={4}
                       placeholder="Tell us about your project..."
-                      className="w-full px-4 py-3 rounded-xl bg-[#f8f9fb] border border-black/[0.08] text-black text-sm placeholder:text-black/20 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white focus:shadow-sm transition-all duration-300 resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-[#f8f9fb] border border-black/8 text-black text-sm placeholder:text-black/20 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white focus:shadow-sm transition-all duration-300 resize-none"
                     />
                   </div>
                   <button
