@@ -1,17 +1,17 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
-import { Phone, Lightbulb, Code2, Rocket, ArrowRight, CheckCircle2, Sparkles, Globe, TrendingUp, Zap, Shield, Users, BarChart3 } from 'lucide-react';
+import { Phone, Lightbulb, Code2, Rocket, ArrowRight, Globe, TrendingUp, BarChart3, Zap, Shield, Users, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import Footer from '@/components/Footer/Footer';
+import BrandShowcase from '@/components/BrandShowcase/BrandShowcase';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import WhatsAppFloat from '@/components/WhatsAppFloat/WhatsAppFloat';
 import BlogSection from '@/components/BlogSection/BlogSection';
 import GoogleReviews from '@/components/GoogleReviews/GoogleReviews';
 import TeamSection from '@/components/TeamSection/TeamSection';
 import StatsCounter from '@/components/StatsCounter/StatsCounter';
-import GlowCard from '@/components/GlowCard/GlowCard';
 import FloatingNav from '@/components/FloatingNav/FloatingNav';
 import BlurText from '@/components/bits/BlurText';
 
@@ -20,29 +20,29 @@ const services = [
     icon: Globe,
     title: 'Website Development',
     description: 'Custom-built, responsive websites using Next.js, React, and WordPress — designed to convert visitors into customers.',
-    color: '#00AEEF',
+    color: '#00D4FF',
     tags: ['Next.js', 'React', 'WordPress'],
   },
   {
     icon: TrendingUp,
     title: 'Digital Marketing',
     description: 'Strategic campaigns across Google Ads, Meta, and social media to amplify your brand reach and drive qualified traffic.',
-    color: '#0077B6',
+    color: '#7C3AED',
     tags: ['Google Ads', 'Meta', 'Social'],
   },
   {
     icon: BarChart3,
     title: 'SEO Optimization',
     description: 'Data-driven SEO strategies that boost your search rankings, increase organic traffic, and deliver long-term growth.',
-    color: '#00AEEF',
+    color: '#06B6D4',
     tags: ['Technical SEO', 'Content', 'Analytics'],
   },
 ];
 
 const processSteps = [
-  { icon: Lightbulb, label: 'Strategy', desc: 'We start by understanding your business, target audience, and goals — then map out a clear roadmap before touching any code.', step: '01', color: '#00AEEF' },
-  { icon: Code2, label: 'Build', desc: 'Our team designs and develops your project using modern frameworks, with regular check-ins so nothing falls through the cracks.', step: '02', color: '#0077B6' },
-  { icon: Rocket, label: 'Launch', desc: 'We handle the deployment, run final testing, and stick around post-launch to make sure everything runs smoothly.', step: '03', color: '#00AEEF' },
+  { icon: Lightbulb, label: 'Strategy', desc: 'We start by understanding your business, target audience, and goals — then map out a clear roadmap before touching any code.', step: '01', color: '#00D4FF' },
+  { icon: Code2, label: 'Build', desc: 'Our team designs and develops your project using modern frameworks, with regular check-ins so nothing falls through the cracks.', step: '02', color: '#7C3AED' },
+  { icon: Rocket, label: 'Launch', desc: 'We handle the deployment, run final testing, and stick around post-launch to make sure everything runs smoothly.', step: '03', color: '#06B6D4' },
 ];
 
 const features = [
@@ -59,51 +59,16 @@ const projects = [
   { title: 'World of Appliances, Bahrain', desc: 'WordPress based E-commerce website with Shipping and Payment options.', image: 'https://maktalseo.com/wp-content/uploads/2025/10/ecommerce-development-wordpress.avif', url: 'https://www.worldofappliancesbh.com/' },
 ];
 
-const techStack = ['Next.js', 'React', 'WordPress', 'Python', 'Node.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL'];
-
-const textsToCycle = ['Logo Design', 'Social Media', 'Mobile-App Development', 'Website Development', 'Design Services', 'Digital Marketing', 'SEO Optimization'];
+const marqueeItems = ['Web Development', 'Digital Marketing', 'SEO Optimization', 'UI/UX Design', 'Brand Identity', 'E-Commerce', 'Next.js', 'WordPress'];
 
 export default function Page() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [displayBrandingText, setDisplayBrandingText] = useState(textsToCycle[0]);
-  const [activeService, setActiveService] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => setCurrentIndex((p) => (p + 1) % textsToCycle.length), 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*';
-    let iteration = 0;
-    const interval = setInterval(() => {
-      setDisplayBrandingText(
-        textsToCycle[currentIndex]
-          .split('')
-          .map((l, i) => (l === ' ' ? ' ' : i < iteration ? textsToCycle[currentIndex][i] : chars[Math.floor(Math.random() * chars.length)]))
-          .join('')
-      );
-      if (iteration >= textsToCycle[currentIndex].length) clearInterval(interval);
-      iteration += 0.5;
-    }, 30);
-    return () => clearInterval(interval);
-  }, [currentIndex]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveService((p) => (p + 1) % services.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="min-h-screen bg-white text-black font-sans relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#050505] text-white font-sans relative overflow-x-hidden">
 
       {/* ═══ FLOATING NAV ═══ */}
       <FloatingNav />
 
-      {/* ═══ HERO SECTION ═══ */}
+      {/* ═══ HERO SECTION ═══ (KEEPING AS-IS) ═══ */}
       <section className="relative w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-screen min-h-140 overflow-hidden flex flex-col justify-between bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.45),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.25),transparent_30%),linear-gradient(135deg,#0a0a0b_0%,#141416_40%,#0f1112_100%)]">
         {/* Video Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -111,75 +76,78 @@ export default function Page() {
             <source src="https://assets.mixkit.co/videos/46635/46635-720.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-[#0a0a0b]/40" />
-          {/* Blue accent glows on video */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,174,239,0.12),transparent_60%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,212,255,0.08),transparent_60%)]" />
         </div>
-
-
 
         {/* Content on video */}
         <div className="relative z-20 max-w-5xl mx-auto px-5 sm:px-6 text-center my-auto flex flex-col items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <span className="inline-block text-[#00AEEF] text-sm font-semibold tracking-widest uppercase mb-6">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+            <span className="inline-block text-[#00D4FF] text-sm font-semibold tracking-widest uppercase mb-6 font-mono">
               MAKTAL TECHNOLOGIES
             </span>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-2xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-[1.05] mb-8"
-          >
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="text-2xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-[1.05] mb-8">
             Website Development & Digital
             <br className="hidden sm:inline" />
             Marketing
           </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.8 }}
-          >
-            <a
-              href="#contact"
-              className="group inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#1a1a1a] border border-white/20 text-white font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#00AEEF]/40 hover:bg-[#222]"
-            >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.8 }}>
+            <a href="#contact" className="group inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-white text-black font-bold text-sm tracking-wide transition-all duration-300 hover:bg-white/90 hover:shadow-[0_8px_22px_rgba(255,255,255,0.16)]">
               GET IN TOUCH
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10 pointer-events-none">
+          <div className="w-5 h-8 rounded-full border border-white/12 flex justify-center pt-1.5">
+            <div className="w-0.5 h-1.5 bg-white/30 rounded-full" />
+          </div>
+          <span className="font-mono text-[7px] tracking-[0.2em] text-white/15 uppercase">scroll</span>
+        </div>
       </section>
 
+      {/* ═══ MARQUEE STRIP ═══ */}
+      <div className="marquee-strip py-4 relative overflow-hidden">
+        <div className="absolute left-0 top-0 bottom-0 z-10 w-24 pointer-events-none" style={{ background: 'linear-gradient(to right, #0a0a0b, transparent)' }} />
+        <div className="absolute right-0 top-0 bottom-0 z-10 w-24 pointer-events-none" style={{ background: 'linear-gradient(to left, #0a0a0b, transparent)' }} />
+        <div className="marquee-content">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span key={i} className="inline-flex items-center shrink-0">
+              <a className="flex-shrink-0 font-mono text-[11px] uppercase tracking-[0.28em] text-white/40 transition-colors duration-200 hover:text-white" href="#services">{item}</a>
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-white/20 mx-6 align-middle flex-shrink-0" style={{ marginTop: '-2px' }} />
+            </span>
+          ))}
+        </div>
+      </div>
 
       {/* ═══ ABOUT SECTION ═══ */}
       <section id="about" className="relative w-full py-24 sm:py-32 lg:py-40">
         <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col items-center text-center">
           <ScrollReveal>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5  text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00D4FF] text-xs font-mono tracking-[0.22em] uppercase mb-8">
               About Us
             </span>
           </ScrollReveal>
           <ScrollReveal>
             <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 mb-4">
-              <BlurText text="At" delay={80} animateBy="words" direction="bottom" threshold={0.2} stepDuration={0.4} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black leading-snug tracking-tight text-center" />
-              <BlurText text="MakTal Technologies," delay={80} animateBy="words" direction="bottom" threshold={0.2} stepDuration={0.4} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold gradient-text leading-snug tracking-tight text-center" />
+              <BlurText text="At" delay={80} animateBy="words" direction="bottom" threshold={0.2} stepDuration={0.4} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white/85 leading-snug tracking-tight text-center" />
+              <BlurText text="MakTal Technologies," delay={80} animateBy="words" direction="bottom" threshold={0.2} stepDuration={0.4} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-text leading-snug tracking-tight text-center" />
             </div>
           </ScrollReveal>
           <ScrollReveal delay={150}>
-            <BlurText text="we craft digital experiences that inspire, connect, and drive meaningful growth." delay={80} animateBy="words" direction="bottom" threshold={0.2} stepDuration={0.4} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black leading-snug tracking-tight text-center" />
+            <BlurText text="we craft digital experiences that inspire, connect, and drive meaningful growth." delay={80} animateBy="words" direction="bottom" threshold={0.2} stepDuration={0.4} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white/85 leading-snug tracking-tight text-center" />
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
               {features.map((feature, i) => (
-                <div key={i} className="bg-[#f8f9fb] rounded-xl p-4 text-center border border-black/6 transition-all duration-300 hover:border-[#00AEEF]/20 hover:shadow-lg hover:shadow-[#00AEEF]/5 group">
-                  <feature.icon className="w-5 h-5 mx-auto mb-2 text-black/85 group-hover:text-[#00AEEF] transition-colors" />
-                  <span className="text-[11px] text-black/85 font-medium">{feature.title}</span>
+                <div key={i} className="glass-card rounded-xl p-4 text-center transition-all duration-300 hover:border-[#00D4FF]/15 hover:shadow-lg hover:shadow-[#00D4FF]/5 group">
+                  <feature.icon className="w-5 h-5 mx-auto mb-2 text-white/50 group-hover:text-[#00D4FF] transition-colors" />
+                  <span className="text-[11px] text-white/60 font-medium">{feature.title}</span>
                 </div>
               ))}
             </div>
@@ -188,58 +156,48 @@ export default function Page() {
       </section>
 
       {/* ═══ SERVICES SECTION ═══ */}
-      <section id="services" className="relative w-full py-24 sm:py-32 lg:py-40 bg-[#f8f9fb]">
-        <div className="absolute top-0 right-0 w-125 h-125 bg-[#00AEEF]/4 rounded-full blur-[200px] pointer-events-none" />
+      <section id="services" className="relative w-full py-24 sm:py-32 lg:py-40">
+        <div className="absolute top-0 right-0 w-125 h-125 bg-[#00D4FF]/3 rounded-full blur-[200px] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00D4FF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
                 What We Do
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
                 Services Built for{' '}
                 <span className="gradient-text">Growth</span>
               </h2>
-              <p className="mt-5 text-black/85 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+              <p className="mt-5 text-white/35 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
                 End-to-end digital solutions to take your business from idea to launch — and beyond.
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+          {/* Wizora-style vertical service list */}
+          <div className="max-w-4xl mx-auto">
             {services.map((service, index) => (
-              <ScrollReveal key={index} delay={index * 150}>
-                <GlowCard
-                  glowColor={`${service.color}12`}
-                  className="h-full"
-                >
-                  <div className="bg-white rounded-2xl p-6 sm:p-8 h-full border border-black/6 shadow-sm transition-all duration-500 hover:shadow-xl hover:shadow-[#00AEEF]/5 hover:border-[#00AEEF]/15 group">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110"
-                      style={{ backgroundColor: `${service.color}10`, border: `1px solid ${service.color}20` }}
-                    >
+              <React.Fragment key={index}>
+                <ScrollReveal delay={index * 100}>
+                  <div className="group flex items-start gap-6 sm:gap-10 py-8 sm:py-10 cursor-default">
+                    <div className="shrink-0 mt-1 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-500" style={{ background: `${service.color}10`, border: `1px solid ${service.color}20` }}>
                       <service.icon className="w-6 h-6" style={{ color: service.color }} />
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-black tracking-tight mb-3 group-hover:text-[#00AEEF] transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-black/40 text-sm leading-relaxed mb-5">
-                      {service.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {service.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2.5 py-1 rounded-md bg-[#f8f9fb] border border-black/6 text-black/30 text-[10px] font-medium"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight group-hover:text-[#00D4FF] transition-colors duration-300">{service.title}</h3>
+                      <div className="mt-2 h-px w-6 transition-all duration-500 group-hover:w-10" style={{ background: `${service.color}40` }} />
+                      <p className="mt-3 text-white/35 text-sm sm:text-[15px] leading-relaxed max-w-2xl group-hover:text-white/50 transition-colors duration-300">{service.description}</p>
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {service.tags.map((tag) => (
+                          <span key={tag} className="font-mono px-2.5 py-1 rounded-md bg-white/3 border border-white/6 text-white/30 text-[10px] uppercase tracking-wider">{tag}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </GlowCard>
-              </ScrollReveal>
+                </ScrollReveal>
+                {index < services.length - 1 && <div className="h-px bg-linear-to-r from-transparent via-white/6 to-transparent" />}
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -247,56 +205,40 @@ export default function Page() {
 
       {/* ═══ PROCESS SECTION ═══ */}
       <section className="relative w-full py-24 sm:py-32">
-        <div className="absolute inset-0 bg-linear-to-b from-white via-[#f8f9fb] to-white pointer-events-none" />
         <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00D4FF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
                 Our Process
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
                 How We <span className="gradient-text">Deliver</span>
               </h2>
-              <p className="mt-5 text-black/40 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+              <p className="mt-5 text-white/35 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
                 From initial consultation to final deployment — a hands-on approach that keeps you involved at every stage.
               </p>
             </div>
           </ScrollReveal>
 
           <div className="relative">
-            {/* Connecting line */}
-            <div className="hidden md:block absolute top-18 left-[20%] right-[20%] h-px">
-              <div className="w-full h-full bg-linear-to-r from-[#00AEEF]/25 via-[#0077B6]/20 to-[#00AEEF]/25" />
-            </div>
+            <div className="hidden md:block process-line" />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-stretch">
               {processSteps.map((item, i) => (
                 <ScrollReveal key={i} delay={i * 200}>
                   <div className="group relative flex flex-col items-center text-center h-full">
-                    {/* Step card */}
-                    <div className="relative w-full h-full flex flex-col bg-white rounded-2xl p-8 border border-black/6 shadow-sm transition-all duration-500 group-hover:border-[#00AEEF]/20 group-hover:shadow-xl group-hover:shadow-[#00AEEF]/5 mb-6">
-                      
-                      {/* Icon */}
-                      <div className="w-14 h-14 rounded-xl bg-[#00AEEF]/10 border border-[#00AEEF]/15 flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:bg-[#00AEEF]/15 group-hover:scale-110 shrink-0">
-                        <item.icon className="w-6 h-6 text-[#00AEEF]" />
+                    <div className="relative w-full h-full flex flex-col glass-card rounded-2xl p-8 transition-all duration-500 group-hover:border-white/12 group-hover:shadow-xl group-hover:shadow-[#00D4FF]/3 mb-6">
+                      <span className="font-mono text-[10px] text-white/20 uppercase tracking-[0.3em] mb-4">{item.step}</span>
+                      <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 shrink-0" style={{ background: `${item.color}12`, border: `1px solid ${item.color}20` }}>
+                        <item.icon className="w-6 h-6" style={{ color: item.color }} />
                       </div>
-
-                      {/* Label */}
-                      <h3 className="text-lg font-bold text-black tracking-tight mb-2">
+                      <h3 className="text-lg font-bold text-white tracking-tight mb-2">
                         {item.label}
                       </h3>
-
-                      {/* Description */}
-                      <p className="text-black/40 text-sm leading-relaxed mt-auto">
+                      <p className="text-white/35 text-sm leading-relaxed mt-auto">
                         {item.desc}
                       </p>
                     </div>
-
-                    {/* Connector diamond */}
-                    {/* <div 
-                      className="hidden md:block absolute -bottom-2 w-3.5 h-3.5 rotate-45 border-2 bg-white transition-all duration-500" 
-                      style={{ borderColor: item.color, boxShadow: `0 0 10px ${item.color}30` }} 
-                    /> */}
                   </div>
                 </ScrollReveal>
               ))}
@@ -305,21 +247,24 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ═══ STATS ═══ */}
-       {/* <StatsCounter /> */ }
+      {/* ═══ BRAND SHOWCASE + STATS ═══ */}
+      <div className="mt-20 sm:mt-28 bg-white rounded-[2.5rem] sm:rounded-[3.5rem]">
+        <BrandShowcase />
+        <StatsCounter />
+      </div>
 
       {/* ═══ WORKS SECTION ═══ */}
       <section id="works" className="relative w-full py-24 sm:py-32 lg:py-40">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-14 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5  text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00D4FF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
                 Our Work
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
                 Featured <span className="gradient-text">Projects</span>
               </h2>
-              <p className="mt-4 text-black/35 text-sm sm:text-base max-w-lg mx-auto">
+              <p className="mt-4 text-white/30 text-sm sm:text-base max-w-lg mx-auto">
                 A selection of projects we&apos;ve delivered across industries.
               </p>
             </div>
@@ -328,47 +273,36 @@ export default function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {projects.map((project, index) => (
               <ScrollReveal key={index} delay={index * 100}>
-                <div className="group relative bg-white rounded-2xl overflow-hidden border border-black/6 shadow-sm transition-all duration-500 hover:shadow-xl hover:shadow-[#00AEEF]/5 hover:border-[#00AEEF]/15 hover:-translate-y-1 flex flex-col">
+                <Link href={project.url} target="_blank" rel="noopener noreferrer" className="group project-card block">
                   <div className="relative w-full h-52 sm:h-60 md:h-64 overflow-hidden">
-                    <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-white/60 z-10" />
+                    <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#050505]/60 z-10" />
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                      onError={(e) => {
-                        const t = e.currentTarget;
-                        t.style.display = 'none';
-                      }}
+                      className="project-image w-full h-full object-cover object-center transition-transform duration-700"
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
                     />
                   </div>
                   <div className="p-5 sm:p-6 flex flex-col grow justify-between space-y-3">
                     <div className="space-y-2">
-                      <h3 className="text-base sm:text-lg font-bold text-black group-hover:text-[#00AEEF] transition-colors">
+                      <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#00D4FF] transition-colors">
                         {project.title}
                       </h3>
-                      <p className="text-black/40 text-xs sm:text-sm leading-relaxed">{project.desc}</p>
+                      <p className="text-white/35 text-xs sm:text-sm leading-relaxed">{project.desc}</p>
                     </div>
-                    <Link
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center space-x-2 text-black/30 hover:text-[#00AEEF] font-medium text-xs sm:text-sm transition-colors group/link"
-                    >
+                    <span className="inline-flex items-center space-x-2 text-white/30 hover:text-[#00D4FF] font-medium text-xs sm:text-sm transition-colors group/link">
                       <span>Visit Website</span>
-                      <ArrowRight className="w-3.5 h-3.5 transform group-hover/link:translate-x-1 transition-transform" />
-                    </Link>
+                      <ArrowUpRight className="w-3.5 h-3.5 transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                    </span>
                   </div>
-                </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>
 
           <ScrollReveal delay={200}>
             <div className="flex justify-center mt-12">
-              <Link
-                href="/works"
-                className="group inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-black/1 bg-transparent text-black/60 font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#00AEEF]/30 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5"
-              >
+              <Link href="/works" className="group inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-white/10 bg-transparent text-white/50 font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#00D4FF]/30 hover:text-[#00D4FF] hover:bg-[#00D4FF]/5">
                 View All Projects
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -383,32 +317,38 @@ export default function Page() {
       {/* ═══ BLOG ═══ */}
       <BlogSection />
 
-      <section className="relative w-full py-24 sm:py-32 lg:py-40 bg-[#f8f9fb]">
+      {/* ═══ TESTIMONIAL QUOTE ═══ */}
+      <section className="relative w-full py-24 sm:py-32 lg:py-40">
         <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
             <div className="relative rounded-3xl overflow-hidden">
-              <div className="absolute inset-0 rounded-3xl p-px bg-linear-to-r from-[#00AEEF]/40 via-[#0077B6]/40 to-[#00AEEF]/40" style={{ backgroundSize: '300% 300%', animation: 'gradient-border-shift 6s ease infinite' }}>
-                <div className="absolute inset-0 rounded-3xl bg-white" />
-              </div>
-              <div className="relative rounded-3xl bg-white p-10 sm:p-14 lg:p-20 shadow-sm">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 bg-[#00AEEF]/5 rounded-full blur-[100px] pointer-events-none" />
+              <div className="relative rounded-3xl glass-card p-10 sm:p-14 lg:p-20">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 bg-[#00D4FF]/3 rounded-full blur-[100px] pointer-events-none" />
 
-                <h2 className="relative text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight mb-5">
-                  Have Something{' '}
-                  <span className="gradient-text">in Mind?</span>
-                </h2>
-                <p className="relative text-black/40 text-sm sm:text-base leading-relaxed max-w-lg mx-auto mb-10">
-                  We build custom websites and digital marketing solutions that grow your business and attract more customers. Let&apos;s create something extraordinary together.
-                </p>
-                <a
-                  href="#contact"
-                  className="btn-brand relative inline-flex items-center justify-center px-10 py-4 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 group"
-                >
-                  <span className="flex items-center gap-2">
-                    Talk to Us
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </a>
+                <div className="relative">
+                  <p className="text-white/30 text-2xl mb-6">&ldquo;</p>
+                  <h2 className="relative text-2xl sm:text-3xl md:text-4xl font-bold text-white/85 tracking-tight mb-5 leading-relaxed">
+                    Clear process, strong communication, and solid execution from start to finish.
+                  </h2>
+                  <p className="relative text-white/30 text-sm sm:text-base leading-relaxed max-w-lg mx-auto mb-8">
+                    We build custom websites and digital marketing solutions that grow your business and attract more customers. Let&apos;s create something extraordinary together.
+                  </p>
+                  <div className="flex items-center justify-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-[#00D4FF]/15 border border-[#00D4FF]/20 flex items-center justify-center">
+                      <span className="text-[#00D4FF] text-xs font-bold">SK</span>
+                    </div>
+                    <div className="text-left">
+                      <p className="text-white/70 text-sm font-semibold">Sarah K.</p>
+                      <p className="text-white/30 text-xs">Head of Marketing</p>
+                    </div>
+                  </div>
+                  <a href="#contact" className="btn-brand relative inline-flex items-center justify-center px-10 py-4 rounded-full text-sm font-bold tracking-wide transition-all duration-300 group mt-8">
+                    <span className="flex items-center gap-2">
+                      Start a Project
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
           </ScrollReveal>
@@ -418,17 +358,17 @@ export default function Page() {
       {/* ═══ GOOGLE REVIEWS ═══ */}
       <GoogleReviews />
 
-      {/* ═══ CONTACT SECTION ═══ */}
+      {/* ═══ FREE AUDIT / CONTACT SECTION ═══ */}
       <section id="contact" className="relative w-full py-24 sm:py-32 lg:py-40">
-        <div className="absolute inset-0 bg-linear-to-b from-white via-[#00AEEF]/2 to-white pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-[#050505] via-[#00D4FF]/2 to-[#050505] pointer-events-none" />
         <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-14 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00AEEF]/15 bg-[#00AEEF]/5 text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-pulse" />
-                Get In Touch
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00D4FF]/15 bg-[#00D4FF]/5 text-[#00D4FF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] animate-pulse" />
+                Free Audit
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
                 Let&apos;s Build{' '}
                 <span className="gradient-text">Together</span>
               </h2>
@@ -439,32 +379,32 @@ export default function Page() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
               {/* Contact Info */}
               <div className="space-y-8">
-                <div className="bg-white rounded-2xl p-6 sm:p-8 space-y-6 border border-black/6 shadow-sm">
-                  <h3 className="text-lg font-bold text-black">Contact Information</h3>
+                <div className="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+                  <h3 className="text-lg font-bold text-white">Contact Information</h3>
                   <div className="space-y-4">
-                    <a href="tel:+917736101555" className="flex items-center gap-3 text-black/50 hover:text-[#00AEEF] transition-colors group">
-                      <div className="w-10 h-10 rounded-xl bg-[#00AEEF]/5 border border-[#00AEEF]/15 flex items-center justify-center group-hover:bg-[#00AEEF]/10 transition-colors">
-                        <Phone className="w-4 h-4 text-[#00AEEF]" />
+                    <a href="tel:+917736101555" className="flex items-center gap-3 text-white/50 hover:text-[#00D4FF] transition-colors group">
+                      <div className="w-10 h-10 rounded-xl bg-[#00D4FF]/8 border border-[#00D4FF]/15 flex items-center justify-center group-hover:bg-[#00D4FF]/12 transition-colors">
+                        <Phone className="w-4 h-4 text-[#00D4FF]" />
                       </div>
                       <div>
-                        <p className="text-xs text-black/25 mb-0.5">Phone</p>
-                        <p className="text-sm font-medium">+91 7736 101 555</p>
+                        <p className="text-xs text-white/25 mb-0.5 font-mono uppercase tracking-wider">Phone</p>
+                        <p className="text-sm font-medium text-white/70">+91 7736 101 555</p>
                       </div>
                     </a>
-                    <a href="mailto:info@maktal.com" className="flex items-center gap-3 text-black/50 hover:text-[#0077B6] transition-colors group">
-                      <div className="w-10 h-10 rounded-xl bg-[#0077B6]/5 border border-[#0077B6]/15 flex items-center justify-center group-hover:bg-[#0077B6]/10 transition-colors">
-                        <Globe className="w-4 h-4 text-[#0077B6]" />
+                    <a href="mailto:info@maktal.com" className="flex items-center gap-3 text-white/50 hover:text-[#7C3AED] transition-colors group">
+                      <div className="w-10 h-10 rounded-xl bg-[#7C3AED]/8 border border-[#7C3AED]/15 flex items-center justify-center group-hover:bg-[#7C3AED]/12 transition-colors">
+                        <Globe className="w-4 h-4 text-[#7C3AED]" />
                       </div>
                       <div>
-                        <p className="text-xs text-black/25 mb-0.5">Email</p>
-                        <p className="text-sm font-medium">Click to email us</p>
+                        <p className="text-xs text-white/25 mb-0.5 font-mono uppercase tracking-wider">Email</p>
+                        <p className="text-sm font-medium text-white/70">Click to email us</p>
                       </div>
                     </a>
                   </div>
                   <div className="glow-line" />
                   <div className="space-y-3">
-                    <p className="text-xs text-black/25 uppercase tracking-wider font-medium">Locations</p>
-                    <div className="text-sm text-black/40 leading-relaxed">
+                    <p className="text-xs text-white/25 uppercase tracking-wider font-mono font-medium">Locations</p>
+                    <div className="text-sm text-white/40 leading-relaxed">
                       <p>Thrissur, Kerala, India</p>
                       <p>Aluva, Ernakulam, Kerala, India</p>
                     </div>
@@ -473,29 +413,21 @@ export default function Page() {
               </div>
 
               {/* Contact Form */}
-              <div className="bg-white rounded-2xl p-6 sm:p-8 border border-black/6 shadow-sm">
+              <div className="glass-card rounded-2xl p-6 sm:p-8">
                 <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs text-black/40 font-medium mb-2 uppercase tracking-wider">Name</label>
-                      <input
-                        type="text"
-                        placeholder="Your name"
-                        className="w-full px-4 py-3 rounded-xl bg-[#f8f9fb] border border-black/8 text-black text-sm placeholder:text-black/20 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white focus:shadow-sm transition-all duration-300"
-                      />
+                      <label className="block text-xs text-white/30 font-mono font-medium mb-2 uppercase tracking-wider">Name</label>
+                      <input type="text" placeholder="Your name" className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white text-sm placeholder:text-white/15 focus:outline-none focus:border-[#00D4FF]/40 focus:bg-white/5 transition-all duration-300" />
                     </div>
                     <div>
-                      <label className="block text-xs text-black/40 font-medium mb-2 uppercase tracking-wider">Email</label>
-                      <input
-                        type="email"
-                        placeholder="you@company.com"
-                        className="w-full px-4 py-3 rounded-xl bg-[#f8f9fb] border border-black/8 text-black text-sm placeholder:text-black/20 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white focus:shadow-sm transition-all duration-300"
-                      />
+                      <label className="block text-xs text-white/30 font-mono font-medium mb-2 uppercase tracking-wider">Email</label>
+                      <input type="email" placeholder="you@company.com" className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white text-sm placeholder:text-white/15 focus:outline-none focus:border-[#00D4FF]/40 focus:bg-white/5 transition-all duration-300" />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs text-black/40 font-medium mb-2 uppercase tracking-wider">Service</label>
-                    <select className="w-full px-4 py-3 rounded-xl bg-[#f8f9fb] border border-black/8 text-black/50 text-sm focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white focus:shadow-sm transition-all duration-300 appearance-none">
+                    <label className="block text-xs text-white/30 font-mono font-medium mb-2 uppercase tracking-wider">Service</label>
+                    <select className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white/50 text-sm focus:outline-none focus:border-[#00D4FF]/40 focus:bg-white/5 transition-all duration-300 appearance-none">
                       <option value="">Select a service</option>
                       <option value="web">Website Development</option>
                       <option value="marketing">Digital Marketing</option>
@@ -504,20 +436,16 @@ export default function Page() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs text-black/40 font-medium mb-2 uppercase tracking-wider">Message</label>
-                    <textarea
-                      rows={4}
-                      placeholder="Tell us about your project..."
-                      className="w-full px-4 py-3 rounded-xl bg-[#f8f9fb] border border-black/8 text-black text-sm placeholder:text-black/20 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white focus:shadow-sm transition-all duration-300 resize-none"
-                    />
+                    <label className="block text-xs text-white/30 font-mono font-medium mb-2 uppercase tracking-wider">Message</label>
+                    <textarea rows={4} placeholder="Tell us about your project..." className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white text-sm placeholder:text-white/15 focus:outline-none focus:border-[#00D4FF]/40 focus:bg-white/5 transition-all duration-300 resize-none" />
                   </div>
-                  <button
-                    type="submit"
-                    className="w-full btn-brand py-3.5 rounded-xl text-sm font-semibold flex items-center justify-center gap-2"
-                  >
-                    Send Message
-                    <ArrowRight className="w-4 h-4" />
+                  <button type="submit" className="w-full btn-brand py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
+                    <span className="flex items-center gap-2">
+                      Get My Free Audit
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
                   </button>
+                  <p className="text-center text-[9px] font-mono text-white/30 uppercase tracking-widest">Free · No spam · Reply within 24 hours</p>
                 </form>
               </div>
             </div>

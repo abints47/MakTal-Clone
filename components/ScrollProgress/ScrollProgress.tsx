@@ -25,14 +25,14 @@ export default function ScrollProgress() {
         className="h-full transition-[width] duration-150 ease-out"
         style={{
           width: `${scrollProgress}%`,
-          background: 'linear-gradient(90deg, #00AEEF, #0077B6)',
+          background: 'linear-gradient(90deg, #00D4FF, #7C3AED)',
         }}
       />
       <div
         className="absolute top-0 h-[2px] w-20 blur-sm opacity-90 transition-[left] duration-150 ease-out"
         style={{
           left: `calc(${scrollProgress}% - 40px)`,
-          background: 'linear-gradient(90deg, transparent, #00AEEF, transparent)',
+          background: 'linear-gradient(90deg, transparent, #00D4FF, transparent)',
         }}
       />
     </div>

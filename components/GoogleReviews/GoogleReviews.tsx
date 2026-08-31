@@ -2,12 +2,12 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 
 const reviews = [
-  { name: 'David Wilson', initials: 'DW', date: '7 months ago', rating: 5, text: 'Highly reliable SEO & digital marketing company for Thrissur and Kerala businesses. MakTal Technologies offers professional services with a dedicated team that truly understands digital growth strategies.', readMore: true, color: '#00AEEF' },
-  { name: 'James Mitchell', initials: 'JM', date: '7 months ago', rating: 5, text: 'Highly Recommended!! One of the Best Digital Marketing Agency that you can trust. Much appreciated for the great support and outstanding results they delivered for our business.', readMore: false, color: '#0077B6' },
-  { name: 'Sarah Thompson', initials: 'ST', date: '8 months ago', rating: 5, text: 'We hired MakTal for doing SEO for our business. Prompt communication and result oriented marketing plan. Their expertise in search optimization has significantly improved our online visibility.', readMore: true, color: '#00AEEF' },
-  { name: 'Emily Richardson', initials: 'ER', date: '9 months ago', rating: 5, text: 'Thank you for doing our ecommerce website. Appreciating the skills.', readMore: false, color: '#0077B6' },
-  { name: 'Michael Carter', initials: 'MC', date: '10 months ago', rating: 5, text: 'Outstanding web development services. The team at MakTal Technologies delivered a stunning website that exceeded our expectations. Very professional and timely delivery.', readMore: false, color: '#00AEEF' },
-  { name: 'Jessica Brooks', initials: 'JB', date: '6 months ago', rating: 5, text: 'MakTal transformed our online presence completely. Their social media marketing strategies brought us real customers and measurable growth. Highly recommended for any business!', readMore: true, color: '#0077B6' },
+  { name: 'David Wilson', initials: 'DW', date: '7 months ago', rating: 5, text: 'Highly reliable SEO & digital marketing company for Thrissur and Kerala businesses. MakTal Technologies offers professional services with a dedicated team that truly understands digital growth strategies.', readMore: true, color: '#00D4FF' },
+  { name: 'James Mitchell', initials: 'JM', date: '7 months ago', rating: 5, text: 'Highly Recommended!! One of the Best Digital Marketing Agency that you can trust. Much appreciated for the great support and outstanding results they delivered for our business.', readMore: false, color: '#7C3AED' },
+  { name: 'Sarah Thompson', initials: 'ST', date: '8 months ago', rating: 5, text: 'We hired MakTal for doing SEO for our business. Prompt communication and result oriented marketing plan. Their expertise in search optimization has significantly improved our online visibility.', readMore: true, color: '#06B6D4' },
+  { name: 'Emily Richardson', initials: 'ER', date: '9 months ago', rating: 5, text: 'Thank you for doing our ecommerce website. Appreciating the skills.', readMore: false, color: '#00D4FF' },
+  { name: 'Michael Carter', initials: 'MC', date: '10 months ago', rating: 5, text: 'Outstanding web development services. The team at MakTal Technologies delivered a stunning website that exceeded our expectations. Very professional and timely delivery.', readMore: false, color: '#7C3AED' },
+  { name: 'Jessica Brooks', initials: 'JB', date: '6 months ago', rating: 5, text: 'MakTal transformed our online presence completely. Their social media marketing strategies brought us real customers and measurable growth. Highly recommended for any business!', readMore: true, color: '#06B6D4' },
 ];
 
 function StarIcon({ className }: { className?: string }) {
@@ -72,9 +72,9 @@ export default function GoogleReviews() {
   return (
     <section className="w-full overflow-hidden">
       <div className="glow-line" />
-      <div className="py-16 sm:py-20 lg:py-24 bg-[#f8f9fb]">
+      <div className="py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <h2 className="text-center text-black font-bold sm:font-extrabold text-2xl sm:text-3xl lg:text-4xl leading-[1.2] mb-10">
+          <h2 className="text-center text-white font-bold sm:font-extrabold text-2xl sm:text-3xl lg:text-4xl leading-[1.2] mb-10">
             Trusted by{' '}
             <span className="gradient-text">Businesses Worldwide</span>
           </h2>
@@ -82,64 +82,64 @@ export default function GoogleReviews() {
           {/* Desktop */}
           <div className="hidden sm:flex items-stretch gap-3 lg:gap-4">
             <div className="shrink-0 w-40 lg:w-48 flex flex-col items-center justify-center text-center gap-2 sm:gap-3 py-3 sm:py-4">
-              <p className="text-black font-bold text-lg lg:text-xl tracking-wide">EXCELLENT</p>
+              <p className="text-white font-bold text-lg lg:text-xl tracking-wide">EXCELLENT</p>
               <div className="flex gap-0.75">{[...Array(5)].map((_, i) => (<StarIcon key={i} className="w-7 h-7 lg:w-8 lg:h-8 text-[#FFC107]" />))}</div>
-              <p className="text-black/40 text-xs lg:text-sm">Based on <span className="font-bold text-black/60">310</span> reviews</p>
+              <p className="text-white/30 text-xs lg:text-sm">Based on <span className="font-bold text-white/50">310</span> reviews</p>
               <GoogleWordmark />
             </div>
-            <button onClick={goPrev} className="shrink-0 self-center w-8 h-8 rounded-full bg-white border border-black/[0.08] flex items-center justify-center text-black/30 hover:text-[#00AEEF] hover:border-[#00AEEF]/30 transition-all duration-200 z-10 shadow-sm" aria-label="Previous review"><ChevronLeft /></button>
+            <button onClick={goPrev} className="shrink-0 self-center w-8 h-8 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00D4FF] hover:border-[#00D4FF]/30 transition-all duration-200 z-10" aria-label="Previous review"><ChevronLeft /></button>
             <div ref={scrollRef} className="flex-1 min-w-0 flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 scrollbar-hide scroll-smooth" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
               {reviews.map((review, index) => (
-                <div key={index} data-review-card className="shrink-0 w-60 lg:w-64 snap-start rounded-xl bg-white border border-black/[0.06] p-4 lg:p-5 flex flex-col transition-all duration-300 hover:shadow-lg hover:shadow-[#00AEEF]/5 hover:border-[#00AEEF]/15 cursor-default shadow-sm" style={{ minHeight: '230px' }}>
+                <div key={index} data-review-card className="shrink-0 w-60 lg:w-64 snap-start rounded-xl review-card flex flex-col" style={{ minHeight: '230px' }}>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-[11px] font-bold text-white shrink-0" style={{ backgroundColor: review.color }}>{review.initials}</div>
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-[11px] font-bold text-white shrink-0" style={{ backgroundColor: `${review.color}20`, border: `1px solid ${review.color}30` }}>{review.initials}</div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-black text-sm font-bold truncate">{review.name}</p>
-                      <p className="text-black/30 text-xs">{review.date}</p>
+                      <p className="text-white text-sm font-bold truncate">{review.name}</p>
+                      <p className="text-white/25 text-xs">{review.date}</p>
                     </div>
                     <GoogleGIcon className="w-4 h-4 shrink-0" />
                   </div>
                   <div className="flex items-center gap-0.5 mb-3">{[...Array(review.rating)].map((_, i) => (<StarIcon key={i} className="w-4 h-4 text-[#FFC107]" />))}<CheckBadge /></div>
-                  <p className="text-black/50 text-sm leading-normal flex-1">{'\u201C'}{review.text}{'\u201D'}</p>
-                  {review.readMore && (<button className="mt-2 text-black/25 hover:text-black/50 text-xs text-left transition-colors duration-200">Read more</button>)}
+                  <p className="text-white/45 text-sm leading-normal flex-1">{'\u201C'}{review.text}{'\u201D'}</p>
+                  {review.readMore && (<button className="mt-2 text-white/20 hover:text-white/40 text-xs text-left transition-colors duration-200">Read more</button>)}
                 </div>
               ))}
             </div>
-            <button onClick={goNext} className="shrink-0 self-center w-8 h-8 rounded-full bg-white border border-black/[0.08] flex items-center justify-center text-black/30 hover:text-[#00AEEF] hover:border-[#00AEEF]/30 transition-all duration-200 z-10 shadow-sm" aria-label="Next review"><ChevronRight /></button>
+            <button onClick={goNext} className="shrink-0 self-center w-8 h-8 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00D4FF] hover:border-[#00D4FF]/30 transition-all duration-200 z-10" aria-label="Next review"><ChevronRight /></button>
           </div>
-          <p className="hidden sm:block text-right text-black/20 text-xs sm:text-sm mt-4 pr-1">Showing our latest reviews</p>
+          <p className="hidden sm:block text-right text-white/15 text-xs sm:text-sm mt-4 pr-1">Showing our latest reviews</p>
 
           {/* Mobile */}
           <div className="sm:hidden flex flex-col items-center">
             <div className="flex flex-col items-center gap-2 mb-8">
-              <p className="text-black font-bold text-lg tracking-wide">EXCELLENT</p>
+              <p className="text-white font-bold text-lg tracking-wide">EXCELLENT</p>
               <div className="flex gap-1">{[...Array(5)].map((_, i) => (<StarIcon key={i} className="w-6 h-6 text-[#FFC107]" />))}</div>
-              <p className="text-black/40 text-sm">Based on <span className="font-bold text-black/60">310</span> reviews</p>
+              <p className="text-white/30 text-sm">Based on <span className="font-bold text-white/50">310</span> reviews</p>
               <GoogleWordmark />
             </div>
             <div ref={scrollRef} className="w-full flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide scroll-smooth px-4" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
               {reviews.map((review, index) => (
-                <div key={index} data-review-card className="shrink-0 w-[85vw] snap-start rounded-xl bg-white border border-black/[0.06] p-4 flex flex-col transition-all duration-300 hover:shadow-lg hover:shadow-[#00AEEF]/5 shadow-sm" style={{ minHeight: '230px' }}>
+                <div key={index} data-review-card className="shrink-0 w-[85vw] snap-start rounded-xl review-card flex flex-col" style={{ minHeight: '230px' }}>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-[11px] font-bold text-white shrink-0" style={{ backgroundColor: review.color }}>{review.initials}</div>
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-[11px] font-bold text-white shrink-0" style={{ backgroundColor: `${review.color}20`, border: `1px solid ${review.color}30` }}>{review.initials}</div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-black text-sm font-bold truncate">{review.name}</p>
-                      <p className="text-black/30 text-xs">{review.date}</p>
+                      <p className="text-white text-sm font-bold truncate">{review.name}</p>
+                      <p className="text-white/25 text-xs">{review.date}</p>
                     </div>
                     <GoogleGIcon className="w-4 h-4 shrink-0" />
                   </div>
                   <div className="flex items-center gap-0.5 mb-3">{[...Array(review.rating)].map((_, i) => (<StarIcon key={i} className="w-4 h-4 text-[#FFC107]" />))}<CheckBadge /></div>
-                  <p className="text-black/50 text-sm leading-normal flex-1">{'\u201C'}{review.text}{'\u201D'}</p>
-                  {review.readMore && (<button className="mt-2 text-black/25 hover:text-black/50 text-xs text-left transition-colors duration-200">Read more</button>)}
+                  <p className="text-white/45 text-sm leading-normal flex-1">{'\u201C'}{review.text}{'\u201D'}</p>
+                  {review.readMore && (<button className="mt-2 text-white/20 hover:text-white/40 text-xs text-left transition-colors duration-200">Read more</button>)}
                 </div>
               ))}
             </div>
             <div className="flex items-center gap-3 mt-2">
-              <button onClick={goPrev} className="w-7 h-7 rounded-full bg-white border border-black/[0.08] flex items-center justify-center text-black/30 hover:text-[#00AEEF] transition-all duration-200 shadow-sm" aria-label="Previous"><ChevronLeft /></button>
-              <div className="flex gap-2">{reviews.map((_, i) => (<button key={i} onClick={() => scrollTo(i)} className={`w-2 h-2 rounded-full transition-all duration-200 ${i === activeIndex ? 'bg-[#00AEEF] w-4' : 'bg-black/15'}`} aria-label={`Go to review ${i + 1}`} />))}</div>
-              <button onClick={goNext} className="w-7 h-7 rounded-full bg-white border border-black/[0.08] flex items-center justify-center text-black/30 hover:text-[#00AEEF] transition-all duration-200 shadow-sm" aria-label="Next"><ChevronRight /></button>
+              <button onClick={goPrev} className="w-7 h-7 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00D4FF] transition-all duration-200" aria-label="Previous"><ChevronLeft /></button>
+              <div className="flex gap-2">{reviews.map((_, i) => (<button key={i} onClick={() => scrollTo(i)} className={`w-2 h-2 rounded-full transition-all duration-200 ${i === activeIndex ? 'bg-[#00D4FF] w-4' : 'bg-white/15'}`} aria-label={`Go to review ${i + 1}`} />))}</div>
+              <button onClick={goNext} className="w-7 h-7 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00D4FF] transition-all duration-200" aria-label="Next"><ChevronRight /></button>
             </div>
-            <p className="text-black/20 text-sm mt-4">Showing our latest reviews</p>
+            <p className="text-white/15 text-sm mt-4">Showing our latest reviews</p>
           </div>
         </div>
       </div>

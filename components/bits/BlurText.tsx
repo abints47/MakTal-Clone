@@ -70,7 +70,7 @@ export default function BlurText({
           key={index}
           initial={defaultFrom}
           animate={inView ? buildKeyframes(defaultFrom, defaultTo) : defaultFrom}
-          transition={{ duration: totalDuration, times, delay: (index * delay) / 1000, ease: [0.16, 1, 0.3, 1] as any }}
+          transition={{ duration: totalDuration, times, delay: (index * delay) / 1000, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
         >
           {segment === ' ' ? '\u00A0' : segment}
           {animateBy === 'words' && index < elements.length - 1 && '\u00A0'}

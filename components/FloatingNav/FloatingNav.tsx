@@ -1,16 +1,15 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Menu, X, ChevronDown, MessageCircle } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 
 const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services', hasDropdown: true },
-  { label: 'Our Works', href: '#works' },
+  { label: 'Work', href: '#works' },
   { label: 'Blog', href: '#blog' },
-  { label: 'Careers', href: '#careers' },
-  { label: 'Contact Us', href: '#contact' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 const serviceLinks = [
@@ -35,101 +34,118 @@ export default function FloatingNav() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'py-3 bg-white/80 backdrop-blur-xl border-b border-black/6 shadow-sm'
+            ? 'py-3 bg-[#050505]/80 backdrop-blur-xl border-b border-white/7'
             : 'py-5 bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-[1600px] mx-auto px-[clamp(1rem,3vw,4.5rem)] flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-1 group">
-            <div className="relative">
-              <span className={`text-xl sm:text-2xl font-extrabold tracking-tight uppercase ${scrolled ? 'text-black' : 'text-white'}`}>
-                MAK<span className="text-[#00AEEF]">TAL</span>
-              </span>
-              <sup className={`text-[8px] sm:text-[10px] font-bold -top-1 relative ml-0.5 ${scrolled ? 'text-black/30' : 'text-white/50'}`}>®</sup>
-            </div>
+          <Link href="/" className="group flex items-center z-50 flex-shrink-0">
+            <span className="font-black tracking-[-0.05em] text-white group-hover:text-white/80 transition-colors duration-300 leading-none" style={{ fontSize: 'clamp(20px, 2.5vw, 30px)' }}>
+              MAK<span className="text-[#00D4FF]">TAL</span>
+              <span className="inline-block w-[2px] ml-[1px] bg-white/50 align-middle" style={{ height: '0.8em', borderRadius: '1px' }} />
+            </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) =>
-              link.label === 'Services' ? (
-                <div key={link.label} className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-                  <button className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-lg ${scrolled ? 'text-black/50 hover:text-black hover:bg-black/4' : 'text-white/70 hover:text-white hover:bg-white/8'}`}>
-                    <span>{link.label}</span>
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                  {servicesOpen && (
-                    <div className="absolute top-full mt-1 w-56 rounded-xl bg-white border border-black/8 shadow-xl shadow-black/8 py-2">
-                      {serviceLinks.map((sl) => (
-                        <a key={sl.label} href={sl.href} className="block px-4 py-2.5 text-sm text-black/50 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5 transition-colors">
-                          {sl.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <a key={link.label} href={link.href} className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg ${scrolled ? 'text-black/50 hover:text-black hover:bg-black/4' : 'text-white/70 hover:text-white hover:bg-white/8'}`}>
-                  {link.label}
-                </a>
-              )
-            )}
+          {/* Desktop Nav - Centered */}
+          <nav className="absolute left-1/2 z-40 hidden -translate-x-1/2 items-center md:flex">
+            <div className="flex items-center gap-0 rounded-full px-1 py-1 transition-all duration-500">
+              {navLinks.map((link) =>
+                link.hasDropdown ? (
+                  <div
+                    key={link.label}
+                    className="relative"
+                    onMouseEnter={() => setServicesOpen(true)}
+                    onMouseLeave={() => setServicesOpen(false)}
+                  >
+                    <button
+                      className="relative px-3.5 py-2 font-medium transition-colors duration-200 group whitespace-nowrap flex items-center gap-1.5 cursor-pointer"
+                      style={{ color: 'rgba(255,255,255,0.55)', fontSize: 'clamp(14px, 1.3vw, 18px)' }}
+                    >
+                      <span>{link.label}</span>
+                      <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
+                      <span className="absolute bottom-1 left-3 right-3 h-px bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-200" style={{ opacity: 0.4 }} />
+                    </button>
+                    {servicesOpen && (
+                      <div className="absolute top-full mt-1 w-56 rounded-2xl bg-[#0d0d0e] border border-white/8 shadow-2xl py-2">
+                        {serviceLinks.map((sl) => (
+                          <a key={sl.label} href={sl.href} className="block px-4 py-2.5 text-sm text-white/50 hover:text-[#00D4FF] hover:bg-[#00D4FF]/5 transition-colors">
+                            {sl.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="relative px-3.5 py-2 font-medium transition-colors duration-200 group whitespace-nowrap"
+                    style={{ color: 'rgba(255,255,255,0.55)', fontSize: 'clamp(14px, 1.3vw, 18px)' }}
+                  >
+                    {link.label}
+                    <span className="absolute bottom-1 left-3 right-3 h-px bg-white origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-200" style={{ opacity: 0.4 }} />
+                  </a>
+                )
+              )}
+            </div>
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3 z-50 flex-shrink-0">
+            <a
+              href="#contact"
+              className="group relative inline-flex items-center justify-center gap-2 rounded-full border px-7 py-2 text-[14.5px] font-extrabold tracking-[0.04em] backdrop-blur-md transition-all duration-300 border-white/20 bg-transparent text-white/90 hover:border-white/40 hover:bg-white/5"
+            >
+              <span>Contact</span>
+            </a>
             <a
               href="https://wa.me/917736101555"
               target="_blank"
               rel="noopener noreferrer"
-              className={`p-2.5 rounded-xl transition-all ${scrolled ? 'text-black/30 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5' : 'text-white/50 hover:text-white hover:bg-white/8'}`}
-              aria-label="WhatsApp"
+              className="group inline-flex items-center gap-2.5 pl-4.5 pr-2 py-2 rounded-full font-bold text-black btn-brand text-[13.5px] tracking-[-0.01em]"
             >
-              <MessageCircle className="w-5 h-5" />
-            </a>
-            <a
-              href="#contact"
-              className="btn-brand px-6 py-2.5 rounded-full text-sm font-semibold"
-            >
-              Call Now
+              <span>Free Audit</span>
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20 text-white group-hover:bg-white group-hover:text-black transition-all duration-300">
+                <ArrowUpRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </span>
             </a>
           </div>
 
           {/* Mobile Toggle */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <a href="#contact" className="btn-brand px-4 py-2 rounded-full text-xs font-semibold">
-              Call Now
-            </a>
+          <div className="md:hidden flex items-center z-50">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2 rounded-xl text-black/50 hover:text-black hover:bg-black/4 transition-all"
+              className="w-9 h-9 rounded-full flex items-center justify-center text-white cursor-pointer"
+              style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.1)' }}
               aria-label="Toggle Menu"
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-black/20 backdrop-blur-sm lg:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden transition-opacity duration-300 ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setMobileOpen(false)}
       />
+
+      {/* Mobile Menu Panel */}
       <aside
-        className={`fixed inset-y-0 right-0 w-75 bg-white border-l border-black/8 z-50 lg:hidden transform transition-transform duration-500 ease-out shadow-2xl ${
+        className={`fixed inset-y-0 right-0 w-72 bg-[#0a0a0b] border-l border-white/8 z-50 md:hidden transform transition-transform duration-500 ease-out ${
           mobileOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="p-6 flex flex-col h-full">
           <div className="flex items-center justify-between mb-10">
-            <span className="text-xl font-extrabold tracking-tight text-black uppercase">
-              MAKTA<span className="text-[#00AEEF]">L</span>
+            <span className="text-xl font-black tracking-[-0.05em] text-white">
+              MAK<span className="text-[#00D4FF]">TAL</span>
             </span>
-            <button onClick={() => setMobileOpen(false)} className="p-2 rounded-xl text-black/30 hover:text-black hover:bg-black/4 transition-all">
+            <button onClick={() => setMobileOpen(false)} className="p-2 rounded-xl text-white/30 hover:text-white hover:bg-white/5 transition-all">
               <X className="w-5 h-5" />
             </button>
           </div>
@@ -139,21 +155,21 @@ export default function FloatingNav() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-black/50 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5 font-medium py-3 px-4 rounded-xl transition-all text-sm"
+                className="text-white/50 hover:text-[#00D4FF] hover:bg-[#00D4FF]/5 font-medium py-3 px-4 rounded-xl transition-all text-sm"
               >
                 {link.label}
               </a>
             ))}
           </nav>
-          <div className="mt-auto pt-6 border-t border-black/6">
+          <div className="mt-auto pt-6 border-t border-white/8">
             <a
               href="https://wa.me/917736101555"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-[#25D366] hover:text-[#1da851] font-medium text-sm transition-colors"
             >
-              <MessageCircle className="w-4 h-4" />
               <span>WhatsApp Us</span>
+              <ArrowUpRight className="w-4 h-4" />
             </a>
           </div>
         </div>

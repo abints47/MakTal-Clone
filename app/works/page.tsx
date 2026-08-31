@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, ExternalLink, ImageIcon } from 'lucide-react';
+import { ExternalLink, ImageIcon } from 'lucide-react';
 import { projects } from './data';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import Footer from '@/components/Footer/Footer';
