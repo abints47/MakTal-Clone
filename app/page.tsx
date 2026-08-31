@@ -115,18 +115,7 @@ export default function Page() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,174,239,0.12),transparent_60%)]" />
         </div>
 
-        {/* Floating dots on video */}
-        <div className="absolute top-32 left-[15%] w-2 h-2 rounded-full bg-[#00AEEF] animate-float opacity-40 z-10" />
-        <div className="absolute top-48 right-[20%] w-3 h-3 rounded-full bg-[#00AEEF] animate-float opacity-30 z-10" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-40 left-[25%] w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-float opacity-50 z-10" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-60 left-[60%] w-2.5 h-2.5 rounded-full bg-[#00AEEF]/50 animate-float z-10" style={{ animationDelay: '3s' }} />
 
-        {/* Orbit rings on video */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 md:w-200 md:h-200 pointer-events-none z-10">
-          <div className="absolute inset-0 rounded-full border border-white/4 animate-spin-slow" />
-          <div className="absolute inset-12 rounded-full border border-[#00AEEF]/0.08 animate-spin-slow" style={{ animationDuration: '30s', animationDirection: 'reverse' }} />
-          <div className="absolute inset-24 rounded-full border border-white/0.03 animate-spin-slow" style={{ animationDuration: '25s' }} />
-        </div>
 
         {/* Content on video */}
         <div className="relative z-20 max-w-5xl mx-auto px-5 sm:px-6 text-center my-auto flex flex-col items-center justify-center">
@@ -135,8 +124,7 @@ export default function Page() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/5 text-[#00AEEF] text-xs font-medium tracking-widest uppercase mb-8 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-pulse" />
+            <span className="inline-block text-[#00AEEF] text-sm font-semibold tracking-widest uppercase mb-6">
               MAKTAL TECHNOLOGIES
             </span>
           </motion.div>
@@ -145,112 +133,46 @@ export default function Page() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[82px] font-bold text-white tracking-tight leading-[1.05] mb-6"
+            className="text-2xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight leading-[1.05] mb-8"
           >
-            We Build <br className="hidden sm:inline" />
-            <span className="text-[#00AEEF]">Digital Experiences</span>
+            Website Development & Digital
             <br className="hidden sm:inline" />
-            That Scale
+            Marketing
           </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-            className="text-white/50 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
-          >
-            From stunning websites to powerful digital marketing — we craft solutions that transform businesses and drive measurable growth.
-          </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a
               href="#contact"
-              className="btn-brand group px-8 py-3.5 rounded-full text-sm font-semibold flex items-center gap-2"
+              className="group inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#1a1a1a] border border-white/20 text-white font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#00AEEF]/40 hover:bg-[#222]"
             >
-              Get Started
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#works"
-              className="group px-8 py-3.5 rounded-full border border-white/20 bg-white/5 text-white/80 font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#00AEEF]/40 hover:text-white backdrop-blur-sm"
-            >
-              View Our Work
+              GET IN TOUCH
             </a>
           </motion.div>
-
-          {/* Tech stack pills */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
-            className="mt-16 sm:mt-20 flex flex-wrap justify-center gap-2 sm:gap-3"
-          >
-            {techStack.map((tech, i) => (
-              <motion.span
-                key={tech}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.2 + i * 0.08 }}
-                className="px-3 py-1.5 rounded-lg border border-white/8 bg-white/4 text-white/30 text-[11px] font-medium tracking-wide backdrop-blur-sm"
-              >
-                {tech}
-              </motion.span>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          className="relative z-20 pb-4 sm:pb-6"
-        >
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-white/20 text-[10px] tracking-widest uppercase">Scroll</span>
-            <div className="w-5 h-8 rounded-full border border-white/15 flex items-start justify-center pt-1.5">
-              <div className="w-1 h-2 rounded-full bg-[#00AEEF] animate-float" />
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* ═══ TRUSTED BY MARQUEE ═══ */}
-      <section className="relative w-full py-12 sm:py-16 overflow-hidden border-y border-black/6 bg-[#f8f9fb]">
-        <div className="absolute inset-0 bg-linear-to-r from-white via-transparent to-white z-10 pointer-events-none" />
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...Array(2)].map((_, setIdx) => (
-            <React.Fragment key={setIdx}>
-              {['Next.js', 'React', 'WordPress', 'Python', 'Node.js', 'TypeScript', 'Tailwind CSS', 'Shopify', 'WooCommerce', 'Google Ads', 'Meta Ads', 'SEO'].map((tech, i) => (
-                <span key={`${setIdx}-${i}`} className="inline-flex items-center gap-3 mx-8 text-black/15 text-sm font-medium tracking-wide">
-                  <Sparkles className="w-3 h-3 text-[#00AEEF]/40" />
-                  {tech}
-                </span>
-              ))}
-            </React.Fragment>
-          ))}
         </div>
       </section>
+
 
       {/* ═══ ABOUT SECTION ═══ */}
       <section id="about" className="relative w-full py-24 sm:py-32 lg:py-40">
         <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col items-center text-center">
           <ScrollReveal>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00AEEF]/15 bg-[#00AEEF]/5 text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#00AEEF]/5 text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-8">
               About Us
             </span>
           </ScrollReveal>
-          <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 mb-4">
-            <BlurText text="At" delay={80} animateBy="words" direction="bottom" threshold={0.2} stepDuration={0.4} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black leading-snug tracking-tight text-center" />
-            <BlurText text="MakTal Technologies," delay={80} animateBy="words" direction="bottom" threshold={0.2} stepDuration={0.4} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold gradient-text leading-snug tracking-tight text-center" />
-          </div>
-          <BlurText text="we craft digital experiences that inspire, connect, and drive meaningful growth." delay={80} animateBy="words" direction="bottom" threshold={0.2} stepDuration={0.4} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black/30 leading-snug tracking-tight text-center" />
+          <ScrollReveal>
+            <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 mb-4">
+              <BlurText text="At" delay={80} animateBy="words" direction="bottom" threshold={0.2} stepDuration={0.4} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black leading-snug tracking-tight text-center" />
+              <BlurText text="MakTal Technologies," delay={80} animateBy="words" direction="bottom" threshold={0.2} stepDuration={0.4} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold gradient-text leading-snug tracking-tight text-center" />
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={150}>
+            <BlurText text="we craft digital experiences that inspire, connect, and drive meaningful growth." delay={80} animateBy="words" direction="bottom" threshold={0.2} stepDuration={0.4} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black leading-snug tracking-tight text-center" />
+          </ScrollReveal>
 
           <ScrollReveal delay={200}>
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">

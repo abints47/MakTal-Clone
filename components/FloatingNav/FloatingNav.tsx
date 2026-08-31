@@ -6,10 +6,11 @@ import Link from 'next/link';
 
 const navLinks = [
   { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Works', href: '#works' },
+  { label: 'Services', href: '#services', hasDropdown: true },
+  { label: 'Our Works', href: '#works' },
   { label: 'Blog', href: '#blog' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Careers', href: '#careers' },
+  { label: 'Contact Us', href: '#contact' },
 ];
 
 const serviceLinks = [
@@ -42,10 +43,10 @@ export default function FloatingNav() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-1 group">
             <div className="relative">
-              <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-black uppercase">
-                MAKTA<span className="text-[#00AEEF]">L</span>
+              <span className={`text-xl sm:text-2xl font-extrabold tracking-tight uppercase ${scrolled ? 'text-black' : 'text-white'}`}>
+                MAK<span className="text-[#00AEEF]">TAL</span>
               </span>
-              <sup className="text-[8px] sm:text-[10px] font-bold text-black/30 -top-1 relative ml-0.5">®</sup>
+              <sup className={`text-[8px] sm:text-[10px] font-bold -top-1 relative ml-0.5 ${scrolled ? 'text-black/30' : 'text-white/50'}`}>®</sup>
             </div>
           </Link>
 
@@ -54,7 +55,7 @@ export default function FloatingNav() {
             {navLinks.map((link) =>
               link.label === 'Services' ? (
                 <div key={link.label} className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-                  <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-black/50 hover:text-black transition-colors rounded-lg hover:bg-black/[0.04]">
+                  <button className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-lg ${scrolled ? 'text-black/50 hover:text-black hover:bg-black/[0.04]' : 'text-white/70 hover:text-white hover:bg-white/[0.08]'}`}>
                     <span>{link.label}</span>
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
                   </button>
@@ -69,7 +70,7 @@ export default function FloatingNav() {
                   )}
                 </div>
               ) : (
-                <a key={link.label} href={link.href} className="px-4 py-2 text-sm font-medium text-black/50 hover:text-black transition-colors rounded-lg hover:bg-black/[0.04]">
+                <a key={link.label} href={link.href} className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg ${scrolled ? 'text-black/50 hover:text-black hover:bg-black/[0.04]' : 'text-white/70 hover:text-white hover:bg-white/[0.08]'}`}>
                   {link.label}
                 </a>
               )
@@ -82,23 +83,23 @@ export default function FloatingNav() {
               href="https://wa.me/917736101555"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl text-black/30 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5 transition-all"
+              className={`p-2.5 rounded-xl transition-all ${scrolled ? 'text-black/30 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5' : 'text-white/50 hover:text-white hover:bg-white/[0.08]'}`}
               aria-label="WhatsApp"
             >
               <MessageCircle className="w-5 h-5" />
             </a>
             <a
               href="#contact"
-              className="btn-brand px-5 py-2.5 rounded-full text-sm font-semibold"
+              className="btn-brand px-6 py-2.5 rounded-full text-sm font-semibold"
             >
-              Get Started
+              Call Now
             </a>
           </div>
 
           {/* Mobile Toggle */}
           <div className="flex items-center gap-2 lg:hidden">
             <a href="#contact" className="btn-brand px-4 py-2 rounded-full text-xs font-semibold">
-              Get Started
+              Call Now
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
