@@ -293,10 +293,10 @@ export default function Page() {
                     </div>
 
                     {/* Connector diamond */}
-                    <div 
+                    {/* <div 
                       className="hidden md:block absolute -bottom-2 w-3.5 h-3.5 rotate-45 border-2 bg-white transition-all duration-500" 
                       style={{ borderColor: item.color, boxShadow: `0 0 10px ${item.color}30` }} 
-                    />
+                    /> */}
                   </div>
                 </ScrollReveal>
               ))}
@@ -313,8 +313,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-14 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00AEEF]/15 bg-[#00AEEF]/5 text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-4 py-1.5  text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-6">
                 Our Work
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
@@ -384,7 +383,6 @@ export default function Page() {
       {/* ═══ BLOG ═══ */}
       <BlogSection />
 
-      {/* ═══ CTA SECTION ═══ */}
       <section className="relative w-full py-24 sm:py-32 lg:py-40 bg-[#f8f9fb]">
         <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
