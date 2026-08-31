@@ -40,9 +40,9 @@ const services = [
 ];
 
 const processSteps = [
-  { icon: Lightbulb, label: 'Strategy', desc: 'Deep dive into your goals, audience, and market to craft a winning strategy.', step: '01', color: '#00AEEF' },
-  { icon: Code2, label: 'Build', desc: 'Design and develop your solution with cutting-edge technology and pixel-perfect execution.', step: '02', color: '#0077B6' },
-  { icon: Rocket, label: 'Launch', desc: 'Deploy, optimize, and scale — we grow with you post-launch.', step: '03', color: '#00AEEF' },
+  { icon: Lightbulb, label: 'Strategy', desc: 'We start by understanding your business, target audience, and goals — then map out a clear roadmap before touching any code.', step: '01', color: '#00AEEF' },
+  { icon: Code2, label: 'Build', desc: 'Our team designs and develops your project using modern frameworks, with regular check-ins so nothing falls through the cracks.', step: '02', color: '#0077B6' },
+  { icon: Rocket, label: 'Launch', desc: 'We handle the deployment, run final testing, and stick around post-launch to make sure everything runs smoothly.', step: '03', color: '#00AEEF' },
 ];
 
 const features = [
@@ -160,7 +160,7 @@ export default function Page() {
       <section id="about" className="relative w-full py-24 sm:py-32 lg:py-40">
         <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col items-center text-center">
           <ScrollReveal>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#00AEEF]/5 text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5  text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-8">
               About Us
             </span>
           </ScrollReveal>
@@ -178,8 +178,8 @@ export default function Page() {
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
               {features.map((feature, i) => (
                 <div key={i} className="bg-[#f8f9fb] rounded-xl p-4 text-center border border-black/6 transition-all duration-300 hover:border-[#00AEEF]/20 hover:shadow-lg hover:shadow-[#00AEEF]/5 group">
-                  <feature.icon className="w-5 h-5 mx-auto mb-2 text-black/15 group-hover:text-[#00AEEF] transition-colors" />
-                  <span className="text-[11px] text-black/40 font-medium">{feature.title}</span>
+                  <feature.icon className="w-5 h-5 mx-auto mb-2 text-black/85 group-hover:text-[#00AEEF] transition-colors" />
+                  <span className="text-[11px] text-black/85 font-medium">{feature.title}</span>
                 </div>
               ))}
             </div>
@@ -194,15 +194,14 @@ export default function Page() {
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00AEEF]/15 bg-[#00AEEF]/5 text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-6">
                 What We Do
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
                 Services Built for{' '}
                 <span className="gradient-text">Growth</span>
               </h2>
-              <p className="mt-5 text-black/35 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+              <p className="mt-5 text-black/85 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
                 End-to-end digital solutions to take your business from idea to launch — and beyond.
               </p>
             </div>
@@ -248,45 +247,55 @@ export default function Page() {
 
       {/* ═══ PROCESS SECTION ═══ */}
       <section className="relative w-full py-24 sm:py-32">
-        <div className="absolute inset-0 bg-linear-to-b from-white via-[#00AEEF]/2 to-white pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-white via-[#f8f9fb] to-white pointer-events-none" />
         <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0077B6]/15 bg-[#0077B6]/5 text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#0077B6] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#0077B6] text-xs font-medium tracking-widest uppercase mb-6">
                 Our Process
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
                 How We <span className="gradient-text">Deliver</span>
               </h2>
+              <p className="mt-5 text-black/40 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+                From initial consultation to final deployment — a hands-on approach that keeps you involved at every stage.
+              </p>
             </div>
           </ScrollReveal>
 
           <div className="relative">
-            <div className="hidden md:block absolute top-1/2 left-[16%] right-[16%] h-px -translate-y-1/2">
-              <div className="w-full h-full bg-linear-to-r from-[#00AEEF]/20 via-[#0077B6]/15 to-[#00AEEF]/20" />
+            {/* Connecting line */}
+            <div className="hidden md:block absolute top-18 left-[20%] right-[20%] h-px">
+              <div className="w-full h-full bg-linear-to-r from-[#00AEEF]/25 via-[#0077B6]/20 to-[#00AEEF]/25" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-stretch">
               {processSteps.map((item, i) => (
                 <ScrollReveal key={i} delay={i * 200}>
-                  <div className="group relative flex flex-col items-center text-center">
-                    <div className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-white border border-black/8 flex flex-col items-center justify-center space-y-3 transition-all duration-500 group-hover:border-[#00AEEF]/20 group-hover:shadow-xl group-hover:shadow-[#00AEEF]/5 mb-6">
-                      <div className="absolute top-3 left-3 text-[10px] font-mono text-black/10 group-hover:text-[#00AEEF]/30 transition-colors">
-                        {item.step}
+                  <div className="group relative flex flex-col items-center text-center h-full">
+                    {/* Step card */}
+                    <div className="relative w-full h-full flex flex-col bg-white rounded-2xl p-8 border border-black/6 shadow-sm transition-all duration-500 group-hover:border-[#00AEEF]/20 group-hover:shadow-xl group-hover:shadow-[#00AEEF]/5 mb-6">
+                      
+                      {/* Icon */}
+                      <div className="w-14 h-14 rounded-xl bg-[#00AEEF]/10 border border-[#00AEEF]/15 flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:bg-[#00AEEF]/15 group-hover:scale-110 shrink-0">
+                        <item.icon className="w-6 h-6 text-[#00AEEF]" />
                       </div>
-                      <div
-                        className="p-3 rounded-xl transition-all duration-500"
-                        style={{ backgroundColor: `${item.color}10` }}
-                      >
-                        <item.icon className="w-7 h-7" style={{ color: item.color }} />
-                      </div>
-                      <span className="text-black text-sm font-semibold tracking-wide">{item.label}</span>
+
+                      {/* Label */}
+                      <h3 className="text-lg font-bold text-black tracking-tight mb-2">
+                        {item.label}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-black/40 text-sm leading-relaxed mt-auto">
+                        {item.desc}
+                      </p>
                     </div>
-                    <p className="text-black/35 text-sm leading-relaxed max-w-xs">{item.desc}</p>
-                    <div
-                      className="hidden md:block absolute bottom-0 w-3 h-3 rounded-full border-2 bg-white transition-all duration-500"
-                      style={{ borderColor: item.color, boxShadow: `0 0 10px ${item.color}30` }}
+
+                    {/* Connector diamond */}
+                    <div 
+                      className="hidden md:block absolute -bottom-2 w-3.5 h-3.5 rotate-45 border-2 bg-white transition-all duration-500" 
+                      style={{ borderColor: item.color, boxShadow: `0 0 10px ${item.color}30` }} 
                     />
                   </div>
                 </ScrollReveal>
@@ -297,7 +306,7 @@ export default function Page() {
       </section>
 
       {/* ═══ STATS ═══ */}
-      <StatsCounter />
+       {/* <StatsCounter /> */ }
 
       {/* ═══ WORKS SECTION ═══ */}
       <section id="works" className="relative w-full py-24 sm:py-32 lg:py-40">

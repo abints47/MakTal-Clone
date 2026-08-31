@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           <div className="space-y-5">
             <div className="flex items-center gap-1">
-              <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-black uppercase">MAKTA<span className="text-[#00AEEF]">L</span></span>
+              <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-black uppercase">MAK<span className="text-[#00AEEF]">TAL</span></span>
               <sup className="text-[10px] font-bold text-black/20 -top-1 relative">®</sup>
             </div>
             <p className="text-sm leading-relaxed text-black/40">MakTal Technologies is a registered website development and digital marketing company providing top notch services at reasonable prices.</p>
