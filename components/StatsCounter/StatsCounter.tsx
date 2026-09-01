@@ -43,33 +43,32 @@ function useInView(threshold = 0.3) {
   return { ref, isVisible };
 }
 
-function StatCard({ value, suffix, label, desc, index }: { value: number; suffix: string; label: string; desc: string; index: number }) {
+function StatItem({ value, suffix, label, desc, index, isLast }: { value: number; suffix: string; label: string; desc: string; index: number; isLast: boolean }) {
   const { ref, isVisible } = useInView(0.3);
   const count = useCountUp(value, isVisible);
 
   return (
-    <div 
-      ref={ref} 
-      className="group relative flex flex-col justify-between p-6 sm:p-8 rounded-2xl border border-black/[0.08] bg-[#f8f9fb] shadow-[0_4px_20px_-4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_30px_-6px_rgba(0,0,0,0.06)] hover:border-black/[0.15] transition-all duration-300 overflow-hidden"
+    <div
+      ref={ref}
+      className={`group relative flex-1 min-w-0 px-6 sm:px-8 lg:px-10 py-8 text-center ${!isLast ? 'lg:border-r border-black/[0.08]' : ''}`}
     >
-      {/* Top subtle corner gradient accent on hover */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-indigo-500/5 to-cyan-500/0 rounded-bl-full pointer-events-none transition-opacity duration-300 group-hover:opacity-100 opacity-0" />
+      {/* Top accent line on hover */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-[#00AEEF] rounded-full group-hover:w-12 transition-all duration-500" />
 
-      <div>
-        <div className="flex items-baseline gap-1 mb-4">
-          <span className="text-4xl sm:text-5xl font-extrabold text-black tracking-tight tabular-nums">
-            {count}
-          </span>
-          <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-cyan-500 bg-clip-text text-transparent">
-            {suffix}
-          </span>
-        </div>
-        <h3 className="text-base font-semibold text-black mb-1.5 tracking-tight">
-          {label}
-        </h3>
+      <div className="flex items-baseline justify-center gap-0.5 mb-3">
+        <span className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-black tracking-tight tabular-nums leading-none">
+          {count}
+        </span>
+        <span className="text-2xl sm:text-3xl font-bold text-[#00AEEF] leading-none">
+          {suffix}
+        </span>
       </div>
-      
-      <p className="text-black/40 text-xs sm:text-sm leading-relaxed border-t border-black/[0.06] pt-4 mt-4">
+
+      <h3 className="text-sm sm:text-base font-semibold text-black tracking-tight mb-2">
+        {label}
+      </h3>
+
+      <p className="text-black/35 text-xs sm:text-sm leading-relaxed max-w-[200px] mx-auto">
         {desc}
       </p>
     </div>
@@ -85,33 +84,40 @@ export default function StatsCounter() {
       <div className="relative max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Header */}
         <ScrollReveal>
-          <div className="text-center mb-12 sm:mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 bg-[#f8f9fb] text-black/60 text-xs font-mono tracking-[0.22em] uppercase mb-6 shadow-sm">
+          <div className="text-center mb-14 sm:mb-18">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF]" />
               Performance Metrics
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
               Results That{' '}
-              <span className="italic text-black/40">Speak</span>{' '}
+              <span className="italic text-[#00AEEF]">Speak</span>{' '}
               For Themselves
             </h2>
           </div>
         </ScrollReveal>
 
-        {/* Stat Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-          {stats.map((stat, i) => (
-            <ScrollReveal key={i} delay={i * 80}>
-              <StatCard
-                value={stat.value}
-                suffix={stat.suffix}
-                label={stat.label}
-                desc={stat.desc}
-                index={i}
-              />
-            </ScrollReveal>
-          ))}
-        </div>
+        {/* Horizontal Stats Strip */}
+        <ScrollReveal delay={100}>
+          <div className="relative bg-[#f8f9fb] rounded-2xl border border-black/[0.06] overflow-hidden">
+            {/* Subtle top border accent */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#00AEEF]/20 to-transparent" />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-black/[0.06]">
+              {stats.map((stat, i) => (
+                <StatItem
+                  key={i}
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  label={stat.label}
+                  desc={stat.desc}
+                  index={i}
+                  isLast={i === stats.length - 1}
+                />
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

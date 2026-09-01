@@ -25,6 +25,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-manrope);
+  --font-serif: var(--font-playfair);
 }
 
 html {
@@ -243,6 +244,44 @@ body {
   z-index: 9998;
   opacity: 0.015;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ─── Script Word Effects ─── */
+.script-word {
+  display: inline-block;
+  position: relative;
+  cursor: default;
+  color: #00AEEF;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              text-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              letter-spacing 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.script-word::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  transform: translateX(-50%);
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.5;
+}
+
+.script-word:hover {
+  color: #0077b6;
+  transform: scale(1.06) translateY(-2px);
+  text-shadow: 0 0 24px rgba(0, 119, 182, 0.2),
+               0 0 48px rgba(0, 119, 182, 0.1);
+  letter-spacing: 0.04em;
+}
+
+.script-word:hover::after {
+  width: 80%;
+  opacity: 0.4;
 }
 
 /* ─── Brand Button ─── */

@@ -1,30 +1,84 @@
 'use client';
 
-import React, { useRef, useEffect, useMemo } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* ─── Authentic brand statement (non-marketing fluff) ─── */
+/* ═══════════════════════════════════════════
+   GSAP Popup / Upscale on hover
+   ═══════════════════════════════════════════ */
+
+function LogoHover({ src, alt }: { src: string; alt: string }) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    const img = imgRef.current;
+    if (!wrapper || !img) return;
+
+    const onEnter = () => {
+      gsap.to(img, {
+        scale: 1.08,
+        duration: 0.5,
+        ease: 'elastic.out(1, 0.4)',
+      });
+    };
+
+    const onLeave = () => {
+      gsap.to(img, {
+        scale: 1,
+        duration: 0.4,
+        ease: 'power2.out',
+      });
+    };
+
+    wrapper.addEventListener('mouseenter', onEnter);
+    wrapper.addEventListener('mouseleave', onLeave);
+
+    return () => {
+      wrapper.removeEventListener('mouseenter', onEnter);
+      wrapper.removeEventListener('mouseleave', onLeave);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={wrapperRef}
+      className="w-56 h-56 sm:w-72 sm:h-72 lg:w-120 lg:h-100 overflow-hidden cursor-pointer"
+    >
+      <img
+        ref={imgRef}
+        src={src}
+        alt={alt}
+        className="w-full h-full object-cover border-0 outline-none ring-0 will-change-transform"
+        draggable={false}
+      />
+    </div>
+  );
+}
+
+/* ─── Brand statement with mixed typography ─── */
 const statement = [
-  { text: 'ENGINEERING', highlight: false },
-  { text: 'DIGITAL', highlight: true },
-  { text: 'PRODUCTS', highlight: false },
-  { text: 'THAT', highlight: false },
-  { text: 'SCALE', highlight: true },
-  { text: 'WITHOUT', highlight: false },
-  { text: 'COMPROMISE.', highlight: false },
-  { text: 'BUILT', highlight: true },
-  { text: 'FOR', highlight: true },
-  { text: 'PERFORMANCE,', highlight: true },
-  { text: 'SECURITY,', highlight: true },
-  { text: 'AND', highlight: false },
-  { text: 'LONGEVITY.', highlight: false },
+  { text: 'ENGINEERING', style: 'bold' as const },
+  { text: 'DIGITAL', style: 'script' as const },
+  { text: 'PRODUCTS', style: 'bold' as const },
+  { text: 'THAT', style: 'bold' as const },
+  { text: 'SCALE', style: 'script' as const },
+  { text: 'WITHOUT', style: 'bold' as const },
+  { text: 'COMPROMISE.', style: 'bold' as const },
+  { text: 'BUILT', style: 'bold' as const },
+  { text: 'FOR', style: 'bold' as const },
+  { text: 'PERFORMANCE,', style: 'script' as const },
+  { text: 'SECURITY,', style: 'bold' as const },
+  { text: 'AND', style: 'bold' as const },
+  { text: 'LONGEVITY.', style: 'script' as const },
 ];
 
-/* ─── Word-by-word text container with GSAP scroll reveal ─── */
+
 function AnimatedWords() {
   const containerRef = useRef<HTMLHeadingElement>(null);
 
@@ -50,6 +104,8 @@ function AnimatedWords() {
 
     /* ── Word elements ── */
     const wordElements = el.querySelectorAll<HTMLElement>('.philosophy-word');
+    const scriptWords = el.querySelectorAll<HTMLElement>('.philosophy-word.script-word');
+    const boldWords = el.querySelectorAll<HTMLElement>('.philosophy-word:not(.script-word)');
 
     /* ── Opacity: fades in from low to full ── */
     gsap.fromTo(
@@ -58,7 +114,7 @@ function AnimatedWords() {
       {
         ease: 'none',
         opacity: 1,
-        stagger: 0.05,
+        stagger: 0.06,
         scrollTrigger: {
           trigger: el,
           start: 'top bottom-=20%',
@@ -75,10 +131,44 @@ function AnimatedWords() {
       {
         ease: 'none',
         filter: 'blur(0px)',
-        stagger: 0.05,
+        stagger: 0.06,
         scrollTrigger: {
           trigger: el,
           start: 'top bottom-=20%',
+          end: 'bottom bottom',
+          scrub: true,
+        },
+      },
+    );
+
+    /* ── Script words: subtle Y translate reveal (drops in from below) ── */
+    gsap.fromTo(
+      scriptWords,
+      { y: 18, willChange: 'transform' },
+      {
+        ease: 'none',
+        y: 0,
+        stagger: 0.08,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top bottom-=15%',
+          end: 'bottom bottom',
+          scrub: true,
+        },
+      },
+    );
+
+    /* ── Script words: subtle scale-up on scroll (0.92 → 1) ── */
+    gsap.fromTo(
+      scriptWords,
+      { scale: 0.92, willChange: 'transform' },
+      {
+        ease: 'none',
+        scale: 1,
+        stagger: 0.08,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top bottom-=15%',
           end: 'bottom bottom',
           scrub: true,
         },
@@ -93,17 +183,32 @@ function AnimatedWords() {
   return (
     <h2
       ref={containerRef}
-      className="text-[clamp(1.2rem,3vw,2.2rem)] sm:text-[clamp(1.4rem,3vw,2.6rem)] md:text-[clamp(1.6rem,3vw,3rem)] lg:text-[clamp(1.8rem,3vw,3.4rem)] leading-[1.6] font-semibold font-sans tracking-tight max-w-5xl mx-auto text-center my-5"
+      className="text-[clamp(1.4rem,3.5vw,2.6rem)] sm:text-[clamp(1.6rem,3.5vw,3rem)] md:text-[clamp(1.8rem,3.5vw,3.4rem)] lg:text-[clamp(2rem,3.5vw,3.8rem)] leading-[1.7] font-semibold font-sans tracking-tight max-w-5xl mx-auto text-center my-5"
     >
-      {statement.map((word, i) => (
-        <span
-          key={i}
-          className={`inline-block philosophy-word ${word.highlight ? 'text-[#00AEEF]' : 'text-slate-800'}`}
-          style={{ marginRight: '0.3em' }}
-        >
-          {word.text}
-        </span>
-      ))}
+      {statement.map((word, i) => {
+        const isScript = word.style === 'script';
+
+        return (
+          <span
+            key={i}
+            className={`inline-block philosophy-word ${
+              isScript
+                ? 'italic script-word'
+                : 'text-slate-800 font-bold'
+            }`}
+            style={{
+              marginRight: '0.3em',
+              fontFamily: isScript
+                ? 'var(--font-playfair), Georgia, serif'
+                : 'inherit',
+              fontWeight: isScript ? 400 : undefined,
+              letterSpacing: isScript ? '0.02em' : undefined,
+            }}
+          >
+            {word.text}
+          </span>
+        );
+      })}
     </h2>
   );
 }
@@ -138,15 +243,8 @@ export default function BrandShowcase() {
               className="mb-2 sm:mb-4"
             >
               <div className="inline-flex flex-col items-center">
-                <motion.div
-                  style={{ filter: logoFilter }}
-                  className="w-56 h-56 sm:w-72 sm:h-72 lg:w-120 lg:h-100 overflow-hidden"
-                >
-                  <img
-                    src="/images/brand-logo.jpg"
-                    alt="MakTal Technologies"
-                    className="w-full h-full object-cover border-0 outline-none ring-0"
-                  />
+                <motion.div style={{ filter: logoFilter }}>
+                  <LogoHover src="/images/brand-logo.jpg" alt="MakTal Technologies" />
                 </motion.div>
               </div>
             </motion.div>
