@@ -16,6 +16,8 @@ import FloatingNav from '@/components/FloatingNav/FloatingNav';
 import BlurText from '@/components/bits/BlurText';
 import { ParallaxHero, ParallaxOrbs } from '@/components/ParallaxHero/ParallaxHero';
 
+import ProjectCard from '@/components/ProjectCard/ProjectCard';
+
 const services = [
   {
     icon: Globe,
@@ -54,10 +56,34 @@ const features = [
 ];
 
 const projects = [
-  { title: 'BlueTerra, UAE', desc: 'Boutique travel company website developed in Next.js and Python', image: 'https://maktalseo.com/wp-content/uploads/2025/10/blueterra-travel-website-development-work-1.avif', url: 'https://www.myblueterra.com/' },
-  { title: 'Drizzla, USA', desc: 'Outcome-as-a-Service partner website developed in React.js and Python', image: 'https://maktalseo.com/wp-content/uploads/2025/10/drizzla-react-js-website-development-1.avif', url: 'https://www.drizzla.com/' },
-  { title: 'Solo Flowers, UAE', desc: 'Flower delivery E-commerce website development in WordPress and WooCommerce.', image: 'https://maktalseo.com/wp-content/uploads/2025/10/solo-flowers-ecommerce-website-development.avif', url: 'https://www.soloflowers.ae' },
-  { title: 'World of Appliances, Bahrain', desc: 'WordPress based E-commerce website with Shipping and Payment options.', image: 'https://maktalseo.com/wp-content/uploads/2025/10/ecommerce-development-wordpress.avif', url: 'https://www.worldofappliancesbh.com/' },
+  { 
+    title: 'BlueTerra, UAE', 
+    desc: 'Boutique travel company website developed in Next.js and Python', 
+    image: 'https://maktalseo.com/wp-content/uploads/2025/10/blueterra-travel-website-development-work-1.avif', 
+    video: 'https://assets.mixkit.co/videos/46635/46635-720.mp4',
+    url: 'https://www.myblueterra.com/' 
+  },
+  { 
+    title: 'Drizzla, USA', 
+    desc: 'Outcome-as-a-Service partner website developed in React.js and Python', 
+    image: 'https://maktalseo.com/wp-content/uploads/2025/10/drizzla-react-js-website-development-1.avif', 
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-4174-large.mp4',
+    url: 'https://www.drizzla.com/' 
+  },
+  { 
+    title: 'Solo Flowers, UAE', 
+    desc: 'Flower delivery E-commerce website development in WordPress and WooCommerce.', 
+    image: 'https://maktalseo.com/wp-content/uploads/2025/10/solo-flowers-ecommerce-website-development.avif', 
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-pink-rose-blooming-4201-large.mp4',
+    url: 'https://www.soloflowers.ae' 
+  },
+  { 
+    title: 'World of Appliances, Bahrain', 
+    desc: 'WordPress based E-commerce website with Shipping and Payment options.', 
+    image: 'https://maktalseo.com/wp-content/uploads/2025/10/ecommerce-development-wordpress.avif', 
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-hands-typing-on-a-laptop-keyboard-4171-large.mp4',
+    url: 'https://www.worldofappliancesbh.com/' 
+  },
 ];
 
 const marqueeItems = ['Web Development', 'Digital Marketing', 'SEO Optimization', 'UI/UX Design', 'Brand Identity', 'E-Commerce', 'Next.js', 'WordPress'];
@@ -74,25 +100,28 @@ export default function Page() {
 
       {/* ═══ HERO SECTION ═══ (Cuberto-inspired) ═══ */}
       <ParallaxHero>
-        <div className="relative z-20 max-w-350 mx-auto pl-4 pr-5 sm:pl-6 sm:pr-8 lg:pl-2 lg:pr-12 w-full py-28 sm:py-36">
+        <div className="relative z-20 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full pt-32 pb-24 sm:pt-40 sm:pb-32 lg:pt-48 lg:pb-40 flex flex-col justify-center min-h-[80vh]">
           <div className="max-w-4xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-              <span className="inline-block text-white/30 text-[12px] font-medium tracking-wider uppercase mb-6">
+              <span className="inline-block text-white/40 text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase mb-4 sm:mb-6">
                 Digital design & development agency
               </span>
             </motion.div>
 
-            <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.3 }} className="text-[clamp(2rem,5vw,4.5rem)] font-bold text-white tracking-[-0.03em] leading-[1.05] mb-8">
+            <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.3 }} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-[-0.03em] leading-[1.1] sm:leading-[1.05] mb-6 sm:mb-8">
               We design and build digital products, brands and websites
             </motion.h1>
 
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }} className="text-white/35 text-[15px] sm:text-[16px] leading-relaxed max-w-lg mb-10">
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }} className="text-white/50 text-base sm:text-lg lg:text-xl leading-relaxed max-w-lg lg:max-w-2xl mb-8 sm:mb-10">
               For companies ready to move beyond the ordinary. Combining beautiful visuals with measurable business results.
             </motion.p>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.8 }}>
-              <a href="#contact" className="group inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-transparent text-white/60 hover:text-white hover:border-white/30 hover:bg-white/4 px-7 py-3 text-[13px] font-semibold tracking-wide transition-all duration-300">
-                Get in touch
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.8 }} className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+              <a href="#contact" className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-white text-black hover:bg-white/90 px-8 py-3.5 sm:py-4 text-sm sm:text-[15px] font-semibold tracking-wide transition-all duration-300">
+                Start a project
+              </a>
+              <a href="#works" className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-transparent text-white hover:text-white hover:border-white/40 hover:bg-white/5 px-8 py-3.5 sm:py-4 text-sm sm:text-[15px] font-medium tracking-wide transition-all duration-300">
+                Our Work
               </a>
             </motion.div>
           </div>
@@ -240,58 +269,49 @@ export default function Page() {
         </div>
       </div>
 
-      {/* ═══ WORKS SECTION ═══ */}
-      <section id="works" className="relative w-full py-24 sm:py-32  lg:py-40">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      {/* ═══ WORKS SECTION (Cuberto Style) ═══ */}
+      <section id="works" className="relative z-20 w-full py-24 sm:py-32 lg:py-48 bg-[#050505] rounded-t-[3rem] sm:rounded-t-[4rem] overflow-hidden -mt-12 sm:-mt-20">
+        
+        {/* Background Gradient Orbs */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#00AEEF]/10 blur-[150px] pointer-events-none rounded-full translate-x-1/4 -translate-y-1/4" />
+        <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-indigo-500/10 blur-[150px] pointer-events-none rounded-full -translate-x-1/3" />
+        <div className="absolute bottom-0 right-1/4 w-[700px] h-[700px] bg-[#00AEEF]/5 blur-[180px] pointer-events-none rounded-full translate-y-1/3" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="text-center mb-14 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
-                Our Work
+            <div className="text-center sm:text-left mb-16 sm:mb-24 lg:mb-32">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6 border border-[#00AEEF]/20 rounded-full">
+                Selected Works
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
-                Featured <span className="gradient-text">Projects</span>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight max-w-3xl">
+                Digital products that <span className="text-white/30 italic font-light">actually work.</span>
               </h2>
-              <p className="mt-4 text-white/30 text-sm sm:text-base max-w-lg mx-auto">
-                A selection of projects we&apos;ve delivered across industries.
-              </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 lg:gap-x-20 lg:gap-y-24 w-full">
             {projects.map((project, index) => (
-              <ScrollReveal key={index} delay={index * 100}>
-                <Link href={project.url} target="_blank" rel="noopener noreferrer" className="group project-card block">
-                  <div className="relative w-full h-52 sm:h-60 md:h-64 overflow-hidden">
-                    <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-[#050505]/60 z-10" />
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="project-image w-full h-full object-cover object-center transition-transform duration-700"
-                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                    />
-                  </div>
-                  <div className="p-5 sm:p-6 flex flex-col grow justify-between space-y-3">
-                    <div className="space-y-2">
-                      <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#00AEEF] transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-white/35 text-xs sm:text-sm leading-relaxed">{project.desc}</p>
-                    </div>
-                    <span className="inline-flex items-center space-x-2 text-white/30 hover:text-[#00AEEF] font-medium text-xs sm:text-sm transition-colors group/link">
-                      <span>Visit Website</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                    </span>
-                  </div>
-                </Link>
-              </ScrollReveal>
+              <div key={index} className={index % 2 !== 0 ? "md:mt-32" : ""}>
+                <ScrollReveal delay={(index % 2) * 100}>
+                  <ProjectCard
+                    title={project.title}
+                    desc={project.desc}
+                    image={project.image}
+                    video={project.video}
+                    url={project.url}
+                  />
+                </ScrollReveal>
+              </div>
             ))}
           </div>
 
           <ScrollReveal delay={200}>
-            <div className="flex justify-center mt-12">
-              <Link href="/works" transitionTypes={['slide-in']} className="group inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-white/10 bg-transparent text-white/50 font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#00AEEF]/30 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5">
-                View All Projects
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            <div className="flex justify-center sm:justify-start mt-8">
+              <Link href="/works" className="group inline-flex items-center justify-center gap-4 text-white hover:text-[#00AEEF] transition-colors duration-300">
+                <span className="text-lg font-medium tracking-wide">Explore All Cases</span>
+                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-[#00AEEF]/10 group-hover:border-[#00AEEF]/30">
+                  <ArrowRight className="w-5 h-5 text-white group-hover:text-[#00AEEF] group-hover:translate-x-1 transition-all duration-300" />
+                </div>
               </Link>
             </div>
           </ScrollReveal>

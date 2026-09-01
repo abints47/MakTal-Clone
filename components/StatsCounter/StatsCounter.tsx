@@ -7,7 +7,7 @@ const stats = [
   { value: 40, suffix: '+', label: 'Projects Delivered', desc: 'Enterprise apps & web platforms shipped globally.' },
   { value: 50, suffix: '+', label: 'Active Clients', desc: 'Long-term partnerships across 12 countries.' },
   { value: 11, suffix: 'yrs', label: 'Industry Expertise', desc: 'Continuous innovation since 2015.' },
-  { value: 99, suffix: '%', label: 'Client Retention', desc: 'Driven by rigorous quality and transparent communication.' },
+  { value: 89, suffix: '%', label: 'Client Retention', desc: 'Driven by rigorous quality and transparent communication.' },
 ];
 
 function useCountUp(target: number, isVisible: boolean, duration = 2000) {
@@ -29,7 +29,7 @@ function useCountUp(target: number, isVisible: boolean, duration = 2000) {
   return count;
 }
 
-function useInView(threshold = 0.3) {
+function useInView(threshold = 0.2) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
@@ -43,77 +43,78 @@ function useInView(threshold = 0.3) {
   return { ref, isVisible };
 }
 
-function StatItem({ value, suffix, label, desc }: { value: number; suffix: string; label: string; desc: string; index: number; isLast: boolean }) {
-  const { ref, isVisible } = useInView(0.3);
-  const count = useCountUp(value, isVisible);
+function StatItem({ value, suffix, label, desc }: { value: number; suffix: string; label: string; desc: string }) {
+  const { ref, isVisible } = useInView(0.2);
+  const count = useCountUp(value, isVisible, 1500);
 
   return (
     <div
       ref={ref}
-      className="group relative flex flex-col justify-between p-8 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#00AEEF]/40 transition-all duration-500 hover:bg-white hover:-translate-y-2 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-[#00AEEF]/10"
+      className="flex flex-col py-12 md:py-16 border-t border-slate-200 group"
     >
-      {/* Absolute glow effect on hover */}
-      <div className="absolute inset-0 rounded-2xl bg-linear-to-b from-[#00AEEF]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-      <div>
-        <div className="flex items-baseline gap-1 mb-4">
-          <span className="text-5xl sm:text-6xl font-black text-slate-900 tracking-tight tabular-nums leading-none transition-transform duration-300 group-hover:scale-105 inline-block origin-left">
-            {count}
-          </span>
-          <span className="text-2xl sm:text-3xl font-bold text-[#00AEEF] leading-none transition-transform duration-300 group-hover:scale-110 inline-block">
-            {suffix}
-          </span>
-        </div>
-
-        <h3 className="text-base font-semibold text-slate-800 tracking-tight mb-2 transition-colors duration-300 group-hover:text-[#00AEEF]">
-          {label}
-        </h3>
+      <div className="flex items-start gap-1 mb-8 overflow-hidden">
+        <span 
+          className="text-7xl sm:text-8xl lg:text-[10rem] font-light text-slate-900 tracking-tighter tabular-nums leading-none transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)]"
+          style={{ transform: isVisible ? 'translateY(0)' : 'translateY(100%)' }}
+        >
+          {count}
+        </span>
+        <span 
+          className="text-3xl sm:text-4xl lg:text-5xl font-light text-[var(--brand)] leading-none mt-2 lg:mt-6 transition-transform duration-[1.2s] delay-100 ease-[cubic-bezier(0.16,1,0.3,1)]"
+          style={{ transform: isVisible ? 'translateY(0)' : 'translateY(100%)' }}
+        >
+          {suffix}
+        </span>
       </div>
 
-      <p className="text-slate-500 text-xs sm:text-sm leading-relaxed border-t border-slate-200 pt-4 mt-2 transition-colors duration-300 group-hover:text-slate-700">
-        {desc}
-      </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 items-start">
+        <h3 className="text-xl sm:text-2xl font-medium text-slate-900 tracking-tight">
+          {label}
+        </h3>
+        <p className="text-slate-500 text-sm sm:text-base leading-relaxed max-w-xs">
+          {desc}
+        </p>
+      </div>
     </div>
   );
 }
 
 export default function StatsCounter() {
   return (
-    <section className="relative w-full py-24 sm:py-32 bg-white overflow-hidden">
-      {/* Background radial gradient glows with slow pulse animation */}
-      <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#00AEEF]/5 blur-[140px] pointer-events-none rounded-full animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[400px] h-[400px] bg-indigo-500/5 blur-[120px] pointer-events-none rounded-full animate-pulse" style={{ animationDuration: '4s' }} />
-
-      <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        {/* Header */}
-        <ScrollReveal>
-          <div className="max-w-2xl mx-auto text-center mb-16 sm:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-              Results That{' '}
-              <span className="bg-linear-to-r from-[#00AEEF] via-indigo-500 to-indigo-600 bg-clip-text text-transparent italic inline-block animate-pulse">
-                Speak
-              </span>{' '}
-              For Themselves
-            </h2>
+    <section className="w-full py-24 sm:py-32 lg:py-40 bg-white">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
+          
+          {/* Header Area */}
+          <div className="w-full lg:w-5/12 lg:sticky lg:top-32 h-fit">
+            <ScrollReveal>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-slate-900 tracking-tight leading-[1.05]">
+                Results <br className="hidden lg:block" />
+                that speak <br className="hidden lg:block" />
+                for themselves
+              </h2>
+              <p className="mt-8 text-slate-500 text-lg sm:text-xl leading-relaxed max-w-md">
+                Our track record is built on delivering high-impact digital solutions and fostering long-term partnerships with our clients globally.
+              </p>
+            </ScrollReveal>
           </div>
-        </ScrollReveal>
 
-        {/* Stats Grid Cards */}
-        <ScrollReveal delay={100}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map((stat, i) => (
-              <StatItem
-                key={i}
-                value={stat.value}
-                suffix={stat.suffix}
-                label={stat.label}
-                desc={stat.desc}
-                index={i}
-                isLast={i === stats.length - 1}
-              />
-            ))}
+          {/* Stats List */}
+          <div className="w-full lg:w-7/12">
+            <div className="flex flex-col border-b border-slate-200">
+              {stats.map((stat, i) => (
+                <StatItem
+                  key={i}
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  label={stat.label}
+                  desc={stat.desc}
+                />
+              ))}
+            </div>
           </div>
-        </ScrollReveal>
+
+        </div>
       </div>
     </section>
   );
