@@ -3,6 +3,7 @@
 import React from 'react';
 import { ArrowUp, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
+import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 
 const companyLinks = [
   { label: 'Home', href: '/' },
@@ -55,12 +56,15 @@ export default function Footer() {
           </div>
 
           {/* LET'S TALK */}
+          <ScrollReveal>
           <div className="pt-16 pb-10 md:pt-24 md:pb-14">
             <p className="text-[11px] font-mono text-black/75 uppercase tracking-[0.3em] mb-8">Have a project in mind?</p>
             <h2 className="font-black leading-[0.85] tracking-[-0.05em] select-none" style={{ fontSize: 'clamp(4.5rem, 13vw, 12rem)', color: 'rgba(0,0,0,0.18)', whiteSpace: 'nowrap' }}>LET&apos;S TALK</h2>
           </div>
+          </ScrollReveal>
 
           {/* Link grid */}
+          <ScrollReveal delay={80}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 pb-10" style={{ borderBottom: '1px solid rgba(0,0,0,0.09)' }}>
             <div>
               <p className="text-[10px] font-mono text-black/50 uppercase tracking-[0.3em] mb-4">Company</p>
@@ -96,8 +100,10 @@ export default function Footer() {
               </ul>
             </div>
           </div>
+          </ScrollReveal>
 
           {/* CTA row */}
+          <ScrollReveal delay={120}>
           <div className="flex flex-wrap items-center gap-3 py-8" style={{ borderBottom: '1px solid rgba(0,0,0,0.09)' }}>
             <a href="https://wa.me/917736101555" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full font-semibold text-[13px] text-white cursor-pointer" style={{ background: '#25D366' }}>
               <span>WhatsApp Us</span>
@@ -108,8 +114,10 @@ export default function Footer() {
             </a>
             <p className="text-[9px] font-mono text-black/60 ml-2 hidden md:block uppercase tracking-wider">Free strategy call · Reply in under 1 hr</p>
           </div>
+          </ScrollReveal>
 
           {/* Bottom row */}
+          <ScrollReveal delay={160}>
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-5 py-7">
             <div className="flex items-center gap-3 flex-wrap">
               <a href="#" className="flex h-11 w-11 items-center justify-center rounded-full text-black/70 transition-all hover:-translate-y-0.5 hover:text-black" style={{ border: '1px solid rgba(0,0,0,0.28)' }}>
@@ -127,6 +135,7 @@ export default function Footer() {
               <p className="text-[10px] font-mono text-black/65">Development by <Link className="text-black/90 font-semibold hover:text-black transition-colors" href="/">MakTal Technologies</Link></p>
             </div>
           </div>
+          </ScrollReveal>
         </div>
       </footer>
     </>

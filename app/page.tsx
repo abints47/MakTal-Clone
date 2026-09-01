@@ -14,6 +14,7 @@ import TeamSection from '@/components/TeamSection/TeamSection';
 import StatsCounter from '@/components/StatsCounter/StatsCounter';
 import FloatingNav from '@/components/FloatingNav/FloatingNav';
 import BlurText from '@/components/bits/BlurText';
+import { ParallaxHero, ParallaxOrbs } from '@/components/ParallaxHero/ParallaxHero';
 
 const services = [
   {
@@ -65,31 +66,14 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans relative overflow-x-hidden">
 
-      {/* ═══ SCATTERED GRADIENT ORBS ═══ */}
-      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div className="absolute top-[12%] left-[8%] w-[350px] h-[350px] rounded-full bg-[#00AEEF]/[0.22] blur-[120px]" />
-        <div className="absolute top-[45%] right-[6%] w-[380px] h-[380px] rounded-full bg-[#00AEEF]/[0.20] blur-[130px]" />
-        <div className="absolute top-[100%] left-[15%] w-[320px] h-[320px] rounded-full bg-[#00AEEF]/[0.18] blur-[110px]" />
-        <div className="absolute top-[130%] right-[10%] w-[360px] h-[360px] rounded-full bg-[#00AEEF]/[0.16] blur-[120px]" />
-        <div className="absolute top-[180%] left-[5%] w-[340px] h-[340px] rounded-full bg-[#00AEEF]/[0.14] blur-[115px]" />
-        <div className="absolute top-[230%] right-[8%] w-[300px] h-[300px] rounded-full bg-[#00AEEF]/[0.12] blur-[100px]" />
-      </div>
+      {/* ═══ SCATTERED GRADIENT ORBS (parallax) ═══ */}
+      <ParallaxOrbs />
 
       {/* ═══ FLOATING NAV ═══ */}
       <FloatingNav />
 
       {/* ═══ HERO SECTION ═══ (Cuberto-inspired) ═══ */}
-      <section className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center bg-[#0a0a0a]">
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <video autoPlay loop muted playsInline poster="/images/it.jpg" className="w-full h-full object-cover" style={{ filter: 'saturate(0.85) contrast(1.1) brightness(0.5)' }}>
-            <source src="https://assets.mixkit.co/videos/46635/46635-720.mp4" type="video/mp4" />
-          </video>
-          {/* Dark-to-light gradient: left side darker, right side brighter */}
-          <div className="absolute inset-0 bg-linear-to-r from-[#0a0a0a]/80 via-[#0a0a0a]/30 to-transparent" />
-          <div className="absolute inset-0 bg-[#0a0a0a]/10" />
-        </div>
-
+      <ParallaxHero>
         <div className="relative z-20 max-w-350 mx-auto pl-4 pr-5 sm:pl-6 sm:pr-8 lg:pl-2 lg:pr-12 w-full py-28 sm:py-36">
           <div className="max-w-4xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
@@ -121,7 +105,7 @@ export default function Page() {
           </div>
           <span className="text-[10px] tracking-[0.2em] text-white/15 uppercase">scroll</span>
         </div>
-      </section>
+      </ParallaxHero>
 
 
       {/* ═══ ABOUT SECTION ═══ */}
@@ -305,7 +289,7 @@ export default function Page() {
 
           <ScrollReveal delay={200}>
             <div className="flex justify-center mt-12">
-              <Link href="/works" className="group inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-white/10 bg-transparent text-white/50 font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#00AEEF]/30 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5">
+              <Link href="/works" transitionTypes={['slide-in']} className="group inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-white/10 bg-transparent text-white/50 font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#00AEEF]/30 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5">
                 View All Projects
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>

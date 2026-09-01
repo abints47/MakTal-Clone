@@ -1,5 +1,7 @@
 'use client';
 import { useRef, useState, useEffect, useCallback } from 'react';
+import { motion, useInView } from 'motion/react';
+import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 
 const reviews = [
   { name: 'David Wilson', initials: 'DW', date: '7 months ago', rating: 5, text: 'Highly reliable SEO & digital marketing company for Thrissur and Kerala businesses. MakTal Technologies offers professional services with a dedicated team that truly understands digital growth strategies.', readMore: true, color: '#00AEEF' },
@@ -28,6 +30,8 @@ function CheckBadge() { return (<svg className="w-4 h-4 text-blue-500 inline-blo
 
 export default function GoogleReviews() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const cardsInView = useInView(sectionRef, { once: true, amount: 0.2 });
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -74,13 +78,16 @@ export default function GoogleReviews() {
       <div className="glow-line" />
       <div className="py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <h2 className="text-center text-white font-bold sm:font-extrabold text-2xl sm:text-3xl lg:text-4xl leading-[1.2] mb-10">
-            Trusted by{' '}
-            <span className="gradient-text">Businesses Worldwide</span>
-          </h2>
+          <ScrollReveal>
+            <h2 className="text-center text-white font-bold sm:font-extrabold text-2xl sm:text-3xl lg:text-4xl leading-[1.2] mb-10">
+              Trusted by{' '}
+              <span className="gradient-text">Businesses Worldwide</span>
+            </h2>
+          </ScrollReveal>
 
           {/* Desktop */}
-          <div className="hidden sm:flex items-stretch gap-3 lg:gap-4">
+          <ScrollReveal delay={100}>
+          <div ref={sectionRef} className="hidden sm:flex items-stretch gap-3 lg:gap-4">
             <div className="shrink-0 w-40 lg:w-48 flex flex-col items-center justify-center text-center gap-2 sm:gap-3 py-3 sm:py-4">
               <p className="text-white font-bold text-lg lg:text-xl tracking-wide">EXCELLENT</p>
               <div className="flex gap-0.75">{[...Array(5)].map((_, i) => (<StarIcon key={i} className="w-7 h-7 lg:w-8 lg:h-8 text-[#FFC107]" />))}</div>
@@ -90,7 +97,15 @@ export default function GoogleReviews() {
             <button onClick={goPrev} className="shrink-0 self-center w-8 h-8 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00AEEF] hover:border-[#00AEEF]/30 transition-all duration-200 z-10" aria-label="Previous review"><ChevronLeft /></button>
             <div ref={scrollRef} className="flex-1 min-w-0 flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 scrollbar-hide scroll-smooth" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
               {reviews.map((review, index) => (
-                <div key={index} data-review-card className="shrink-0 w-60 lg:w-64 snap-start rounded-xl review-card flex flex-col" style={{ minHeight: '230px' }}>
+                <motion.div
+                  key={index}
+                  data-review-card
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  animate={cardsInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
+                  transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="shrink-0 w-60 lg:w-64 snap-start rounded-xl review-card flex flex-col"
+                  style={{ minHeight: '230px' }}
+                >
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center text-[11px] font-bold text-white shrink-0" style={{ backgroundColor: `${review.color}20`, border: `1px solid ${review.color}30` }}>{review.initials}</div>
                     <div className="flex-1 min-w-0">
@@ -102,14 +117,15 @@ export default function GoogleReviews() {
                   <div className="flex items-center gap-0.5 mb-3">{[...Array(review.rating)].map((_, i) => (<StarIcon key={i} className="w-4 h-4 text-[#FFC107]" />))}<CheckBadge /></div>
                   <p className="text-white/45 text-sm leading-normal flex-1">{'\u201C'}{review.text}{'\u201D'}</p>
                   {review.readMore && (<button className="mt-2 text-white/20 hover:text-white/40 text-xs text-left transition-colors duration-200">Read more</button>)}
-                </div>
+                </motion.div>
               ))}
             </div>
             <button onClick={goNext} className="shrink-0 self-center w-8 h-8 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00AEEF] hover:border-[#00AEEF]/30 transition-all duration-200 z-10" aria-label="Next review"><ChevronRight /></button>
-          </div>
-          <p className="hidden sm:block text-right text-white/15 text-xs sm:text-sm mt-4 pr-1">Showing our latest reviews</p>
+          </div>            <p className="hidden sm:block text-right text-white/15 text-xs sm:text-sm mt-4 pr-1">Showing our latest reviews</p>
+          </ScrollReveal>
 
           {/* Mobile */}
+          <ScrollReveal delay={100}>
           <div className="sm:hidden flex flex-col items-center">
             <div className="flex flex-col items-center gap-2 mb-8">
               <p className="text-white font-bold text-lg tracking-wide">EXCELLENT</p>
@@ -117,9 +133,17 @@ export default function GoogleReviews() {
               <p className="text-white/30 text-sm">Based on <span className="font-bold text-white/50">310</span> reviews</p>
               <GoogleWordmark />
             </div>
-            <div ref={scrollRef} className="w-full flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide scroll-smooth px-4" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
+            <div className="w-full flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide scroll-smooth px-4" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
               {reviews.map((review, index) => (
-                <div key={index} data-review-card className="shrink-0 w-[85vw] snap-start rounded-xl review-card flex flex-col" style={{ minHeight: '230px' }}>
+                <motion.div
+                  key={index}
+                  data-review-card
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  animate={cardsInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
+                  transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="shrink-0 w-[85vw] snap-start rounded-xl review-card flex flex-col"
+                  style={{ minHeight: '230px' }}
+                >
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center text-[11px] font-bold text-white shrink-0" style={{ backgroundColor: `${review.color}20`, border: `1px solid ${review.color}30` }}>{review.initials}</div>
                     <div className="flex-1 min-w-0">
@@ -131,7 +155,7 @@ export default function GoogleReviews() {
                   <div className="flex items-center gap-0.5 mb-3">{[...Array(review.rating)].map((_, i) => (<StarIcon key={i} className="w-4 h-4 text-[#FFC107]" />))}<CheckBadge /></div>
                   <p className="text-white/45 text-sm leading-normal flex-1">{'\u201C'}{review.text}{'\u201D'}</p>
                   {review.readMore && (<button className="mt-2 text-white/20 hover:text-white/40 text-xs text-left transition-colors duration-200">Read more</button>)}
-                </div>
+                </motion.div>
               ))}
             </div>
             <div className="flex items-center gap-3 mt-2">
@@ -141,6 +165,7 @@ export default function GoogleReviews() {
             </div>
             <p className="text-white/15 text-sm mt-4">Showing our latest reviews</p>
           </div>
+          </ScrollReveal>
         </div>
       </div>
       <style jsx>{`.scrollbar-hide::-webkit-scrollbar { display: none; } .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }`}</style>
