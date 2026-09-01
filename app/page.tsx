@@ -20,29 +20,29 @@ const services = [
     icon: Globe,
     title: 'Website Development',
     description: 'Custom-built, responsive websites using Next.js, React, and WordPress — designed to convert visitors into customers.',
-    color: '#4461F2',
+    color: '#00AEEF',
     tags: ['Next.js', 'React', 'WordPress'],
   },
   {
     icon: TrendingUp,
     title: 'Digital Marketing',
     description: 'Strategic campaigns across Google Ads, Meta, and social media to amplify your brand reach and drive qualified traffic.',
-    color: '#6C63FF',
+    color: '#00AEEF',
     tags: ['Google Ads', 'Meta', 'Social'],
   },
   {
     icon: BarChart3,
     title: 'SEO Optimization',
     description: 'Data-driven SEO strategies that boost your search rankings, increase organic traffic, and deliver long-term growth.',
-    color: '#4461F2',
+    color: '#00AEEF',
     tags: ['Technical SEO', 'Content', 'Analytics'],
   },
 ];
 
 const processSteps = [
-  { icon: Lightbulb, label: 'Strategy', desc: 'We start by understanding your business, target audience, and goals — then map out a clear roadmap before touching any code.', step: '01', color: '#4461F2' },
-  { icon: Code2, label: 'Build', desc: 'Our team designs and develops your project using modern frameworks, with regular check-ins so nothing falls through the cracks.', step: '02', color: '#6C63FF' },
-  { icon: Rocket, label: 'Launch', desc: 'We handle the deployment, run final testing, and stick around post-launch to make sure everything runs smoothly.', step: '03', color: '#4461F2' },
+  { icon: Lightbulb, label: 'Strategy', desc: 'We start by understanding your business, target audience, and goals — then map out a clear roadmap before touching any code.', step: '01', color: '#00AEEF' },
+  { icon: Code2, label: 'Build', desc: 'Our team designs and develops your project using modern frameworks, with regular check-ins so nothing falls through the cracks.', step: '02', color: '#00AEEF' },
+  { icon: Rocket, label: 'Launch', desc: 'We handle the deployment, run final testing, and stick around post-launch to make sure everything runs smoothly.', step: '03', color: '#00AEEF' },
 ];
 
 const features = [
@@ -118,7 +118,7 @@ export default function Page() {
       <section id="about" className="relative w-full py-24 sm:py-32 lg:py-40">
         <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col items-center text-center">
           <ScrollReveal>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#4461F2] text-xs font-mono tracking-[0.22em] uppercase mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-8">
               About Us
             </span>
           </ScrollReveal>
@@ -135,8 +135,8 @@ export default function Page() {
           <ScrollReveal delay={200}>
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
               {features.map((feature, i) => (
-                <div key={i} className="glass-card rounded-xl p-4 text-center transition-all duration-300 hover:border-[#4461F2]/15 hover:shadow-lg hover:shadow-[#4461F2]/5 group">
-                  <feature.icon className="w-5 h-5 mx-auto mb-2 text-white/50 group-hover:text-[#4461F2] transition-colors" />
+                <div key={i} className="glass-card rounded-xl p-4 text-center transition-all duration-300 hover:border-[#00AEEF]/15 hover:shadow-lg hover:shadow-[#00AEEF]/5 group">
+                  <feature.icon className="w-5 h-5 mx-auto mb-2 text-white/50 group-hover:text-[#00AEEF] transition-colors" />
                   <span className="text-[11px] text-white/60 font-medium">{feature.title}</span>
                 </div>
               ))}
@@ -147,12 +147,12 @@ export default function Page() {
 
       {/* ═══ SERVICES SECTION ═══ */}
       <section id="services" className="relative w-full py-24 sm:py-32 lg:py-40">
-        <div className="absolute top-0 right-0 w-125 h-125 bg-[#4461F2]/3 rounded-full blur-[200px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-125 h-125 bg-[#00AEEF]/3 rounded-full blur-[200px] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#4461F2] text-xs font-mono tracking-[0.22em] uppercase mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
                 What We Do
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
@@ -175,7 +175,7 @@ export default function Page() {
                       <service.icon className="w-6 h-6" style={{ color: service.color }} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight group-hover:text-[#4461F2] transition-colors duration-300">{service.title}</h3>
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight group-hover:text-[#00AEEF] transition-colors duration-300">{service.title}</h3>
                       <div className="mt-2 h-px w-6 transition-all duration-500 group-hover:w-10" style={{ background: `${service.color}40` }} />
                       <p className="mt-3 text-white/35 text-sm sm:text-[15px] leading-relaxed max-w-2xl group-hover:text-white/50 transition-colors duration-300">{service.description}</p>
                       <div className="flex flex-wrap gap-2 mt-4">
@@ -198,7 +198,7 @@ export default function Page() {
         <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-16 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#4461F2] text-xs font-mono tracking-[0.22em] uppercase mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
                 Our Process
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
@@ -217,7 +217,7 @@ export default function Page() {
               {processSteps.map((item, i) => (
                 <ScrollReveal key={i} delay={i * 200}>
                   <div className="group relative flex flex-col items-center text-center h-full">
-                    <div className="relative w-full h-full flex flex-col glass-card rounded-2xl p-8 transition-all duration-500 group-hover:border-white/12 group-hover:shadow-xl group-hover:shadow-[#4461F2]/3 mb-6">
+                    <div className="relative w-full h-full flex flex-col glass-card rounded-2xl p-8 transition-all duration-500 group-hover:border-white/12 group-hover:shadow-xl group-hover:shadow-[#00AEEF]/3 mb-6">
                       <span className="font-mono text-[10px] text-white/20 uppercase tracking-[0.3em] mb-4">{item.step}</span>
                       <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 shrink-0" style={{ background: `${item.color}12`, border: `1px solid ${item.color}20` }}>
                         <item.icon className="w-6 h-6" style={{ color: item.color }} />
@@ -248,7 +248,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-14 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#4461F2] text-xs font-mono tracking-[0.22em] uppercase mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
                 Our Work
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
@@ -275,12 +275,12 @@ export default function Page() {
                   </div>
                   <div className="p-5 sm:p-6 flex flex-col grow justify-between space-y-3">
                     <div className="space-y-2">
-                      <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#4461F2] transition-colors">
+                      <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#00AEEF] transition-colors">
                         {project.title}
                       </h3>
                       <p className="text-white/35 text-xs sm:text-sm leading-relaxed">{project.desc}</p>
                     </div>
-                    <span className="inline-flex items-center space-x-2 text-white/30 hover:text-[#4461F2] font-medium text-xs sm:text-sm transition-colors group/link">
+                    <span className="inline-flex items-center space-x-2 text-white/30 hover:text-[#00AEEF] font-medium text-xs sm:text-sm transition-colors group/link">
                       <span>Visit Website</span>
                       <ArrowUpRight className="w-3.5 h-3.5 transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                     </span>
@@ -292,7 +292,7 @@ export default function Page() {
 
           <ScrollReveal delay={200}>
             <div className="flex justify-center mt-12">
-              <Link href="/works" className="group inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-white/10 bg-transparent text-white/50 font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#4461F2]/30 hover:text-[#4461F2] hover:bg-[#4461F2]/5">
+              <Link href="/works" className="group inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-white/10 bg-transparent text-white/50 font-medium text-sm tracking-wide transition-all duration-300 hover:border-[#00AEEF]/30 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5">
                 View All Projects
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -313,7 +313,7 @@ export default function Page() {
           <ScrollReveal>
             <div className="relative rounded-3xl overflow-hidden">
               <div className="relative rounded-3xl glass-card p-10 sm:p-14 lg:p-20">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 bg-[#4461F2]/3 rounded-full blur-[100px] pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 bg-[#00AEEF]/3 rounded-full blur-[100px] pointer-events-none" />
 
                 <div className="relative">
                   <p className="text-white/30 text-2xl mb-6">&ldquo;</p>
@@ -324,8 +324,8 @@ export default function Page() {
                     We build custom websites and digital marketing solutions that grow your business and attract more customers. Let&apos;s create something extraordinary together.
                   </p>
                   <div className="flex items-center justify-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-[#4461F2]/15 border border-[#4461F2]/20 flex items-center justify-center">
-                      <span className="text-[#4461F2] text-xs font-bold">SK</span>
+                    <div className="w-10 h-10 rounded-full bg-[#00AEEF]/15 border border-[#00AEEF]/20 flex items-center justify-center">
+                      <span className="text-[#00AEEF] text-xs font-bold">SK</span>
                     </div>
                     <div className="text-left">
                       <p className="text-white/70 text-sm font-semibold">Sarah K.</p>
@@ -350,12 +350,12 @@ export default function Page() {
 
       {/* ═══ FREE AUDIT / CONTACT SECTION ═══ */}
       <section id="contact" className="relative w-full py-24 sm:py-32 lg:py-40">
-        <div className="absolute inset-0 bg-linear-to-b from-[#050505] via-[#4461F2]/2 to-[#050505] pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-[#050505] via-[#00AEEF]/2 to-[#050505] pointer-events-none" />
         <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-14 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#4461F2]/15 bg-[#4461F2]/5 text-[#4461F2] text-xs font-mono tracking-[0.22em] uppercase mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#4461F2] animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00AEEF]/15 bg-[#00AEEF]/5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-pulse" />
                 Free Audit
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
@@ -372,18 +372,18 @@ export default function Page() {
                 <div className="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
                   <h3 className="text-lg font-bold text-white">Contact Information</h3>
                   <div className="space-y-4">
-                    <a href="tel:+917736101555" className="flex items-center gap-3 text-white/50 hover:text-[#4461F2] transition-colors group">
-                      <div className="w-10 h-10 rounded-xl bg-[#4461F2]/8 border border-[#4461F2]/15 flex items-center justify-center group-hover:bg-[#4461F2]/12 transition-colors">
-                        <Phone className="w-4 h-4 text-[#4461F2]" />
+                    <a href="tel:+917736101555" className="flex items-center gap-3 text-white/50 hover:text-[#00AEEF] transition-colors group">
+                      <div className="w-10 h-10 rounded-xl bg-[#00AEEF]/8 border border-[#00AEEF]/15 flex items-center justify-center group-hover:bg-[#00AEEF]/12 transition-colors">
+                        <Phone className="w-4 h-4 text-[#00AEEF]" />
                       </div>
                       <div>
                         <p className="text-xs text-white/25 mb-0.5 font-mono uppercase tracking-wider">Phone</p>
                         <p className="text-sm font-medium text-white/70">+91 7736 101 555</p>
                       </div>
                     </a>
-                    <a href="mailto:info@maktal.com" className="flex items-center gap-3 text-white/50 hover:text-[#6C63FF] transition-colors group">
-                      <div className="w-10 h-10 rounded-xl bg-[#6C63FF]/8 border border-[#6C63FF]/15 flex items-center justify-center group-hover:bg-[#6C63FF]/12 transition-colors">
-                        <Globe className="w-4 h-4 text-[#6C63FF]" />
+                    <a href="mailto:info@maktal.com" className="flex items-center gap-3 text-white/50 hover:text-[#00AEEF] transition-colors group">
+                      <div className="w-10 h-10 rounded-xl bg-[#00AEEF]/8 border border-[#00AEEF]/15 flex items-center justify-center group-hover:bg-[#00AEEF]/12 transition-colors">
+                        <Globe className="w-4 h-4 text-[#00AEEF]" />
                       </div>
                       <div>
                         <p className="text-xs text-white/25 mb-0.5 font-mono uppercase tracking-wider">Email</p>
@@ -408,16 +408,16 @@ export default function Page() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs text-white/30 font-mono font-medium mb-2 uppercase tracking-wider">Name</label>
-                      <input type="text" placeholder="Your name" className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white text-sm placeholder:text-white/15 focus:outline-none focus:border-[#4461F2]/40 focus:bg-white/5 transition-all duration-300" />
+                      <input type="text" placeholder="Your name" className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white text-sm placeholder:text-white/15 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white/5 transition-all duration-300" />
                     </div>
                     <div>
                       <label className="block text-xs text-white/30 font-mono font-medium mb-2 uppercase tracking-wider">Email</label>
-                      <input type="email" placeholder="you@company.com" className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white text-sm placeholder:text-white/15 focus:outline-none focus:border-[#4461F2]/40 focus:bg-white/5 transition-all duration-300" />
+                      <input type="email" placeholder="you@company.com" className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white text-sm placeholder:text-white/15 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white/5 transition-all duration-300" />
                     </div>
                   </div>
                   <div>
                     <label className="block text-xs text-white/30 font-mono font-medium mb-2 uppercase tracking-wider">Service</label>
-                    <select className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white/50 text-sm focus:outline-none focus:border-[#4461F2]/40 focus:bg-white/5 transition-all duration-300 appearance-none">
+                    <select className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white/50 text-sm focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white/5 transition-all duration-300 appearance-none">
                       <option value="">Select a service</option>
                       <option value="web">Website Development</option>
                       <option value="marketing">Digital Marketing</option>
@@ -427,7 +427,7 @@ export default function Page() {
                   </div>
                   <div>
                     <label className="block text-xs text-white/30 font-mono font-medium mb-2 uppercase tracking-wider">Message</label>
-                    <textarea rows={4} placeholder="Tell us about your project..." className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white text-sm placeholder:text-white/15 focus:outline-none focus:border-[#4461F2]/40 focus:bg-white/5 transition-all duration-300 resize-none" />
+                    <textarea rows={4} placeholder="Tell us about your project..." className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white text-sm placeholder:text-white/15 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white/5 transition-all duration-300 resize-none" />
                   </div>
                   <button type="submit" className="w-full btn-brand py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
                     <span className="flex items-center gap-2">

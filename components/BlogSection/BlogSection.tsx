@@ -32,7 +32,7 @@ export default function BlogSection() {
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-14 sm:mb-20">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#4461F2] text-xs font-mono tracking-[0.22em] uppercase mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
               Blog
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
@@ -56,10 +56,10 @@ export default function BlogSection() {
                     className="project-image w-full h-full object-cover transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-[#050505]/60 via-transparent to-transparent" />
-                  <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[#4461F2] bg-[#4461F2]/10 border border-[#4461F2]/20 px-2.5 py-1 rounded-md backdrop-blur-sm">{post.tag}</span>
+                  <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[#00AEEF] bg-[#00AEEF]/10 border border-[#00AEEF]/20 px-2.5 py-1 rounded-md backdrop-blur-sm">{post.tag}</span>
                 </div>
                 <div className="p-5 sm:p-6">
-                  <h3 className="text-white text-base sm:text-lg font-semibold leading-[1.4] transition-colors duration-300 group-hover:text-[#4461F2]">
+                  <h3 className="text-white text-base sm:text-lg font-semibold leading-[1.4] transition-colors duration-300 group-hover:text-[#00AEEF]">
                     {post.title}
                   </h3>
                   <p className="mt-2 font-mono text-white/25 text-xs">{post.date}</p>
@@ -71,7 +71,7 @@ export default function BlogSection() {
 
         <ScrollReveal delay={200}>
           <div className="flex justify-center mt-10 sm:mt-14">
-            <a href="#blog" className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-white/10 bg-transparent text-white/50 text-sm font-medium tracking-wide transition-all duration-300 hover:border-[#4461F2]/30 hover:text-[#4461F2] hover:bg-[#4461F2]/5">
+            <a href="#blog" className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-white/10 bg-transparent text-white/50 text-sm font-medium tracking-wide transition-all duration-300 hover:border-[#00AEEF]/30 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5">
               View All Posts
             </a>
           </div>

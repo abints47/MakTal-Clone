@@ -10,13 +10,13 @@
   --text: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.5);
   --text-muted: rgba(255, 255, 255, 0.3);
-  --brand: #4461F2;
-  --brand-glow: rgba(68, 97, 242, 0.2);
-  --accent-2: #4461F2;
-  --accent-2-glow: rgba(68, 97, 242, 0.15);
-  --accent-3: #4461F2;
-  --gradient-brand: linear-gradient(135deg, #4461F2, #6C63FF);
-  --gradient-brand-text: linear-gradient(135deg, #4461F2, #6C63FF);
+  --brand: #00AEEF;
+  --brand-glow: rgba(0, 174, 239, 0.2);
+  --accent-2: #00AEEF;
+  --accent-2-glow: rgba(0, 174, 239, 0.15);
+  --accent-3: #00AEEF;
+  --gradient-brand: linear-gradient(135deg, #00AEEF, #00AEEF);
+  --gradient-brand-text: linear-gradient(135deg, #00AEEF, #00AEEF);
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.06);
 }
@@ -45,7 +45,7 @@ body {
 }
 
 ::selection {
-  background: rgba(68, 97, 242, 0.3);
+  background: rgba(0, 174, 239, 0.3);
   color: #ffffff;
 }
 
@@ -72,7 +72,7 @@ body {
 
 /* ─── Glow Effects ─── */
 .glow-brand {
-  box-shadow: 0 0 40px var(--brand-glow), 0 0 80px rgba(68, 97, 242, 0.08);
+  box-shadow: 0 0 40px var(--brand-glow), 0 0 80px rgba(0, 174, 239, 0.08);
 }
 
 .glow-line {
@@ -94,7 +94,7 @@ body {
   inset: 0;
   padding: 1px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(68, 97, 242, 0.4), rgba(108, 99, 255, 0.4));
+  background: linear-gradient(135deg, rgba(0, 174, 239, 0.4), rgba(0, 174, 239, 0.4));
   background-size: 300% 300%;
   animation: gradient-border-shift 6s ease infinite;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -247,16 +247,16 @@ body {
 
 /* ─── Brand Button ─── */
 .btn-brand {
-  background: #4461F2;
+  background: #00AEEF;
   color: #ffffff;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(68, 97, 242, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 174, 239, 0.15);
 }
 
 .btn-brand:hover {
-  background: #3751D4;
-  box-shadow: 0 6px 30px rgba(68, 97, 242, 0.25);
+  background: #0095D0;
+  box-shadow: 0 6px 30px rgba(0, 174, 239, 0.25);
   transform: translateY(-1px);
 }
 
@@ -301,7 +301,7 @@ body {
   left: 25%;
   right: 25%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(68, 97, 242, 0.3), rgba(108, 99, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0, 174, 239, 0.3), rgba(0, 174, 239, 0.3), transparent);
 }
 
 /* ─── Service card hover ─── */
@@ -316,8 +316,8 @@ body {
 
 .service-card:hover {
   background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(68, 97, 242, 0.15);
-  box-shadow: 0 0 40px rgba(68, 97, 242, 0.06);
+  border-color: rgba(0, 174, 239, 0.15);
+  box-shadow: 0 0 40px rgba(0, 174, 239, 0.06);
   transform: translateY(-4px);
 }
 
@@ -332,8 +332,8 @@ body {
 }
 
 .project-card:hover {
-  border-color: rgba(68, 97, 242, 0.15);
-  box-shadow: 0 8px 40px rgba(68, 97, 242, 0.08);
+  border-color: rgba(0, 174, 239, 0.15);
+  box-shadow: 0 8px 40px rgba(0, 174, 239, 0.08);
   transform: translateY(-4px);
 }
 
@@ -352,6 +352,6 @@ body {
 
 .review-card:hover {
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(68, 97, 242, 0.12);
-  box-shadow: 0 4px 20px rgba(68, 97, 242, 0.05);
+  border-color: rgba(0, 174, 239, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 174, 239, 0.05);
 }

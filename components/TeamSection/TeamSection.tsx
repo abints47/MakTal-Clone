@@ -17,7 +17,7 @@ export default function TeamSection() {
         {/* Header */}
         <div className="text-center mb-14 sm:mb-20">
           <ScrollReveal>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#4461F2] text-xs font-mono tracking-[0.22em] uppercase mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
               Our Team
             </span>
           </ScrollReveal>
@@ -69,7 +69,7 @@ export default function TeamSection() {
         {/* CTA */}
         <ScrollReveal delay={260}>
           <div className="mt-12 text-center">
-            <a href="#about" className="inline-flex items-center justify-center px-7 py-2.5 rounded-full border border-white/10 bg-transparent text-white/50 text-sm font-medium tracking-wide transition-all duration-300 hover:border-[#4461F2]/40 hover:text-[#4461F2] hover:bg-[#4461F2]/5">
+            <a href="#about" className="inline-flex items-center justify-center px-7 py-2.5 rounded-full border border-white/10 bg-transparent text-white/50 text-sm font-medium tracking-wide transition-all duration-300 hover:border-[#00AEEF]/40 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5">
               Learn More
             </a>
           </div>
