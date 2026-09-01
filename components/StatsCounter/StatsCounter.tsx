@@ -87,7 +87,7 @@ export default function StatsCounter() {
         <ScrollReveal>
           <div className="text-center mb-12 sm:mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 bg-[#f8f9fb] text-black/60 text-xs font-mono tracking-[0.22em] uppercase mb-6 shadow-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#4461F2]" />
               Performance Metrics
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">

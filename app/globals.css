@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #050505;
-  --bg-secondary: #0a0a0b;
-  --bg-card: #0d0d0e;
-  --bg-card-hover: #141415;
-  --border: rgba(255, 255, 255, 0.07);
-  --border-hover: rgba(255, 255, 255, 0.14);
+  --bg: #0a0a0a;
+  --bg-secondary: #111111;
+  --bg-card: #161616;
+  --bg-card-hover: #1c1c1c;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
   --text: #ffffff;
-  --text-secondary: #a0a0a0;
-  --text-muted: #666666;
-  --brand: #00D4FF;
-  --brand-glow: rgba(0, 212, 255, 0.25);
-  --accent-2: #7C3AED;
-  --accent-2-glow: rgba(124, 58, 237, 0.2);
-  --accent-3: #06B6D4;
-  --gradient-brand: linear-gradient(135deg, #00D4FF, #7C3AED);
-  --gradient-brand-text: linear-gradient(135deg, #00D4FF, #7C3AED);
+  --text-secondary: rgba(255, 255, 255, 0.5);
+  --text-muted: rgba(255, 255, 255, 0.3);
+  --brand: #4461F2;
+  --brand-glow: rgba(68, 97, 242, 0.2);
+  --accent-2: #4461F2;
+  --accent-2-glow: rgba(68, 97, 242, 0.15);
+  --accent-3: #4461F2;
+  --gradient-brand: linear-gradient(135deg, #4461F2, #6C63FF);
+  --gradient-brand-text: linear-gradient(135deg, #4461F2, #6C63FF);
   --glass-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.06);
 }
@@ -24,7 +24,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-manrope);
 }
 
 html {
@@ -35,7 +35,7 @@ html {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-inter), "Inter", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-manrope), "Manrope", system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
@@ -45,7 +45,7 @@ body {
 }
 
 ::selection {
-  background: rgba(0, 212, 255, 0.3);
+  background: rgba(68, 97, 242, 0.3);
   color: #ffffff;
 }
 
@@ -59,20 +59,20 @@ body {
 
 /* ─── Glass Card ─── */
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--border-hover);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* ─── Glow Effects ─── */
 .glow-brand {
-  box-shadow: 0 0 40px var(--brand-glow), 0 0 80px rgba(0, 212, 255, 0.08);
+  box-shadow: 0 0 40px var(--brand-glow), 0 0 80px rgba(68, 97, 242, 0.08);
 }
 
 .glow-line {
@@ -94,7 +94,7 @@ body {
   inset: 0;
   padding: 1px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(124, 58, 237, 0.4));
+  background: linear-gradient(135deg, rgba(68, 97, 242, 0.4), rgba(108, 99, 255, 0.4));
   background-size: 300% 300%;
   animation: gradient-border-shift 6s ease infinite;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -247,15 +247,16 @@ body {
 
 /* ─── Brand Button ─── */
 .btn-brand {
-  background: linear-gradient(135deg, #00D4FF, #7C3AED);
+  background: #4461F2;
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(68, 97, 242, 0.15);
 }
 
 .btn-brand:hover {
-  box-shadow: 0 6px 30px rgba(0, 212, 255, 0.4);
+  background: #3751D4;
+  box-shadow: 0 6px 30px rgba(68, 97, 242, 0.25);
   transform: translateY(-1px);
 }
 
@@ -300,7 +301,7 @@ body {
   left: 25%;
   right: 25%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), rgba(124, 58, 237, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(68, 97, 242, 0.3), rgba(108, 99, 255, 0.3), transparent);
 }
 
 /* ─── Service card hover ─── */
@@ -315,8 +316,8 @@ body {
 
 .service-card:hover {
   background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(0, 212, 255, 0.15);
-  box-shadow: 0 0 40px rgba(0, 212, 255, 0.06);
+  border-color: rgba(68, 97, 242, 0.15);
+  box-shadow: 0 0 40px rgba(68, 97, 242, 0.06);
   transform: translateY(-4px);
 }
 
@@ -331,8 +332,8 @@ body {
 }
 
 .project-card:hover {
-  border-color: rgba(0, 212, 255, 0.15);
-  box-shadow: 0 8px 40px rgba(0, 212, 255, 0.08);
+  border-color: rgba(68, 97, 242, 0.15);
+  box-shadow: 0 8px 40px rgba(68, 97, 242, 0.08);
   transform: translateY(-4px);
 }
 
@@ -351,6 +352,6 @@ body {
 
 .review-card:hover {
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(0, 212, 255, 0.12);
-  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.05);
+  border-color: rgba(68, 97, 242, 0.12);
+  box-shadow: 0 4px 20px rgba(68, 97, 242, 0.05);
 }

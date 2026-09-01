@@ -2,12 +2,12 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 
 const reviews = [
-  { name: 'David Wilson', initials: 'DW', date: '7 months ago', rating: 5, text: 'Highly reliable SEO & digital marketing company for Thrissur and Kerala businesses. MakTal Technologies offers professional services with a dedicated team that truly understands digital growth strategies.', readMore: true, color: '#00D4FF' },
-  { name: 'James Mitchell', initials: 'JM', date: '7 months ago', rating: 5, text: 'Highly Recommended!! One of the Best Digital Marketing Agency that you can trust. Much appreciated for the great support and outstanding results they delivered for our business.', readMore: false, color: '#7C3AED' },
-  { name: 'Sarah Thompson', initials: 'ST', date: '8 months ago', rating: 5, text: 'We hired MakTal for doing SEO for our business. Prompt communication and result oriented marketing plan. Their expertise in search optimization has significantly improved our online visibility.', readMore: true, color: '#06B6D4' },
-  { name: 'Emily Richardson', initials: 'ER', date: '9 months ago', rating: 5, text: 'Thank you for doing our ecommerce website. Appreciating the skills.', readMore: false, color: '#00D4FF' },
-  { name: 'Michael Carter', initials: 'MC', date: '10 months ago', rating: 5, text: 'Outstanding web development services. The team at MakTal Technologies delivered a stunning website that exceeded our expectations. Very professional and timely delivery.', readMore: false, color: '#7C3AED' },
-  { name: 'Jessica Brooks', initials: 'JB', date: '6 months ago', rating: 5, text: 'MakTal transformed our online presence completely. Their social media marketing strategies brought us real customers and measurable growth. Highly recommended for any business!', readMore: true, color: '#06B6D4' },
+  { name: 'David Wilson', initials: 'DW', date: '7 months ago', rating: 5, text: 'Highly reliable SEO & digital marketing company for Thrissur and Kerala businesses. MakTal Technologies offers professional services with a dedicated team that truly understands digital growth strategies.', readMore: true, color: '#4461F2' },
+  { name: 'James Mitchell', initials: 'JM', date: '7 months ago', rating: 5, text: 'Highly Recommended!! One of the Best Digital Marketing Agency that you can trust. Much appreciated for the great support and outstanding results they delivered for our business.', readMore: false, color: '#6C63FF' },
+  { name: 'Sarah Thompson', initials: 'ST', date: '8 months ago', rating: 5, text: 'We hired MakTal for doing SEO for our business. Prompt communication and result oriented marketing plan. Their expertise in search optimization has significantly improved our online visibility.', readMore: true, color: '#4461F2' },
+  { name: 'Emily Richardson', initials: 'ER', date: '9 months ago', rating: 5, text: 'Thank you for doing our ecommerce website. Appreciating the skills.', readMore: false, color: '#4461F2' },
+  { name: 'Michael Carter', initials: 'MC', date: '10 months ago', rating: 5, text: 'Outstanding web development services. The team at MakTal Technologies delivered a stunning website that exceeded our expectations. Very professional and timely delivery.', readMore: false, color: '#6C63FF' },
+  { name: 'Jessica Brooks', initials: 'JB', date: '6 months ago', rating: 5, text: 'MakTal transformed our online presence completely. Their social media marketing strategies brought us real customers and measurable growth. Highly recommended for any business!', readMore: true, color: '#4461F2' },
 ];
 
 function StarIcon({ className }: { className?: string }) {
@@ -87,7 +87,7 @@ export default function GoogleReviews() {
               <p className="text-white/30 text-xs lg:text-sm">Based on <span className="font-bold text-white/50">310</span> reviews</p>
               <GoogleWordmark />
             </div>
-            <button onClick={goPrev} className="shrink-0 self-center w-8 h-8 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00D4FF] hover:border-[#00D4FF]/30 transition-all duration-200 z-10" aria-label="Previous review"><ChevronLeft /></button>
+            <button onClick={goPrev} className="shrink-0 self-center w-8 h-8 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#4461F2] hover:border-[#4461F2]/30 transition-all duration-200 z-10" aria-label="Previous review"><ChevronLeft /></button>
             <div ref={scrollRef} className="flex-1 min-w-0 flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 scrollbar-hide scroll-smooth" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
               {reviews.map((review, index) => (
                 <div key={index} data-review-card className="shrink-0 w-60 lg:w-64 snap-start rounded-xl review-card flex flex-col" style={{ minHeight: '230px' }}>
@@ -105,7 +105,7 @@ export default function GoogleReviews() {
                 </div>
               ))}
             </div>
-            <button onClick={goNext} className="shrink-0 self-center w-8 h-8 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00D4FF] hover:border-[#00D4FF]/30 transition-all duration-200 z-10" aria-label="Next review"><ChevronRight /></button>
+            <button onClick={goNext} className="shrink-0 self-center w-8 h-8 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#4461F2] hover:border-[#4461F2]/30 transition-all duration-200 z-10" aria-label="Next review"><ChevronRight /></button>
           </div>
           <p className="hidden sm:block text-right text-white/15 text-xs sm:text-sm mt-4 pr-1">Showing our latest reviews</p>
 
@@ -135,9 +135,9 @@ export default function GoogleReviews() {
               ))}
             </div>
             <div className="flex items-center gap-3 mt-2">
-              <button onClick={goPrev} className="w-7 h-7 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00D4FF] transition-all duration-200" aria-label="Previous"><ChevronLeft /></button>
-              <div className="flex gap-2">{reviews.map((_, i) => (<button key={i} onClick={() => scrollTo(i)} className={`w-2 h-2 rounded-full transition-all duration-200 ${i === activeIndex ? 'bg-[#00D4FF] w-4' : 'bg-white/15'}`} aria-label={`Go to review ${i + 1}`} />))}</div>
-              <button onClick={goNext} className="w-7 h-7 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00D4FF] transition-all duration-200" aria-label="Next"><ChevronRight /></button>
+              <button onClick={goPrev} className="w-7 h-7 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#4461F2] transition-all duration-200" aria-label="Previous"><ChevronLeft /></button>
+              <div className="flex gap-2">{reviews.map((_, i) => (<button key={i} onClick={() => scrollTo(i)} className={`w-2 h-2 rounded-full transition-all duration-200 ${i === activeIndex ? 'bg-[#4461F2] w-4' : 'bg-white/15'}`} aria-label={`Go to review ${i + 1}`} />))}</div>
+              <button onClick={goNext} className="w-7 h-7 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#4461F2] transition-all duration-200" aria-label="Next"><ChevronRight /></button>
             </div>
             <p className="text-white/15 text-sm mt-4">Showing our latest reviews</p>
           </div>
