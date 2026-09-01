@@ -65,6 +65,35 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-[#050505] text-white font-sans relative overflow-x-hidden">
 
+      {/* ═══ SCATTERED GRADIENT ORBS ═══ */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        {/* Hero area */}
+        <div className="absolute top-[-5%] left-[8%] w-[350px] h-[350px] rounded-full bg-[#00AEEF]/[0.08] blur-[120px]" />
+        <div className="absolute top-[5%] right-[10%] w-[400px] h-[400px] rounded-full bg-[#00AEEF]/[0.06] blur-[150px]" />
+
+        {/* About section */}
+        <div className="absolute top-[15%] left-[12%] w-[320px] h-[320px] rounded-full bg-[#00AEEF]/[0.09] blur-[130px]" />
+        <div className="absolute top-[25%] right-[12%] w-[300px] h-[300px] rounded-full bg-[#00AEEF]/[0.07] blur-[140px]" />
+
+        {/* Services section */}
+        <div className="absolute top-[40%] left-[5%] w-[380px] h-[380px] rounded-full bg-[#00AEEF]/[0.10] blur-[130px]" />
+        <div className="absolute top-[50%] right-[8%] w-[300px] h-[300px] rounded-full bg-[#00AEEF]/[0.08] blur-[150px]" />
+
+        {/* Process section */}
+        <div className="absolute top-[65%] left-[15%] w-[350px] h-[350px] rounded-full bg-[#00AEEF]/[0.07] blur-[140px]" />
+        <div className="absolute top-[75%] right-[10%] w-[360px] h-[360px] rounded-full bg-[#00AEEF]/[0.08] blur-[130px]" />
+
+        {/* Works / Team / Blog sections */}
+        <div className="absolute top-[100%] left-[10%] w-[320px] h-[320px] rounded-full bg-[#00AEEF]/[0.09] blur-[140px]" />
+        <div className="absolute top-[130%] right-[12%] w-[340px] h-[340px] rounded-full bg-[#00AEEF]/[0.08] blur-[150px]" />
+        <div className="absolute top-[160%] left-[8%] w-[360px] h-[360px] rounded-full bg-[#00AEEF]/[0.07] blur-[130px]" />
+
+        {/* Testimonial / Contact sections */}
+        <div className="absolute top-[190%] right-[8%] w-[320px] h-[320px] rounded-full bg-[#00AEEF]/[0.09] blur-[140px]" />
+        <div className="absolute top-[220%] left-[12%] w-[300px] h-[300px] rounded-full bg-[#00AEEF]/[0.08] blur-[150px]" />
+        <div className="absolute top-[250%] right-[10%] w-[340px] h-[340px] rounded-full bg-[#00AEEF]/[0.07] blur-[140px]" />
+      </div>
+
       {/* ═══ FLOATING NAV ═══ */}
       <FloatingNav />
 
@@ -97,7 +126,7 @@ export default function Page() {
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.8 }}>
-              <a href="#contact" className="group inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-transparent text-white/60 hover:text-white hover:border-white/30 hover:bg-white/[0.04] px-7 py-3 text-[13px] font-semibold tracking-wide transition-all duration-300">
+              <a href="#contact" className="group inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-transparent text-white/60 hover:text-white hover:border-white/30 hover:bg-white/4 px-7 py-3 text-[13px] font-semibold tracking-wide transition-all duration-300">
                 Get in touch
               </a>
             </motion.div>
@@ -238,7 +267,7 @@ export default function Page() {
       </section>
 
       {/* ═══ BRAND SHOWCASE + STATS ═══ */}
-      <div className="mt-20 sm:mt-28 bg-white rounded-[2.5rem] sm:rounded-[3.5rem]">
+      <div className="relative z-10 mt-20 sm:mt-28 bg-white rounded-[2.5rem] sm:rounded-[3.5rem]">
         <BrandShowcase />
         <StatsCounter />
       </div>
