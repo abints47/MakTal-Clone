@@ -67,31 +67,12 @@ export default function Page() {
 
       {/* ═══ SCATTERED GRADIENT ORBS ═══ */}
       <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        {/* Hero area */}
-        <div className="absolute top-[-5%] left-[8%] w-[350px] h-[350px] rounded-full bg-[#00AEEF]/[0.08] blur-[120px]" />
-        <div className="absolute top-[5%] right-[10%] w-[400px] h-[400px] rounded-full bg-[#00AEEF]/[0.06] blur-[150px]" />
-
-        {/* About section */}
-        <div className="absolute top-[15%] left-[12%] w-[320px] h-[320px] rounded-full bg-[#00AEEF]/[0.09] blur-[130px]" />
-        <div className="absolute top-[25%] right-[12%] w-[300px] h-[300px] rounded-full bg-[#00AEEF]/[0.07] blur-[140px]" />
-
-        {/* Services section */}
-        <div className="absolute top-[40%] left-[5%] w-[380px] h-[380px] rounded-full bg-[#00AEEF]/[0.10] blur-[130px]" />
-        <div className="absolute top-[50%] right-[8%] w-[300px] h-[300px] rounded-full bg-[#00AEEF]/[0.08] blur-[150px]" />
-
-        {/* Process section */}
-        <div className="absolute top-[65%] left-[15%] w-[350px] h-[350px] rounded-full bg-[#00AEEF]/[0.07] blur-[140px]" />
-        <div className="absolute top-[75%] right-[10%] w-[360px] h-[360px] rounded-full bg-[#00AEEF]/[0.08] blur-[130px]" />
-
-        {/* Works / Team / Blog sections */}
-        <div className="absolute top-[100%] left-[10%] w-[320px] h-[320px] rounded-full bg-[#00AEEF]/[0.09] blur-[140px]" />
-        <div className="absolute top-[130%] right-[12%] w-[340px] h-[340px] rounded-full bg-[#00AEEF]/[0.08] blur-[150px]" />
-        <div className="absolute top-[160%] left-[8%] w-[360px] h-[360px] rounded-full bg-[#00AEEF]/[0.07] blur-[130px]" />
-
-        {/* Testimonial / Contact sections */}
-        <div className="absolute top-[190%] right-[8%] w-[320px] h-[320px] rounded-full bg-[#00AEEF]/[0.09] blur-[140px]" />
-        <div className="absolute top-[220%] left-[12%] w-[300px] h-[300px] rounded-full bg-[#00AEEF]/[0.08] blur-[150px]" />
-        <div className="absolute top-[250%] right-[10%] w-[340px] h-[340px] rounded-full bg-[#00AEEF]/[0.07] blur-[140px]" />
+        <div className="absolute top-[12%] left-[8%] w-[350px] h-[350px] rounded-full bg-[#00AEEF]/[0.22] blur-[120px]" />
+        <div className="absolute top-[45%] right-[6%] w-[380px] h-[380px] rounded-full bg-[#00AEEF]/[0.20] blur-[130px]" />
+        <div className="absolute top-[100%] left-[15%] w-[320px] h-[320px] rounded-full bg-[#00AEEF]/[0.18] blur-[110px]" />
+        <div className="absolute top-[130%] right-[10%] w-[360px] h-[360px] rounded-full bg-[#00AEEF]/[0.16] blur-[120px]" />
+        <div className="absolute top-[180%] left-[5%] w-[340px] h-[340px] rounded-full bg-[#00AEEF]/[0.14] blur-[115px]" />
+        <div className="absolute top-[230%] right-[8%] w-[300px] h-[300px] rounded-full bg-[#00AEEF]/[0.12] blur-[100px]" />
       </div>
 
       {/* ═══ FLOATING NAV ═══ */}
@@ -222,54 +203,57 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ═══ PROCESS SECTION ═══ */}
-      <section className="relative w-full py-24 sm:py-32">
-        <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="text-center mb-16 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
-                Our Process
-              </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
-                How We <span className="gradient-text">Deliver</span>
-              </h2>
-              <p className="mt-5 text-white/35 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
-                From initial consultation to final deployment — a hands-on approach that keeps you involved at every stage.
-              </p>
-            </div>
-          </ScrollReveal>
+      {/* ═══ STICKY DARK SECTION + ROUNDED WHITE REVEAL ═══ */}
+      <div className="relative">
+        {/* Sticky dark background that stays pinned */}
+        <div className="sticky top-0 h-screen overflow-hidden pb-90">
+          <div className="relative h-full max-w-5xl mx-auto px-5 sm:px-6 lg:px-6 flex flex-col justify-center">
+            <ScrollReveal>
+              <div className="text-center mb-16 sm:mb-20">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
+                  Our Process
+                </span>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
+                  How We <span className="gradient-text">Deliver</span>
+                </h2>
+                <p className="mt-5 text-white/35 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+                  From initial consultation to final deployment — a hands-on approach that keeps you involved at every stage.
+                </p>
+              </div>
+            </ScrollReveal>
 
-          <div className="relative">
-            <div className="hidden md:block process-line" />
+            <div className="relative">
+              <div className="hidden md:block process-line" />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-stretch">
-              {processSteps.map((item, i) => (
-                <ScrollReveal key={i} delay={i * 200}>
-                  <div className="group relative flex flex-col items-center text-center h-full">
-                    <div className="relative w-full h-full flex flex-col glass-card rounded-2xl p-8 transition-all duration-500 group-hover:border-white/12 group-hover:shadow-xl group-hover:shadow-[#00AEEF]/3 mb-6">
-                      <span className="font-mono text-[10px] text-white/20 uppercase tracking-[0.3em] mb-4">{item.step}</span>
-                      <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 shrink-0" style={{ background: `${item.color}12`, border: `1px solid ${item.color}20` }}>
-                        <item.icon className="w-6 h-6" style={{ color: item.color }} />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-stretch">
+                {processSteps.map((item, i) => (
+                  <ScrollReveal key={i} delay={i * 200}>
+                    <div className="group relative flex flex-col items-center text-center h-full">
+                      <div className="relative w-full h-full flex flex-col glass-card rounded-2xl p-8 transition-all duration-500 group-hover:border-white/12 group-hover:shadow-xl group-hover:shadow-[#00AEEF]/3 mb-6">
+                        <span className="font-mono text-[10px] text-white/20 uppercase tracking-[0.3em] mb-4">{item.step}</span>
+                        <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 shrink-0" style={{ background: `${item.color}12`, border: `1px solid ${item.color}20` }}>
+                          <item.icon className="w-6 h-6" style={{ color: item.color }} />
+                        </div>
+                        <h3 className="text-lg font-bold text-white tracking-tight mb-2">
+                          {item.label}
+                        </h3>
+                        <p className="text-white/35 text-sm leading-relaxed mt-auto">
+                          {item.desc}
+                        </p>
                       </div>
-                      <h3 className="text-lg font-bold text-white tracking-tight mb-2">
-                        {item.label}
-                      </h3>
-                      <p className="text-white/35 text-sm leading-relaxed mt-auto">
-                        {item.desc}
-                      </p>
                     </div>
-                  </div>
-                </ScrollReveal>
-              ))}
+                  </ScrollReveal>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* ═══ BRAND SHOWCASE + STATS ═══ */}
-      <div className="relative z-10 mt-20 sm:mt-28 bg-white rounded-[2.5rem] sm:rounded-[3.5rem]">
-        <BrandShowcase />
-        <StatsCounter />
+        {/* White section with rounded corners that slides up over the dark */}
+        <div className="relative z-10 -mt-40 bg-white rounded-t-[3rem] sm:rounded-t-[4rem]">
+          <BrandShowcase />
+          <StatsCounter />
+        </div>
       </div>
 
       {/* ═══ WORKS SECTION ═══ */}

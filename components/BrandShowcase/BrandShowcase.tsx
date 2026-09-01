@@ -91,13 +91,13 @@ export default function BrandShowcase() {
   const cardOpacity = useTransform(scrollYProgress, [0, 0.15], [0.8, 1]);
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white">
+    <section ref={sectionRef} className="relative w-full bg-white rounded-[4.5rem] overflow-hidden">
       <motion.div
         style={{ opacity: cardOpacity }}
         className="relative overflow-hidden"
       >
         {/* Top visual asset area with no borders */}
-        <div className="relative pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10">
+        <div className="relative pt-10 sm:pt-10 lg:pt- pb-10 sm:pb-0">
           <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
             <motion.div
               style={{ scale: logoScale, opacity: logoOpacity }}
@@ -106,7 +106,7 @@ export default function BrandShowcase() {
               <div className="inline-flex flex-col items-center">
                 <motion.div
                   style={{ filter: logoFilter }}
-                  className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 overflow-hidden"
+                  className="w-56 h-56 sm:w-72 sm:h-72 lg:w-120 lg:h-100 overflow-hidden"
                 >
                   <img
                     src="/images/brand-logo.jpg"
@@ -120,8 +120,8 @@ export default function BrandShowcase() {
         </div>
 
         {/* Bottom statement section */}
-        <div className="relative bg-white pt-10 sm:pt-14 pb-20 sm:pb-28 lg:pt-16 lg:pb-36">
-          <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
+        <div className="relative bg-white pt-5 sm:pt-14 pb-20 sm:pb-28 lg:pt-1 lg:pb-36">
+          <div className="relative max-w-8xl mx-auto px-5 sm:px-6 lg:px-8">
             <div className="text-center mb-8">
               <span className="text-xs font-semibold tracking-widest text-slate-400 uppercase">
                 Core Philosophy
