@@ -110,19 +110,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ═══ MARQUEE STRIP ═══ */}
-      <div className="marquee-strip py-4 relative overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 z-10 w-24 pointer-events-none" style={{ background: 'linear-gradient(to right, #0a0a0b, transparent)' }} />
-        <div className="absolute right-0 top-0 bottom-0 z-10 w-24 pointer-events-none" style={{ background: 'linear-gradient(to left, #0a0a0b, transparent)' }} />
-        <div className="marquee-content">
-          {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className="inline-flex items-center shrink-0">
-              <a className="flex-shrink-0 font-mono text-[11px] uppercase tracking-[0.28em] text-white/40 transition-colors duration-200 hover:text-white" href="#services">{item}</a>
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-white/20 mx-6 align-middle flex-shrink-0" style={{ marginTop: '-2px' }} />
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* ═══ ABOUT SECTION ═══ */}
       <section id="about" className="relative w-full py-24 sm:py-32 lg:py-40">

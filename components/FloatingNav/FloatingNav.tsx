@@ -34,8 +34,8 @@ export default function FloatingNav() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'py-3 bg-[#050505]/80 backdrop-blur-xl border-b border-white/7'
-            : 'py-5 bg-transparent'
+            ? 'py-3 bg-[#050505]'
+            : 'py-5 bg-[#050505]'
         }`}
       >
         <div className="max-w-[1600px] mx-auto px-[clamp(1rem,3vw,4.5rem)] flex items-center justify-between">
@@ -92,23 +92,12 @@ export default function FloatingNav() {
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3 z-50 flex-shrink-0">
+          <div className="hidden md:flex items-center gap-3 z-50 shrink-0 bg-[#00D4FF]/80 hover:bg-[#00D4FF]/50 rounded-4xl">
             <a
               href="#contact"
               className="group relative inline-flex items-center justify-center gap-2 rounded-full border px-7 py-2 text-[14.5px] font-extrabold tracking-[0.04em] backdrop-blur-md transition-all duration-300 border-white/20 bg-transparent text-white/90 hover:border-white/40 hover:bg-white/5"
             >
-              <span>Contact</span>
-            </a>
-            <a
-              href="https://wa.me/917736101555"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2.5 pl-4.5 pr-2 py-2 rounded-full font-bold text-black btn-brand text-[13.5px] tracking-[-0.01em]"
-            >
-              <span>Free Audit</span>
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20 text-white group-hover:bg-white group-hover:text-black transition-all duration-300">
-                <ArrowUpRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </span>
+              <span className="text-white">Call Now</span>
             </a>
           </div>
 
