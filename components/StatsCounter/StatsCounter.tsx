@@ -43,32 +43,34 @@ function useInView(threshold = 0.3) {
   return { ref, isVisible };
 }
 
-function StatItem({ value, suffix, label, desc, index, isLast }: { value: number; suffix: string; label: string; desc: string; index: number; isLast: boolean }) {
+function StatItem({ value, suffix, label, desc }: { value: number; suffix: string; label: string; desc: string; index: number; isLast: boolean }) {
   const { ref, isVisible } = useInView(0.3);
   const count = useCountUp(value, isVisible);
 
   return (
     <div
       ref={ref}
-      className={`group relative flex-1 min-w-0 px-6 sm:px-8 lg:px-10 py-8 text-center ${!isLast ? 'lg:border-r border-black/[0.08]' : ''}`}
+      className="group relative flex flex-col justify-between p-8 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#00AEEF]/40 transition-all duration-500 hover:bg-white hover:-translate-y-2 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-[#00AEEF]/10"
     >
-      {/* Top accent line on hover */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-[#00AEEF] rounded-full group-hover:w-12 transition-all duration-500" />
+      {/* Absolute glow effect on hover */}
+      <div className="absolute inset-0 rounded-2xl bg-linear-to-b from-[#00AEEF]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-      <div className="flex items-baseline justify-center gap-0.5 mb-3">
-        <span className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-black tracking-tight tabular-nums leading-none">
-          {count}
-        </span>
-        <span className="text-2xl sm:text-3xl font-bold text-[#00AEEF] leading-none">
-          {suffix}
-        </span>
+      <div>
+        <div className="flex items-baseline gap-1 mb-4">
+          <span className="text-5xl sm:text-6xl font-black text-slate-900 tracking-tight tabular-nums leading-none transition-transform duration-300 group-hover:scale-105 inline-block origin-left">
+            {count}
+          </span>
+          <span className="text-2xl sm:text-3xl font-bold text-[#00AEEF] leading-none transition-transform duration-300 group-hover:scale-110 inline-block">
+            {suffix}
+          </span>
+        </div>
+
+        <h3 className="text-base font-semibold text-slate-800 tracking-tight mb-2 transition-colors duration-300 group-hover:text-[#00AEEF]">
+          {label}
+        </h3>
       </div>
 
-      <h3 className="text-sm sm:text-base font-semibold text-black tracking-tight mb-2">
-        {label}
-      </h3>
-
-      <p className="text-black/35 text-xs sm:text-sm leading-relaxed max-w-[200px] mx-auto">
+      <p className="text-slate-500 text-xs sm:text-sm leading-relaxed border-t border-slate-200 pt-4 mt-2 transition-colors duration-300 group-hover:text-slate-700">
         {desc}
       </p>
     </div>
@@ -77,45 +79,39 @@ function StatItem({ value, suffix, label, desc, index, isLast }: { value: number
 
 export default function StatsCounter() {
   return (
-    <section className="relative w-full py-16 sm:py-20 overflow-hidden">
-      {/* Ambient background glow elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-indigo-500/5 blur-[120px] pointer-events-none rounded-full" />
+    <section className="relative w-full py-24 sm:py-32 bg-white overflow-hidden">
+      {/* Background radial gradient glows with slow pulse animation */}
+      <div className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#00AEEF]/5 blur-[140px] pointer-events-none rounded-full animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[400px] h-[400px] bg-indigo-500/5 blur-[120px] pointer-events-none rounded-full animate-pulse" style={{ animationDuration: '4s' }} />
 
-      <div className="relative max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Header */}
         <ScrollReveal>
-          <div className="text-center mb-14 sm:mb-18">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF]" />
-              Performance Metrics
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight">
+          <div className="max-w-2xl mx-auto text-center mb-16 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
               Results That{' '}
-              <span className="italic text-[#00AEEF]">Speak</span>{' '}
+              <span className="bg-linear-to-r from-[#00AEEF] via-indigo-500 to-indigo-600 bg-clip-text text-transparent italic inline-block animate-pulse">
+                Speak
+              </span>{' '}
               For Themselves
             </h2>
           </div>
         </ScrollReveal>
 
-        {/* Horizontal Stats Strip */}
+        {/* Stats Grid Cards */}
         <ScrollReveal delay={100}>
-          <div className="relative bg-[#f8f9fb] rounded-2xl border border-black/[0.06] overflow-hidden">
-            {/* Subtle top border accent */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-[#00AEEF]/20 to-transparent" />
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-black/[0.06]">
-              {stats.map((stat, i) => (
-                <StatItem
-                  key={i}
-                  value={stat.value}
-                  suffix={stat.suffix}
-                  label={stat.label}
-                  desc={stat.desc}
-                  index={i}
-                  isLast={i === stats.length - 1}
-                />
-              ))}
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {stats.map((stat, i) => (
+              <StatItem
+                key={i}
+                value={stat.value}
+                suffix={stat.suffix}
+                label={stat.label}
+                desc={stat.desc}
+                index={i}
+                isLast={i === stats.length - 1}
+              />
+            ))}
           </div>
         </ScrollReveal>
       </div>

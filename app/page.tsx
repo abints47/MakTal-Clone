@@ -257,7 +257,7 @@ export default function Page() {
       </div>
 
       {/* ═══ WORKS SECTION ═══ */}
-      <section id="works" className="relative w-full py-24 sm:py-32 lg:py-40">
+      <section id="works" className="relative w-full py-24 sm:py-32  lg:py-40">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center mb-14 sm:mb-20">
