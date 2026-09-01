@@ -29,15 +29,13 @@ const blogPosts = [
 export default function BlogSection() {
   return (
     <section className="w-full py-20 sm:py-28 lg:py-36">
+      
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-14 sm:mb-20">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
-              Blog
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
-              Insights &{' '}
-              <span className="gradient-text">Resources</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl leading-13 font-bold text-white tracking-tight">
+              Recent Posts From{' '}<br/>
+              <span className="gradient-text">Our Blog</span>
             </h2>
             <p className="mt-4 text-white/30 text-sm sm:text-base max-w-xl mx-auto">
               Informative tech articles, tips, and news from our team.
