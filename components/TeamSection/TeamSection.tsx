@@ -46,7 +46,7 @@ export default function TeamSection() {
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative w-full py-20 sm:py-28 lg:py-36 overflow-hidden">
+    <div ref={sectionRef} className="relative w-full bg-white rounded-t-[2.5rem] sm:rounded-t-[3rem] overflow-hidden py-20 sm:py-28 lg:py-36">
       {/* Header */}
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-20">
@@ -56,12 +56,12 @@ export default function TeamSection() {
             </span>
           </ScrollReveal>
           <ScrollReveal delay={80}>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-snug max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight leading-snug max-w-3xl mx-auto">
               A team of <span className="gradient-text">passionate builders</span> creating digital experiences
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={140}>
-            <p className="mt-5 text-white/35 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-5 text-slate-500 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
               We have a well-educated team of designers, developers, and digital marketing experts who deliver high-quality work tailored to your needs.
             </p>
           </ScrollReveal>
@@ -78,7 +78,7 @@ export default function TeamSection() {
                 ref={(el) => { imgRefs.current[0] = el; }}
                 data-speed={cardLayouts[0].speed}
                 data-rotate={cardLayouts[0].rotate}
-                className="group relative rounded-2xl overflow-hidden border border-white/8 shadow-2xl shadow-black/30 will-change-transform transition-[box-shadow,border-color] duration-500 hover:shadow-[0_8px_40px_rgba(0,174,239,0.15)] hover:border-[#00AEEF]/20"
+                className="group relative rounded-2xl overflow-hidden border border-slate-900/10 shadow-2xl shadow-slate-900/15 will-change-transform transition-[box-shadow,border-color] duration-500 hover:shadow-[0_8px_40px_rgba(0,174,239,0.18)] hover:border-[#00AEEF]/30"
                 style={{ height: cardLayouts[0].h }}
               >
                 <img src={teamImages[0].src} alt={teamImages[0].alt} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" />
@@ -97,7 +97,7 @@ export default function TeamSection() {
                 ref={(el) => { imgRefs.current[1] = el; }}
                 data-speed={cardLayouts[1].speed}
                 data-rotate={cardLayouts[1].rotate}
-                className="group relative rounded-2xl overflow-hidden border border-white/8 shadow-2xl shadow-black/30 will-change-transform transition-[box-shadow,border-color] duration-500 hover:shadow-[0_8px_40px_rgba(0,174,239,0.15)] hover:border-[#00AEEF]/20"
+                className="group relative rounded-2xl overflow-hidden border border-slate-900/10 shadow-2xl shadow-slate-900/15 will-change-transform transition-[box-shadow,border-color] duration-500 hover:shadow-[0_8px_40px_rgba(0,174,239,0.18)] hover:border-[#00AEEF]/30"
                 style={{ height: cardLayouts[1].h }}
               >
                 <img src={teamImages[1].src} alt={teamImages[1].alt} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" />
@@ -121,7 +121,7 @@ export default function TeamSection() {
                 ref={(el) => { imgRefs.current[2] = el; }}
                 data-speed={cardLayouts[2].speed}
                 data-rotate={cardLayouts[2].rotate}
-                className="group relative rounded-2xl overflow-hidden border border-white/8 shadow-2xl shadow-black/30 will-change-transform transition-[box-shadow,border-color] duration-500 hover:shadow-[0_8px_40px_rgba(0,174,239,0.15)] hover:border-[#00AEEF]/20"
+                className="group relative rounded-2xl overflow-hidden border border-slate-900/10 shadow-2xl shadow-slate-900/15 will-change-transform transition-[box-shadow,border-color] duration-500 hover:shadow-[0_8px_40px_rgba(0,174,239,0.18)] hover:border-[#00AEEF]/30"
                 style={{ height: cardLayouts[2].h }}
               >
                 <img src={teamImages[2].src} alt={teamImages[2].alt} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" />
@@ -140,7 +140,7 @@ export default function TeamSection() {
                 ref={(el) => { imgRefs.current[3] = el; }}
                 data-speed={cardLayouts[3].speed}
                 data-rotate={cardLayouts[3].rotate}
-                className="group relative rounded-2xl overflow-hidden border border-white/8 shadow-2xl shadow-black/30 will-change-transform transition-[box-shadow,border-color] duration-500 hover:shadow-[0_8px_40px_rgba(0,174,239,0.15)] hover:border-[#00AEEF]/20"
+                className="group relative rounded-2xl overflow-hidden border border-slate-900/10 shadow-2xl shadow-slate-900/15 will-change-transform transition-[box-shadow,border-color] duration-500 hover:shadow-[0_8px_40px_rgba(0,174,239,0.18)] hover:border-[#00AEEF]/30"
                 style={{ height: cardLayouts[3].h }}
               >
                 <img src={teamImages[3].src} alt={teamImages[3].alt} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" />
@@ -159,7 +159,7 @@ export default function TeamSection() {
         <div className="md:hidden flex flex-col gap-4 px-5">
           {teamImages.map((img, i) => (
             <ScrollReveal key={i} delay={240 + i * 80} direction="scale">
-              <div className="relative h-48 rounded-2xl overflow-hidden border border-white/6">
+              <div className="relative h-48 rounded-2xl overflow-hidden border border-slate-900/10 shadow-lg shadow-slate-900/10">
                 <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
                 <span className="absolute bottom-3 left-4 text-white/70 text-sm font-medium">{img.label}</span>
@@ -175,7 +175,7 @@ export default function TeamSection() {
           <div className="mt-16 text-center">
             <a
               href="#about"
-              className="inline-flex items-center justify-center px-7 py-2.5 rounded-full border border-white/10 bg-transparent text-white/50 text-sm font-medium tracking-wide transition-all duration-300 hover:border-[#00AEEF]/40 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5"
+              className="inline-flex items-center justify-center px-7 py-2.5 rounded-full border border-slate-900/15 bg-transparent text-slate-600 text-sm font-medium tracking-wide transition-all duration-300 hover:border-[#00AEEF]/50 hover:text-[#00AEEF] hover:bg-[#00AEEF]/10"
             >
               Learn More
             </a>

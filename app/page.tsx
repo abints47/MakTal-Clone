@@ -325,38 +325,33 @@ export default function Page() {
       <BlogSection />
 
       {/* ═══ TESTIMONIAL QUOTE ═══ */}
-      <section className="relative w-full py-24 sm:py-32 lg:py-40">
-        <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-          <ScrollReveal>
-            <div className="relative rounded-3xl overflow-hidden">
-              <div className="relative rounded-3xl glass-card p-10 sm:p-14 lg:p-20">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 bg-[#00AEEF]/3 rounded-full blur-[100px] pointer-events-none" />
+      <section className="relative w-full py-28 sm:py-36 lg:py-44 bg-[#050505] rounded-t-[3rem] sm:rounded-t-[4rem] -mt-12 sm:-mt-20 z-20 overflow-hidden">
+        {/* Atmospheric gradient orbs */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#00AEEF]/5 blur-[180px] pointer-events-none rounded-full" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-indigo-500/4 blur-[150px] pointer-events-none rounded-full translate-x-1/4" />
+        <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-[#00AEEF]/3 blur-[120px] pointer-events-none rounded-full -translate-x-1/3 -translate-y-1/3" />
 
-                <div className="relative">
-                  <p className="text-white/30 text-2xl mb-6">&ldquo;</p>
-                  <h2 className="relative text-2xl sm:text-3xl md:text-4xl font-bold text-white/85 tracking-tight mb-5 leading-relaxed">
-                    Clear process, strong communication, and solid execution from start to finish.
-                  </h2>
-                  <p className="relative text-white/30 text-sm sm:text-base leading-relaxed max-w-lg mx-auto mb-8">
-                    We build custom websites and digital marketing solutions that grow your business and attract more customers. Let&apos;s create something extraordinary together.
-                  </p>
-                  <div className="flex items-center justify-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-[#00AEEF]/15 border border-[#00AEEF]/20 flex items-center justify-center">
-                      <span className="text-[#00AEEF] text-xs font-bold">SK</span>
-                    </div>
-                    <div className="text-left">
-                      <p className="text-white/70 text-sm font-semibold">Sarah K.</p>
-                      <p className="text-white/30 text-xs">Head of Marketing</p>
-                    </div>
-                  </div>
-                  <a href="#contact" className="btn-brand relative inline-flex items-center justify-center px-10 py-4 rounded-full text-sm font-bold tracking-wide transition-all duration-300 group mt-8">
-                    <span className="flex items-center gap-2">
-                      Start a Project
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </a>
-                </div>
-              </div>
+        <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
+          {/* Large decorative quote mark */}
+          <ScrollReveal>
+            <div className="relative text-center mb-12 sm:mb-16">
+              <span className="block text-[120px] sm:text-[180px] md:text-[220px] leading-none font-serif text-white/[0.03] select-none pointer-events-none -mb-20 sm:-mb-28 md:-mb-36">
+                &ldquo;
+              </span>
+            </div>
+          </ScrollReveal>
+
+          {/* Main quote */}
+          <ScrollReveal delay={100}>
+            <div className="text-center -mt-16 sm:-mt-20 md:-mt-28">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem] font-bold text-white/90 tracking-tight leading-[1.2] max-w-4xl mx-auto">
+                Clear process, strong communication,
+                <br className="hidden sm:block" />
+                <span className="text-white/50"> and </span>
+                <span className="gradient-text">solid execution</span>
+                <br className="hidden sm:block" />
+                from start to finish.
+              </h2>
             </div>
           </ScrollReveal>
         </div>
