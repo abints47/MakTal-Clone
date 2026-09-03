@@ -4,10 +4,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 
 const stats = [
-  { value: 40, suffix: '+', label: 'Projects Delivered', desc: 'Enterprise apps & web platforms shipped globally.' },
-  { value: 50, suffix: '+', label: 'Active Clients', desc: 'Long-term partnerships across 12 countries.' },
-  { value: 11, suffix: 'yrs', label: 'Industry Expertise', desc: 'Continuous innovation since 2015.' },
-  { value: 89, suffix: '%', label: 'Client Retention', desc: 'Driven by rigorous quality and transparent communication.' },
+  { value: 550, suffix: '+', label: 'Projects Delivered', desc: 'Enterprise apps & web platforms shipped globally.' },
+  { value: 400, suffix: '+', label: 'Active Clients', desc: 'Long-term partnerships across 12 countries.' },
+  { value: 11, suffix: 'yrs', label: 'Years of Experience', desc: 'Continuous innovation since 2015.' },
+  { value: 100, suffix: '%', label: 'Project Completion', desc: 'Driven by rigorous quality and transparent communication.' },
 ];
 
 function useCountUp(target: number, isVisible: boolean, duration = 2000) {
@@ -60,7 +60,7 @@ function StatItem({ value, suffix, label, desc }: { value: number; suffix: strin
           {count}
         </span>
         <span 
-          className="text-3xl sm:text-4xl lg:text-5xl font-light text-[var(--brand)] leading-none mt-2 lg:mt-6 transition-transform duration-[1.2s] delay-100 ease-[cubic-bezier(0.16,1,0.3,1)]"
+          className="text-3xl sm:text-4xl lg:text-5xl font-light text-(--brand) leading-none mt-2 lg:mt-6 transition-transform duration-[1.2s] delay-100 ease-[cubic-bezier(0.16,1,0.3,1)]"
           style={{ transform: isVisible ? 'translateY(0)' : 'translateY(100%)' }}
         >
           {suffix}
@@ -82,7 +82,7 @@ function StatItem({ value, suffix, label, desc }: { value: number; suffix: strin
 export default function StatsCounter() {
   return (
     <section className="w-full py-24 sm:py-32 lg:py-40 bg-white">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div className="max-w-350 mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
           
           {/* Header Area */}
