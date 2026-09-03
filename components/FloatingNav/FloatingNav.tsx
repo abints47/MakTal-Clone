@@ -8,7 +8,6 @@ const navLinks = [
   { label: 'Services', href: '#services', hasDropdown: true },
   { label: 'Work', href: '#works' },
   { label: 'Blog', href: '#blog' },
-  { label: 'Contact', href: '#contact' },
 ];
 
 const serviceLinks = [
@@ -119,14 +118,6 @@ export default function FloatingNav() {
             </div>
           </nav>
 
-          <div className="hidden md:flex items-center gap-3 z-50 shrink-0">
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-transparent text-white/60 hover:text-white hover:border-white/30 hover:bg-white/[0.04] px-6 py-2.5 text-[13px] font-semibold tracking-wide transition-all duration-300"
-            >
-              Contact Us
-            </a>
-          </div>
 
           <div className="md:hidden flex items-center z-50">
             <button
@@ -171,15 +162,6 @@ export default function FloatingNav() {
               </a>
             ))}
           </nav>
-          <div className="mt-auto pt-8 border-t border-white/[0.06]">
-            <a
-              href="#contact"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-center gap-2 w-full rounded-full border border-white/15 bg-transparent text-white/60 hover:text-white hover:border-white/30 py-3 text-[13px] font-semibold tracking-wide transition-all duration-300"
-            >
-              Contact Us
-            </a>
-          </div>
         </div>
       </aside>
     </>

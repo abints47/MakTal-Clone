@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { ExternalLink, ImageIcon } from 'lucide-react';
 import { projects } from './data';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
@@ -104,24 +103,6 @@ export default function WorksPage() {
             No projects found for this filter.
           </div>
         )}
-      </section>
-
-      {/* CTA */}
-      <section className="relative z-10 max-w-5xl mx-auto px-6 py-24 sm:py-32 text-center">
-        <ScrollReveal>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
-            Ready to build something <span className="text-[#00AEEF] italic font-light">great?</span>
-          </h2>
-          <p className="mt-6 text-white/50 text-base sm:text-lg max-w-lg mx-auto leading-relaxed">
-            Let&apos;s discuss your idea and craft a digital experience that converts.
-          </p>
-          <Link
-            href="/#contact"
-            className="group mt-10 inline-flex items-center justify-center px-10 py-4 rounded-full bg-white text-black hover:bg-white/90 text-[15px] font-semibold tracking-wide transition-all duration-300"
-          >
-            Start a project
-          </Link>
-        </ScrollReveal>
       </section>
 
       <Footer />

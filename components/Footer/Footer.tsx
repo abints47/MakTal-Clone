@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ArrowUp, ArrowUpRight, Mail, MessageCircle, Phone } from 'lucide-react';
+import { ArrowUp, Mail, Phone } from 'lucide-react';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 
@@ -10,7 +10,6 @@ const companyLinks = [
   { label: 'About', href: '#about' },
   { label: 'Work', href: '#works' },
   { label: 'Blog', href: '#blog' },
-  { label: 'Contact', href: '#contact' },
 ];
 
 const serviceLinks = [
@@ -58,41 +57,6 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-6 sm:pb-8">
         {/* Brand glow divider */}
         <div className="glow-line" />
-
-        {/* ═══ CTA BANNER ═══ */}
-        <ScrollReveal>
-          <div className="relative overflow-hidden rounded-3xl mt-12 sm:mt-16 lg:mt-20 border border-[#00AEEF]/10 bg-white/[0.02] p-8 sm:p-12 lg:p-16">
-            <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#00AEEF]/10 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute -bottom-28 -left-20 w-72 h-72 bg-[#00AEEF]/[0.06] rounded-full blur-[120px] pointer-events-none" />
-
-            <div className="relative flex flex-col lg:flex-row lg:items-end justify-between gap-10 lg:gap-14">
-              <div className="max-w-2xl">
-                <span className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#00AEEF] mb-5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-pulse" />
-                  Have a project in mind?
-                </span>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-[1.15] text-white">
-                  Let&apos;s build something{' '}
-                  <span className="gradient-text">great together</span>
-                </h2>
-                <p className="mt-5 text-white/40 text-sm sm:text-base leading-relaxed max-w-xl">
-                  Tell us about your idea and we&apos;ll turn it into a website that works as hard as you do. Free strategy call — reply within the hour.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-                <a href="#contact" className="btn-brand group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5">
-                  Start a Project
-                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
-                <a href="https://wa.me/917736101555" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/15 bg-transparent text-white/70 text-sm font-semibold transition-all duration-300 hover:border-[#00AEEF]/40 hover:text-[#00AEEF] hover:bg-[#00AEEF]/5 hover:-translate-y-0.5">
-                  <MessageCircle className="w-4 h-4" />
-                  WhatsApp Us
-                </a>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
 
         {/* ═══ LINK GRID ═══ */}
         <ScrollReveal delay={80}>

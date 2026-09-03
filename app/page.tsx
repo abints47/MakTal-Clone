@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Phone, Lightbulb, Code2, Rocket, ArrowRight, Globe, TrendingUp, BarChart3, Zap, Shield, Users, ArrowUpRight } from 'lucide-react';
+import { Lightbulb, Code2, Rocket, ArrowRight, Globe, TrendingUp, BarChart3, Zap, Shield, Users, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import Footer from '@/components/Footer/Footer';
 import BrandShowcase from '@/components/BrandShowcase/BrandShowcase';
@@ -117,9 +117,6 @@ export default function Page() {
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.8 }} className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-              <a href="#contact" className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-white text-black hover:bg-white/90 px-8 py-3.5 sm:py-4 text-sm sm:text-[15px] font-semibold tracking-wide transition-all duration-300">
-                Start a project
-              </a>
               <a href="#works" className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-transparent text-white hover:text-white hover:border-white/40 hover:bg-white/5 px-8 py-3.5 sm:py-4 text-sm sm:text-[15px] font-medium tracking-wide transition-all duration-300">
                 Our Work
               </a>
@@ -328,7 +325,7 @@ export default function Page() {
       <section className="relative w-full py-28 sm:py-36 lg:py-44 bg-[#050505] rounded-t-[3rem] sm:rounded-t-[4rem] -mt-12 sm:-mt-20 z-20 overflow-hidden">
         {/* Atmospheric gradient orbs */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#00AEEF]/5 blur-[180px] pointer-events-none rounded-full" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-indigo-500/4 blur-[150px] pointer-events-none rounded-full translate-x-1/4" />
+        <div className="absolute bottom-16 right-0 w-[400px] h-[400px] bg-indigo-500/4 blur-[150px] pointer-events-none rounded-full translate-x-1/4" />
         <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-[#00AEEF]/3 blur-[120px] pointer-events-none rounded-full -translate-x-1/3 -translate-y-1/3" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -359,101 +356,6 @@ export default function Page() {
 
       {/* ═══ GOOGLE REVIEWS ═══ */}
       <GoogleReviews />
-
-      {/* ═══ FREE AUDIT / CONTACT SECTION ═══ */}
-      <section id="contact" className="relative w-full py-24 sm:py-32 lg:py-40">
-        <div className="absolute inset-0 bg-linear-to-b from-[#050505] via-[#00AEEF]/2 to-[#050505] pointer-events-none" />
-        <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="text-center mb-14 sm:mb-20">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00AEEF]/15 bg-[#00AEEF]/5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-pulse" />
-                Free Audit
-              </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
-                Let&apos;s Build{' '}
-                <span className="gradient-text">Together</span>
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={100}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-              {/* Contact Info */}
-              <div className="space-y-8">
-                <div className="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
-                  <h3 className="text-lg font-bold text-white">Contact Information</h3>
-                  <div className="space-y-4">
-                    <a href="tel:+917736101555" className="flex items-center gap-3 text-white/50 hover:text-[#00AEEF] transition-colors group">
-                      <div className="w-10 h-10 rounded-xl bg-[#00AEEF]/8 border border-[#00AEEF]/15 flex items-center justify-center group-hover:bg-[#00AEEF]/12 transition-colors">
-                        <Phone className="w-4 h-4 text-[#00AEEF]" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-white/25 mb-0.5 font-mono uppercase tracking-wider">Phone</p>
-                        <p className="text-sm font-medium text-white/70">+91 7736 101 555</p>
-                      </div>
-                    </a>
-                    <a href="mailto:info@maktal.com" className="flex items-center gap-3 text-white/50 hover:text-[#00AEEF] transition-colors group">
-                      <div className="w-10 h-10 rounded-xl bg-[#00AEEF]/8 border border-[#00AEEF]/15 flex items-center justify-center group-hover:bg-[#00AEEF]/12 transition-colors">
-                        <Globe className="w-4 h-4 text-[#00AEEF]" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-white/25 mb-0.5 font-mono uppercase tracking-wider">Email</p>
-                        <p className="text-sm font-medium text-white/70">Click to email us</p>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="glow-line" />
-                  <div className="space-y-3">
-                    <p className="text-xs text-white/25 uppercase tracking-wider font-mono font-medium">Locations</p>
-                    <div className="text-sm text-white/40 leading-relaxed">
-                      <p>Thrissur, Kerala, India</p>
-                      <p>Aluva, Ernakulam, Kerala, India</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Contact Form */}
-              <div className="glass-card rounded-2xl p-6 sm:p-8">
-                <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs text-white/30 font-mono font-medium mb-2 uppercase tracking-wider">Name</label>
-                      <input type="text" placeholder="Your name" className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white text-sm placeholder:text-white/15 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white/5 transition-all duration-300" />
-                    </div>
-                    <div>
-                      <label className="block text-xs text-white/30 font-mono font-medium mb-2 uppercase tracking-wider">Email</label>
-                      <input type="email" placeholder="you@company.com" className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white text-sm placeholder:text-white/15 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white/5 transition-all duration-300" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-xs text-white/30 font-mono font-medium mb-2 uppercase tracking-wider">Service</label>
-                    <select className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white/50 text-sm focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white/5 transition-all duration-300 appearance-none">
-                      <option value="">Select a service</option>
-                      <option value="web">Website Development</option>
-                      <option value="marketing">Digital Marketing</option>
-                      <option value="seo">SEO Optimization</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-xs text-white/30 font-mono font-medium mb-2 uppercase tracking-wider">Message</label>
-                    <textarea rows={4} placeholder="Tell us about your project..." className="w-full px-4 py-3 rounded-xl bg-white/3 border border-white/6 text-white text-sm placeholder:text-white/15 focus:outline-none focus:border-[#00AEEF]/40 focus:bg-white/5 transition-all duration-300 resize-none" />
-                  </div>
-                  <button type="submit" className="w-full btn-brand py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-                    <span className="flex items-center gap-2">
-                      Get My Free Audit
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </button>
-                  <p className="text-center text-[9px] font-mono text-white/30 uppercase tracking-widest">Free · No spam · Reply within 24 hours</p>
-                </form>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
 
       {/* ═══ FOOTER ═══ */}   
       <Footer />

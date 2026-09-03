@@ -74,8 +74,7 @@ export default function GoogleReviews() {
   }, []);
 
   return (
-    <section className="w-full overflow-hidden">
-      <div className="glow-line" />
+    <section className="w-full overflow-hidden bg-[#050505]">
       <div className="py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
