@@ -74,18 +74,21 @@ export default function GoogleReviews() {
   }, []);
 
   return (
-    <section className="w-full overflow-hidden bg-[#050505]">
-      <div className="py-16 sm:py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <h2 className="text-center text-white font-bold sm:font-extrabold text-2xl sm:text-3xl lg:text-4xl leading-[1.2] mb-10">
-              Trusted by{' '}
-              <span className="gradient-text">Businesses Worldwide</span>
-            </h2>
-          </ScrollReveal>
+    <section className="relative w-full overflow-hidden pt-56 sm:pt-80 pb-10 sm:pb-10 ">
+      {/* Atmospheric gradient orbs matching parent wrapper */}
+      <div className="absolute top-1/3 left-1/4 w-125 h-125 bg-[#00AEEF]/4 blur-[160px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-10 right-10 w-87.5 h-87.5 bg-indigo-500/3 blur-[140px] pointer-events-none rounded-full" />
 
-          {/* Desktop */}
-          <ScrollReveal delay={100}>
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <ScrollReveal>
+          <h2 className="text-center text-white font-bold sm:font-extrabold text-2xl sm:text-3xl lg:text-4xl leading-[1.2] mb-10">
+            Trusted by{' '}
+            <span className="gradient-text">Businesses Worldwide</span>
+          </h2>
+        </ScrollReveal>
+
+        {/* Desktop View */}
+        <ScrollReveal delay={100}>
           <div ref={sectionRef} className="hidden sm:flex items-stretch gap-3 lg:gap-4">
             <div className="shrink-0 w-40 lg:w-48 flex flex-col items-center justify-center text-center gap-2 sm:gap-3 py-3 sm:py-4">
               <p className="text-white font-bold text-lg lg:text-xl tracking-wide">EXCELLENT</p>
@@ -93,7 +96,7 @@ export default function GoogleReviews() {
               <p className="text-white/30 text-xs lg:text-sm">Based on <span className="font-bold text-white/50">310</span> reviews</p>
               <GoogleWordmark />
             </div>
-            <button onClick={goPrev} className="shrink-0 self-center w-8 h-8 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00AEEF] hover:border-[#00AEEF]/30 transition-all duration-200 z-10" aria-label="Previous review"><ChevronLeft /></button>
+            <button onClick={goPrev} className="shrink-0 self-center w-8 h-8 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/35 hover:text-[#00AEEF] hover:border-[#00AEEF]/30 transition-all duration-200 z-10" aria-label="Previous review"><ChevronLeft /></button>
             <div ref={scrollRef} className="flex-1 min-w-0 flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 scrollbar-hide scroll-smooth" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
               {reviews.map((review, index) => (
                 <motion.div
@@ -102,29 +105,30 @@ export default function GoogleReviews() {
                   initial={{ opacity: 0, y: 30, scale: 0.95 }}
                   animate={cardsInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
                   transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="shrink-0 w-60 lg:w-64 snap-start rounded-xl review-card flex flex-col"
+                  className="shrink-0 w-60 lg:w-64 snap-start rounded-2xl p-5 bg-[#0a0a0a]/80 border border-white/8 backdrop-blur-md flex flex-col hover:border-[#00AEEF]/30 transition-colors"
                   style={{ minHeight: '230px' }}
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center text-[11px] font-bold text-white shrink-0" style={{ backgroundColor: `${review.color}20`, border: `1px solid ${review.color}30` }}>{review.initials}</div>
                     <div className="flex-1 min-w-0">
                       <p className="text-white text-sm font-bold truncate">{review.name}</p>
-                      <p className="text-white/25 text-xs">{review.date}</p>
+                      <p className="text-white/30 text-xs">{review.date}</p>
                     </div>
                     <GoogleGIcon className="w-4 h-4 shrink-0" />
                   </div>
                   <div className="flex items-center gap-0.5 mb-3">{[...Array(review.rating)].map((_, i) => (<StarIcon key={i} className="w-4 h-4 text-[#FFC107]" />))}<CheckBadge /></div>
-                  <p className="text-white/45 text-sm leading-normal flex-1">{'\u201C'}{review.text}{'\u201D'}</p>
-                  {review.readMore && (<button className="mt-2 text-white/20 hover:text-white/40 text-xs text-left transition-colors duration-200">Read more</button>)}
+                  <p className="text-white/60 text-sm leading-normal flex-1">{'\u201C'}{review.text}{'\u201D'}</p>
+                  {review.readMore && (<button className="mt-2 text-[#00AEEF]/70 hover:text-[#00AEEF] text-xs text-left transition-colors duration-200">Read more</button>)}
                 </motion.div>
               ))}
             </div>
-            <button onClick={goNext} className="shrink-0 self-center w-8 h-8 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00AEEF] hover:border-[#00AEEF]/30 transition-all duration-200 z-10" aria-label="Next review"><ChevronRight /></button>
-          </div>            <p className="hidden sm:block text-right text-white/15 text-xs sm:text-sm mt-4 pr-1">Showing our latest reviews</p>
-          </ScrollReveal>
+            <button onClick={goNext} className="shrink-0 self-center w-8 h-8 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/35 hover:text-[#00AEEF] hover:border-[#00AEEF]/30 transition-all duration-200 z-10" aria-label="Next review"><ChevronRight /></button>
+          </div>
+          <p className="hidden sm:block text-right text-white/20 text-xs sm:text-sm mt-4 pr-1">Showing our latest reviews</p>
+        </ScrollReveal>
 
-          {/* Mobile */}
-          <ScrollReveal delay={100}>
+        {/* Mobile View */}
+        <ScrollReveal delay={100}>
           <div className="sm:hidden flex flex-col items-center">
             <div className="flex flex-col items-center gap-2 mb-8">
               <p className="text-white font-bold text-lg tracking-wide">EXCELLENT</p>
@@ -140,32 +144,31 @@ export default function GoogleReviews() {
                   initial={{ opacity: 0, y: 30, scale: 0.95 }}
                   animate={cardsInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
                   transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="shrink-0 w-[85vw] snap-start rounded-xl review-card flex flex-col"
+                  className="shrink-0 w-[85vw] snap-start rounded-2xl p-5 bg-[#0a0a0a]/80 border border-white/8 backdrop-blur-md flex flex-col"
                   style={{ minHeight: '230px' }}
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center text-[11px] font-bold text-white shrink-0" style={{ backgroundColor: `${review.color}20`, border: `1px solid ${review.color}30` }}>{review.initials}</div>
                     <div className="flex-1 min-w-0">
                       <p className="text-white text-sm font-bold truncate">{review.name}</p>
-                      <p className="text-white/25 text-xs">{review.date}</p>
+                      <p className="text-white/30 text-xs">{review.date}</p>
                     </div>
                     <GoogleGIcon className="w-4 h-4 shrink-0" />
                   </div>
                   <div className="flex items-center gap-0.5 mb-3">{[...Array(review.rating)].map((_, i) => (<StarIcon key={i} className="w-4 h-4 text-[#FFC107]" />))}<CheckBadge /></div>
-                  <p className="text-white/45 text-sm leading-normal flex-1">{'\u201C'}{review.text}{'\u201D'}</p>
-                  {review.readMore && (<button className="mt-2 text-white/20 hover:text-white/40 text-xs text-left transition-colors duration-200">Read more</button>)}
+                  <p className="text-white/60 text-sm leading-normal flex-1">{'\u201C'}{review.text}{'\u201D'}</p>
+                  {review.readMore && (<button className="mt-2 text-[#00AEEF]/70 hover:text-[#00AEEF] text-xs text-left transition-colors duration-200">Read more</button>)}
                 </motion.div>
               ))}
             </div>
             <div className="flex items-center gap-3 mt-2">
-              <button onClick={goPrev} className="w-7 h-7 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00AEEF] transition-all duration-200" aria-label="Previous"><ChevronLeft /></button>
+              <button onClick={goPrev} className="w-7 h-7 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/35 hover:text-[#00AEEF] transition-all duration-200" aria-label="Previous"><ChevronLeft /></button>
               <div className="flex gap-2">{reviews.map((_, i) => (<button key={i} onClick={() => scrollTo(i)} className={`w-2 h-2 rounded-full transition-all duration-200 ${i === activeIndex ? 'bg-[#00AEEF] w-4' : 'bg-white/15'}`} aria-label={`Go to review ${i + 1}`} />))}</div>
-              <button onClick={goNext} className="w-7 h-7 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/30 hover:text-[#00AEEF] transition-all duration-200" aria-label="Next"><ChevronRight /></button>
+              <button onClick={goNext} className="w-7 h-7 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-white/35 hover:text-[#00AEEF] transition-all duration-200" aria-label="Next"><ChevronRight /></button>
             </div>
-            <p className="text-white/15 text-sm mt-4">Showing our latest reviews</p>
+            <p className="text-white/20 text-sm mt-4">Showing our latest reviews</p>
           </div>
-          </ScrollReveal>
-        </div>
+        </ScrollReveal>
       </div>
       <style jsx>{`.scrollbar-hide::-webkit-scrollbar { display: none; } .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }`}</style>
     </section>

@@ -332,7 +332,7 @@ export default function Page() {
           {/* Large decorative quote mark */}
           <ScrollReveal>
             <div className="relative text-center mb-12 sm:mb-16">
-              <span className="block text-[120px] sm:text-[180px] md:text-[220px] leading-none font-serif text-white/[0.03] select-none pointer-events-none -mb-20 sm:-mb-28 md:-mb-36">
+              <span className="block text-[120px] sm:text-[180px] md:text-[220px] leading-none font-serif text-white/50 select-none pointer-events-none -mb-20 sm:-mb-28 md:-mb-36">
                 &ldquo;
               </span>
             </div>
@@ -352,10 +352,12 @@ export default function Page() {
             </div>
           </ScrollReveal>
         </div>
+        
+        <GoogleReviews />
       </section>
 
       {/* ═══ GOOGLE REVIEWS ═══ */}
-      <GoogleReviews />
+      
 
       {/* ═══ FOOTER ═══ */}   
       <Footer />
