@@ -4,10 +4,10 @@ import React, { useEffect, useRef } from 'react';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 
 const teamImages = [
-  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-team-working-in-office.png', alt: 'Team collaborating at desks', label: 'Collaboration' },
-  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-team-sitting-around-table-chatting.png', alt: 'Team meeting around table', label: 'Strategy' },
-  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-team-brainstorming-ideas.png', alt: 'Team brainstorming session', label: 'Ideation' },
-  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-office-interior.png', alt: 'Office interior', label: 'Workspace' },
+  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-team-working-in-office.png', alt: 'Team collaborating at desks' },
+  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-team-sitting-around-table-chatting.png', alt: 'Team meeting around table' },
+  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-team-brainstorming-ideas.png', alt: 'Team brainstorming session' },
+  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-office-interior.png', alt: 'Office interior' },
 ];
 
 /* Unique style per card: width, height, rotation, parallax speed, vertical offset */
@@ -83,9 +83,7 @@ export default function TeamSection() {
               >
                 <img src={teamImages[0].src} alt={teamImages[0].alt} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent" />
-                <span className="absolute bottom-4 left-5 text-white/0 group-hover:text-white/90 text-sm font-medium tracking-wide transition-all duration-500 translate-y-3 group-hover:translate-y-0">
-                  {teamImages[0].label}
-                </span>
+                
               </div>
             </ScrollReveal>
           </div>
@@ -102,9 +100,7 @@ export default function TeamSection() {
               >
                 <img src={teamImages[1].src} alt={teamImages[1].alt} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent" />
-                <span className="absolute bottom-4 left-5 text-white/0 group-hover:text-white/90 text-sm font-medium tracking-wide transition-all duration-500 translate-y-3 group-hover:translate-y-0">
-                  {teamImages[1].label}
-                </span>
+                
               </div>
             </ScrollReveal>
           </div>
@@ -126,9 +122,7 @@ export default function TeamSection() {
               >
                 <img src={teamImages[2].src} alt={teamImages[2].alt} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent" />
-                <span className="absolute bottom-4 left-5 text-white/0 group-hover:text-white/90 text-sm font-medium tracking-wide transition-all duration-500 translate-y-3 group-hover:translate-y-0">
-                  {teamImages[2].label}
-                </span>
+                
               </div>
             </ScrollReveal>
           </div>
@@ -145,9 +139,7 @@ export default function TeamSection() {
               >
                 <img src={teamImages[3].src} alt={teamImages[3].alt} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent" />
-                <span className="absolute bottom-4 left-5 text-white/0 group-hover:text-white/90 text-sm font-medium tracking-wide transition-all duration-500 translate-y-3 group-hover:translate-y-0">
-                  {teamImages[3].label}
-                </span>
+                
               </div>
             </ScrollReveal>
           </div>
@@ -162,7 +154,7 @@ export default function TeamSection() {
               <div className="relative h-48 rounded-2xl overflow-hidden border border-slate-900/10 shadow-lg shadow-slate-900/10">
                 <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
-                <span className="absolute bottom-3 left-4 text-white/70 text-sm font-medium">{img.label}</span>
+                
               </div>
             </ScrollReveal>
           ))}
