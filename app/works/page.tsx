@@ -31,12 +31,6 @@ export default function WorksPage() {
 
       {/* Page Title */}
       <section className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-32 sm:pt-40 lg:pt-48 pb-12 text-center">
-        <ScrollReveal>
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00AEEF]/20 bg-[#00AEEF]/5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-pulse" />
-            Portfolio
-          </span>
-        </ScrollReveal>
         <ScrollReveal delay={80}>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.1]">
             Selected <span className="text-white/30 italic font-light">Works</span>

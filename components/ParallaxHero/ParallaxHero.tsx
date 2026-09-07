@@ -43,6 +43,31 @@ export function ParallaxHero({ children }: ParallaxHeroProps) {
       </div>
 
       {children}
+
+      {/* Minimal Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+      >
+        {/* Mouse icon with animated wheel */}
+        <div className="relative w-4 h-6">
+          <svg viewBox="0 0 20 28" className="w-4 h-6 fill-none stroke-white/30 stroke-[1.5]">
+            <rect x="2" y="1" width="16" height="26" rx="6" />
+            <line x1="10" y1="6" x2="10" y2="10" strokeWidth={1.5} />
+          </svg>
+          <motion.div
+            className="absolute top-2 left-1/2 -translate-x-1/2 w-0.5 h-1.5 bg-white/40 rounded-full"
+            animate={{ translateY: [0, 3, 0] }}
+            transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}
+          />
+        </div>
+        {/* SCROLL text only */}
+        <span className="text-[9px] tracking-[0.25em] text-white/20 uppercase font-medium">
+          Scroll
+        </span>
+      </motion.div>
     </section>
   );
 }
