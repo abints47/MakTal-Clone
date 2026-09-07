@@ -71,7 +71,7 @@ function StatItem({ value, suffix, label, desc }: { value: number; suffix: strin
         <h3 className="text-xl sm:text-2xl font-medium text-slate-900 tracking-tight">
           {label}
         </h3>
-        <p className="text-slate-500 text-sm sm:text-base leading-relaxed max-w-xs">
+        <p className="text-slate-500 text-sm sm:text-base leading-relaxed max-w-xs font-light">
           {desc}
         </p>
       </div>
@@ -93,7 +93,7 @@ export default function StatsCounter() {
                 that speak <br className="hidden lg:block" />
                 for themselves
               </h2>
-              <p className="mt-8 text-slate-500 text-lg sm:text-xl leading-relaxed max-w-md">
+              <p className="mt-8 text-slate-500 text-lg sm:text-xl leading-relaxed max-w-md font-light">
                 Our track record is built on delivering high-impact digital solutions and fostering long-term partnerships with our clients globally.
               </p>
             </ScrollReveal>

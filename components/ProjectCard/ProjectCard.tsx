@@ -68,7 +68,7 @@ export default function ProjectCard({ title, desc, image, video, url }: ProjectC
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight group-hover:text-[var(--brand)] transition-colors duration-500">
             {title}
           </h3>
-          <p className="text-white/50 text-sm sm:text-base lg:text-lg mt-3 max-w-2xl leading-relaxed transition-colors duration-500 group-hover:text-white/70">
+          <p className="text-white/50 text-sm sm:text-base lg:text-lg mt-3 max-w-2xl leading-relaxed transition-colors duration-500 group-hover:text-white/70 font-light">
             {desc}
           </p>
         </div>

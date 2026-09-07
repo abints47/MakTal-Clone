@@ -34,7 +34,7 @@ export default function ServicesGrid() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111827] tracking-tight leading-tight">
               Services Built for <span className="text-[#09bdeb]">Growth</span>
             </h2>
-            <p className="mt-5 text-gray-500 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">End-to-end digital solutions to take your business from idea to launch — and beyond.</p>
+            <p className="mt-5 text-gray-500 text-sm sm:text-base leading-relaxed max-w-xl mx-auto font-light">End-to-end digital solutions to take your business from idea to launch — and beyond.</p>
           </div>
         </ScrollReveal>
         <div className="max-w-4xl mx-auto">

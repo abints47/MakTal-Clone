@@ -61,7 +61,7 @@ export default function TeamSection() {
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={140}>
-            <p className="mt-5 text-slate-500 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-5 text-slate-500 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-light">
               We have a well-educated team of designers, developers, and digital marketing experts who deliver high-quality work tailored to your needs.
             </p>
           </ScrollReveal>
@@ -167,7 +167,7 @@ export default function TeamSection() {
           <div className="mt-16 text-center">
             <a
               href="#about"
-              className="inline-flex items-center justify-center px-7 py-2.5 rounded-full border border-slate-900/15 bg-transparent text-slate-600 text-sm font-medium tracking-wide transition-all duration-300 hover:border-[#00AEEF]/50 hover:text-[#00AEEF] hover:bg-[#00AEEF]/10"
+              className="inline-flex items-center justify-center px-7 py-2.5 rounded-full border border-slate-900/15 bg-transparent text-slate-600 text-sm font-medium tracking-wide transition-all duration-300 hover:border-[#00AEEF]/50 hover:text-[#00AEEF] hover:bg-[#00AEEF]/10 font-normal"
             >
               Learn More
             </a>

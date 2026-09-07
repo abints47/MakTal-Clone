@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Manrope, Playfair_Display } from "next/font/google";
+import { Poppins, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import ScrollProgress from "@/components/ScrollProgress/ScrollProgress";
 import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
 import PageTransition from "@/components/PageTransition/PageTransition";
 import FollowCursor from "@/components/FollowCursor/FollowCursor";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
 });
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${playfair.variable} h-full antialiased`}
+      className={`${poppins.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col noise-overlay bg-[#050505] text-white">
         <SmoothScroll>

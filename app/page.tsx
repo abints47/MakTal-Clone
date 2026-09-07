@@ -103,7 +103,7 @@ export default function Page() {
         <div className="relative z-20 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full pt-32 pb-24 sm:pt-40 sm:pb-32 lg:pt-48 lg:pb-40 flex flex-col justify-center min-h-[80vh]">
           <div className="max-w-4xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-              <span className="inline-block text-white/40 text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase mb-4 sm:mb-6">
+              <span className="inline-block text-white/40 text-[11px] sm:text-xs font-medium tracking-[0.22em] uppercase mb-4 sm:mb-6">
                 Digital design & development agency
               </span>
             </motion.div>
@@ -112,7 +112,7 @@ export default function Page() {
               We design and build digital products, brands and websites
             </motion.h1>
 
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }} className="text-white/50 text-base sm:text-lg lg:text-xl leading-relaxed max-w-lg lg:max-w-2xl mb-8 sm:mb-10">
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }} className="text-white/50 text-base sm:text-lg lg:text-xl leading-relaxed max-w-lg lg:max-w-2xl mb-8 sm:mb-10 font-light">
               For companies ready to move beyond the ordinary. Combining beautiful visuals with measurable business results.
             </motion.p>
 
@@ -157,7 +157,7 @@ export default function Page() {
               {features.map((feature, i) => (
                 <div key={i} className="glass-card rounded-xl p-4 text-center transition-all duration-300 hover:border-[#00AEEF]/15 hover:shadow-lg hover:shadow-[#00AEEF]/5 group">
                   <feature.icon className="w-5 h-5 mx-auto mb-2 text-white/50 group-hover:text-[#00AEEF] transition-colors" />
-                  <span className="text-[11px] text-white/60 font-medium">{feature.title}</span>
+                  <span className="text-[12px] text-white/60 font-medium">{feature.title}</span>
                 </div>
               ))}
             </div>

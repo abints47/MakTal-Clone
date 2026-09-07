@@ -37,7 +37,7 @@ export default function BlogSection() {
               Recent Posts From{' '}<br/>
               <span className="gradient-text">Our Blog</span>
             </h2>
-            <p className="mt-4 text-slate-500 text-sm sm:text-base max-w-xl mx-auto">
+            <p className="mt-4 text-slate-500 text-sm sm:text-base max-w-xl mx-auto font-light">
               Informative tech articles, tips, and news from our team.
             </p>
           </div>
@@ -69,7 +69,8 @@ export default function BlogSection() {
 
         <ScrollReveal delay={200}>
           <div className="flex justify-center mt-10 sm:mt-14">
-            <a href="#blog" className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-slate-900/15 bg-transparent text-slate-600 text-sm font-medium tracking-wide transition-all duration-300 hover:border-[#00AEEF]/50 hover:text-[#00AEEF] hover:bg-[#00AEEF]/10">
+            <a href="#blog" className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-slate-900/15 bg-transparent text-slate-600 text-sm font-medium tracking-wide transition-all duration-300 hover:border-[#00AEEF]/50 hover:text-[#00AEEF] hover:bg-[#00AEEF]/10 font-normal"
+            >
               View All Posts
             </a>
           </div>
