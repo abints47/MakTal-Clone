@@ -50,8 +50,8 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-white text-gray-900">
       {/* Subtle ambient orbs */}
-      <div className="absolute -top-48 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#00AEEF]/[0.04] rounded-full blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#00AEEF]/[0.03] rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute -top-48 left-1/2 -translate-x-1/2 w-200 h-100 bg-[#00AEEF]/4 rounded-full blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-125 h-125 bg-[#00AEEF]/3 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute inset-0 pointer-events-none dot-pattern opacity-30" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-6 sm:pb-8">
