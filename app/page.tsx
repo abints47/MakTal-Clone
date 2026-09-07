@@ -216,8 +216,8 @@ export default function Page() {
       {/* ═══ STICKY DARK SECTION + ROUNDED WHITE REVEAL ═══ */}
       <div className="relative">
         {/* Sticky dark background that stays pinned */}
-        <div className="sticky top-0 h-screen overflow-hidden pb-90">
-          <div className="relative h-full max-w-5xl mx-auto px-5 sm:px-6 lg:px-6 flex flex-col justify-center">
+        <div className="sticky top-0 min-h-screen md:h-screen overflow-hidden pb-64 sm:pb-90">
+          <div className="relative h-full min-h-screen md:min-h-0 max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col justify-center py-16 md:py-0">
             <ScrollReveal>
               <div className="text-center mb-16 sm:mb-20">
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
@@ -270,9 +270,9 @@ export default function Page() {
       <section id="works" className="relative z-20 w-full py-24 sm:py-32 lg:py-48 bg-[#050505] rounded-t-[3rem] sm:rounded-t-[4rem] overflow-hidden -mt-12 sm:-mt-20">
         
         {/* Background Gradient Orbs */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#00AEEF]/10 blur-[150px] pointer-events-none rounded-full translate-x-1/4 -translate-y-1/4" />
-        <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-indigo-500/10 blur-[150px] pointer-events-none rounded-full -translate-x-1/3" />
-        <div className="absolute bottom-0 right-1/4 w-[700px] h-[700px] bg-[#00AEEF]/5 blur-[180px] pointer-events-none rounded-full translate-y-1/3" />
+        <div className="absolute top-0 right-0 w-150 h-150 bg-[#00AEEF]/10 blur-[150px] pointer-events-none rounded-full translate-x-1/4 -translate-y-1/4" />
+        <div className="absolute top-1/3 left-0 w-125 h-125 bg-indigo-500/10 blur-[150px] pointer-events-none rounded-full -translate-x-1/3" />
+        <div className="absolute bottom-0 right-1/4 w-175 h-175 bg-[#00AEEF]/5 blur-[180px] pointer-events-none rounded-full translate-y-1/3" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
@@ -324,9 +324,9 @@ export default function Page() {
       {/* ═══ TESTIMONIAL QUOTE ═══ */}
       <section className="relative w-full py-28 sm:py-36 lg:py-44 bg-[#050505] rounded-t-[3rem] sm:rounded-t-[4rem] -mt-12 sm:-mt-20 z-20 overflow-hidden">
         {/* Atmospheric gradient orbs */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#00AEEF]/5 blur-[180px] pointer-events-none rounded-full" />
-        <div className="absolute bottom-16 right-0 w-[400px] h-[400px] bg-indigo-500/4 blur-[150px] pointer-events-none rounded-full translate-x-1/4" />
-        <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-[#00AEEF]/3 blur-[120px] pointer-events-none rounded-full -translate-x-1/3 -translate-y-1/3" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-150 h-150 bg-[#00AEEF]/5 blur-[180px] pointer-events-none rounded-full" />
+        <div className="absolute bottom-16 right-0 w-100 h-100 bg-indigo-500/4 blur-[150px] pointer-events-none rounded-full translate-x-1/4" />
+        <div className="absolute top-0 left-0 w-75 h-75 bg-[#00AEEF]/3 blur-[120px] pointer-events-none rounded-full -translate-x-1/3 -translate-y-1/3" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
           {/* Large decorative quote mark */}
@@ -354,12 +354,7 @@ export default function Page() {
         </div>
         
         <GoogleReviews />
-      </section>
-
-      {/* ═══ GOOGLE REVIEWS ═══ */}
-      
-
-      {/* ═══ FOOTER ═══ */}   
+      </section>   
       <Footer />
       <WhatsAppFloat />
     </div>

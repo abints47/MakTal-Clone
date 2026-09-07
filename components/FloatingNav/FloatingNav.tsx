@@ -139,14 +139,14 @@ export default function FloatingNav() {
       />
 
       <aside
-        className={`fixed inset-y-0 right-0 w-80 bg-[#0a0a0a] border-l border-white/[0.06] z-50 md:hidden transform transition-transform duration-500 ease-out ${
+        className={`fixed inset-y-0 right-0 w-[85vw] max-w-80 bg-[#0a0a0a] border-l border-white/[0.06] z-50 md:hidden transform transition-transform duration-500 ease-out overflow-y-auto ${
           mobileOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="p-8 flex flex-col h-full">
+        <div className="p-6 sm:p-8 flex flex-col min-h-full" style={{ paddingBottom: 'max(2rem, env(safe-area-inset-bottom))' }}>
           <div className="flex items-center justify-between mb-12">
             <img src="/images/maktal-logo.png" alt="MakTal Technologies" className="h-7 w-auto" />
-            <button onClick={() => setMobileOpen(false)} className="p-2 rounded-full text-white/30 hover:text-white hover:bg-white/[0.05] transition-all">
+            <button onClick={() => setMobileOpen(false)} className="p-2 rounded-full text-white/30 hover:text-white hover:bg-white/[0.05] transition-all" aria-label="Close menu">
               <X className="w-5 h-5" />
             </button>
           </div>

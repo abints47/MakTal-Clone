@@ -48,7 +48,7 @@ function LogoHover({ src, alt }: { src: string; alt: string }) {
   return (
     <div
       ref={wrapperRef}
-      className="w-56 h-56 sm:w-72 sm:h-72 lg:w-120 lg:h-100 overflow-hidden cursor-pointer"
+      className="w-40 h-40 sm:w-56 sm:h-56 lg:w-120 lg:h-100 overflow-hidden cursor-pointer max-w-[80vw]"
     >
       <img
         ref={imgRef}
@@ -236,7 +236,7 @@ export default function BrandShowcase() {
         className="relative overflow-hidden"
       >
         {/* Top visual asset area with no borders */}
-        <div className="relative pt-10 sm:pt-10 lg:pt- pb-10 sm:pb-0">
+        <div className="relative pt-10 pb-10 sm:pb-0">
           <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
             <motion.div
               style={{ scale: logoScale, opacity: logoOpacity }}

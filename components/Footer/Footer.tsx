@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ArrowUp, Mail, Phone } from 'lucide-react';
+import { ArrowUp, Mail, Phone, MapPin, Clock } from 'lucide-react';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 
@@ -48,25 +48,24 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden text-white" style={{ background: 'var(--bg)' }}>
-      {/* Ambient overlays */}
-      <div className="absolute inset-0 pointer-events-none grid-pattern opacity-20" />
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[380px] bg-[#00AEEF]/[0.07] rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[420px] h-[420px] bg-[#00AEEF]/[0.05] rounded-full blur-[140px] pointer-events-none" />
+    <footer className="relative overflow-hidden bg-white text-gray-900">
+      {/* Subtle ambient orbs */}
+      <div className="absolute -top-48 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#00AEEF]/[0.04] rounded-full blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#00AEEF]/[0.03] rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none dot-pattern opacity-30" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-6 sm:pb-8">
-        {/* Brand glow divider */}
-        <div className="glow-line" />
 
         {/* ═══ LINK GRID ═══ */}
-        <ScrollReveal delay={80}>
-          <div className="mt-12 sm:mt-16 lg:mt-20 pt-10 sm:pt-14 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 border-t border-white/[0.07]">
-            {/* Brand */}
-            <div className="col-span-2 md:col-span-1 flex flex-col items-start">
+        <ScrollReveal>
+          <div className="pt-10 sm:pt-14 grid grid-cols-2 md:grid-cols-12 gap-x-8 gap-y-12 border-t border-gray-200">
+
+            {/* Brand Column */}
+            <div className="col-span-2 md:col-span-5 flex flex-col items-start">
               <Link href="/" className="transition-opacity duration-300 hover:opacity-80">
-                <img src="/images/maktal-logo.png" alt="MakTal Technologies" className="h-8 sm:h-9 w-auto" />
+                <img src="/images/maktal-logo.png" alt="MakTal Technologies" className="h-8 sm:h-9 w-auto brightness-0 opacity-75" />
               </Link>
-              <p className="mt-5 text-[13px] text-white/40 leading-relaxed max-w-xs">
+              <p className="mt-5 text-[13px] text-gray-500 leading-relaxed max-w-xs">
                 Full-service website development &amp; digital marketing company helping brands grow online.
               </p>
               <div className="mt-7 flex items-center gap-2.5">
@@ -75,7 +74,7 @@ export default function Footer() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/50 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#00AEEF]/40 hover:bg-[#00AEEF]/10 hover:text-[#00AEEF]"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-gray-50 text-gray-600 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#00AEEF]/40 hover:bg-[#00AEEF]/10 hover:text-[#00AEEF]"
                   >
                     {social.icon}
                   </a>
@@ -84,12 +83,12 @@ export default function Footer() {
             </div>
 
             {/* Company */}
-            <div className="col-span-1">
-              <p className="text-[10px] font-mono text-white/40 uppercase tracking-[0.3em] mb-5">Company</p>
+            <div className="col-span-1 md:col-span-2">
+              <p className="text-[10px] font-mono text-[#00AEEF] uppercase tracking-[0.3em] mb-5 font-semibold">Company</p>
               <ul className="flex flex-col gap-2.5">
                 {companyLinks.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-[13px] text-white/50 hover:text-[#00AEEF] transition-colors duration-300 inline-block">
+                    <a href={link.href} className="text-[13px] text-gray-700 hover:text-[#00AEEF] transition-colors duration-300 inline-block font-medium">
                       {link.label}
                     </a>
                   </li>
@@ -98,12 +97,12 @@ export default function Footer() {
             </div>
 
             {/* Services */}
-            <div className="col-span-1">
-              <p className="text-[10px] font-mono text-white/40 uppercase tracking-[0.3em] mb-5">Services</p>
+            <div className="col-span-1 md:col-span-2">
+              <p className="text-[10px] font-mono text-[#00AEEF] uppercase tracking-[0.3em] mb-5 font-semibold">Services</p>
               <ul className="flex flex-col gap-2.5">
                 {serviceLinks.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-[13px] text-white/50 hover:text-[#00AEEF] transition-colors duration-300 inline-block">
+                    <a href={link.href} className="text-[13px] text-gray-700 hover:text-[#00AEEF] transition-colors duration-300 inline-block font-medium">
                       {link.label}
                     </a>
                   </li>
@@ -111,25 +110,31 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Get in touch */}
-            <div className="col-span-2 md:col-span-1">
-              <p className="text-[10px] font-mono text-white/40 uppercase tracking-[0.3em] mb-5">Get In Touch</p>
+            {/* Get in Touch */}
+            <div className="col-span-2 md:col-span-3">
+              <p className="text-[10px] font-mono text-[#00AEEF] uppercase tracking-[0.3em] mb-5 font-semibold">Get In Touch</p>
               <ul className="flex flex-col gap-3.5">
                 <li>
-                  <a href="mailto:info@maktal.com" className="group inline-flex items-center gap-2.5 text-[13px] text-white/50 hover:text-[#00AEEF] transition-colors duration-300">
+                  <a href="mailto:info@maktal.com" className="group inline-flex items-center gap-2.5 text-[13px] text-gray-700 hover:text-[#00AEEF] transition-colors duration-300 font-medium">
                     <Mail className="w-4 h-4 text-[#00AEEF]/70 group-hover:text-[#00AEEF] transition-colors duration-300 shrink-0" />
                     info@maktal.com
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+917736101555" className="group inline-flex items-center gap-2.5 text-[13px] text-white/50 hover:text-[#00AEEF] transition-colors duration-300">
+                  <a href="tel:+917736101555" className="group inline-flex items-center gap-2.5 text-[13px] text-gray-700 hover:text-[#00AEEF] transition-colors duration-300 font-medium">
                     <Phone className="w-4 h-4 text-[#00AEEF]/70 group-hover:text-[#00AEEF] transition-colors duration-300 shrink-0" />
                     +91 7736 101 555
                   </a>
                 </li>
                 <li className="pt-2">
-                  <p className="text-[11px] font-mono text-white/30 leading-relaxed">Mon–Fri · 9am–6pm IST</p>
-                  <p className="text-[11px] font-mono text-white/30 leading-relaxed mt-1">Thrissur · Ernakulam, Kerala</p>
+                  <div className="flex items-center gap-2 text-[11px] font-mono text-gray-600 leading-relaxed">
+                    <Clock className="w-3.5 h-3.5 text-[#00AEEF]/70 shrink-0" />
+                    Mon–Fri · 9am–6pm IST
+                  </div>
+                  <div className="flex items-center gap-2 text-[11px] font-mono text-gray-600 leading-relaxed mt-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#00AEEF]/70 shrink-0" />
+                    Thrissur · Ernakulam, Kerala
+                  </div>
                 </li>
               </ul>
             </div>
@@ -137,24 +142,24 @@ export default function Footer() {
         </ScrollReveal>
 
         {/* ═══ BOTTOM BAR ═══ */}
-        <ScrollReveal delay={140}>
-          <div className="mt-12 sm:mt-16 pt-7 pb-4 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-between gap-5">
-            <p className="order-3 md:order-1 text-[11px] font-mono text-white/35 tracking-wider text-center md:text-left">
+        <ScrollReveal delay={80}>
+          <div className="mt-12 sm:mt-16 pt-7 pb-4 border-t border-gray-200 flex flex-col md:flex-row items-center justify-between gap-5">
+            <p className="order-3 md:order-1 text-[11px] font-mono text-gray-500 tracking-wider text-center md:text-left">
               © 2026 MakTal Technologies. All rights reserved.
             </p>
-            <p className="order-2 text-[11px] font-mono text-white/35 tracking-wider">
+            <p className="order-2 text-[11px] font-mono text-gray-500 tracking-wider">
               Design &amp; development by{' '}
-              <Link href="/" className="text-white/70 font-semibold hover:text-[#00AEEF] transition-colors duration-300">
+              <Link href="/" className="text-gray-800 font-semibold hover:text-[#00AEEF] transition-colors duration-300">
                 MakTal Technologies
               </Link>
             </p>
             <button
               onClick={scrollToTop}
               aria-label="Back to top"
-              className="group order-1 md:order-3 flex items-center gap-2.5 text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 hover:text-[#00AEEF] transition-colors duration-300 cursor-pointer"
+              className="group order-1 md:order-3 flex items-center gap-2.5 text-[10px] font-mono uppercase tracking-[0.25em] text-gray-500 hover:text-[#00AEEF] transition-colors duration-300 cursor-pointer"
             >
               Back to top
-              <span className="w-9 h-9 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center transition-all duration-300 group-hover:border-[#00AEEF]/40 group-hover:bg-[#00AEEF]/10 group-hover:-translate-y-0.5">
+              <span className="w-9 h-9 rounded-full border border-gray-200 bg-gray-50 flex items-center justify-center transition-all duration-300 group-hover:border-[#00AEEF]/40 group-hover:bg-[#00AEEF]/10 group-hover:-translate-y-0.5">
                 <ArrowUp className="w-3.5 h-3.5" />
               </span>
             </button>
