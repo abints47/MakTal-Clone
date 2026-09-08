@@ -213,54 +213,58 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ═══ STICKY DARK SECTION + ROUNDED WHITE REVEAL ═══ */}
+      {/* ═══ STICKY DARK CURTAIN + ROUNDED WHITE REVEAL ═══ */}
       <div className="relative">
-        {/* Sticky dark background that stays pinned */}
-        <div className="sticky top-0 min-h-screen md:h-screen overflow-hidden pb-64 sm:pb-90">
-          <div className="relative h-full min-h-screen md:min-h-0 max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 flex flex-col justify-center py-16 md:py-0">
-            <ScrollReveal>
-              <div className="text-center mb-16 sm:mb-20">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
-                  Our Process
-                </span>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
-                  How We <span className="gradient-text">Deliver</span>
-                </h2>
-                <p className="mt-5 text-white/35 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
-                  From initial consultation to final deployment — a hands-on approach that keeps you involved at every stage.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            <div className="relative">
-              <div className="hidden md:block process-line" />
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-stretch">
-                {processSteps.map((item, i) => (
-                  <ScrollReveal key={i} delay={i * 200}>
-                    <div className="group relative flex flex-col items-center text-center h-full">
-                      <div className="relative w-full h-full flex flex-col glass-card rounded-2xl p-8 transition-all duration-500 group-hover:border-white/12 group-hover:shadow-xl group-hover:shadow-[#00AEEF]/3 mb-6">
-                        <span className="font-mono text-[10px] text-white/20 uppercase tracking-[0.3em] mb-4">{item.step}</span>
-                        <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 shrink-0" style={{ background: `${item.color}12`, border: `1px solid ${item.color}20` }}>
-                          <item.icon className="w-6 h-6" style={{ color: item.color }} />
-                        </div>
-                        <h3 className="text-lg font-bold text-white tracking-tight mb-2">
-                          {item.label}
-                        </h3>
-                        <p className="text-white/35 text-sm leading-relaxed mt-auto">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Sticky dark backdrop that the white section slides up over */}
+        <div className="sticky top-0 h-screen" />
 
         {/* White section with rounded corners that slides up over the dark */}
         <div className="relative z-10 -mt-40 bg-white rounded-t-[3rem] sm:rounded-t-[4rem]">
+
+          {/* ═══ HOW WE DELIVER (inside white section) ═══ */}
+          <section className="relative w-full pt-24 sm:pt-32 pb-10 sm:pb-14">
+            <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
+              <ScrollReveal>
+                <div className="text-center mb-16 sm:mb-20">
+                  <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
+                    Our Process
+                  </span>
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+                    How We <span className="gradient-text">Deliver</span>
+                  </h2>
+                  <p className="mt-5 text-slate-500 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+                    From initial consultation to final deployment — a hands-on approach that keeps you involved at every stage.
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              <div className="relative">
+                <div className="hidden md:block process-line" />
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-stretch">
+                  {processSteps.map((item, i) => (
+                    <ScrollReveal key={i} delay={i * 200}>
+                      <div className="group relative flex flex-col items-center text-center h-full">
+                        <div className="relative w-full h-full flex flex-col bg-slate-50 border border-slate-200 rounded-2xl p-8 transition-all duration-500 group-hover:border-[#00AEEF]/40 group-hover:shadow-xl group-hover:shadow-[#00AEEF]/10 mb-6">
+                          <span className="font-mono text-[10px] text-slate-400 uppercase tracking-[0.3em] mb-4">{item.step}</span>
+                          <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 shrink-0" style={{ background: `${item.color}12`, border: `1px solid ${item.color}20` }}>
+                            <item.icon className="w-6 h-6" style={{ color: item.color }} />
+                          </div>
+                          <h3 className="text-lg font-bold text-slate-900 tracking-tight mb-2">
+                            {item.label}
+                          </h3>
+                          <p className="text-slate-500 text-sm leading-relaxed mt-auto">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    </ScrollReveal>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
           <BrandShowcase />
           <StatsCounter />
         </div>

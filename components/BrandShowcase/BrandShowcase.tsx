@@ -54,7 +54,7 @@ function AnimatedWords() {
 
     gsap.fromTo(
       wordElements,
-      { opacity: 0.1, willChange: 'opacity' },
+      { opacity: 0.1, willChange: 'opacity'},
       {
         ease: 'none',
         opacity: 1,

@@ -24,9 +24,9 @@ export default function WorksPage() {
 
       {/* Background Gradient Orbs */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#00AEEF]/10 blur-[150px] rounded-full translate-x-1/4 -translate-y-1/4" />
-        <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-indigo-500/10 blur-[150px] rounded-full -translate-x-1/3" />
-        <div className="absolute bottom-0 right-1/4 w-[700px] h-[700px] bg-[#00AEEF]/5 blur-[180px] rounded-full translate-y-1/3" />
+        <div className="absolute top-0 right-0 w-150 h-150 bg-[#00AEEF]/10 blur-[150px] rounded-full translate-x-1/4 -translate-y-1/4" />
+        <div className="absolute top-1/3 left-0 w-125 h-125 bg-indigo-500/10 blur-[150px] rounded-full -translate-x-1/3" />
+        <div className="absolute bottom-0 right-1/4 w-175 h-175 bg-[#00AEEF]/5 blur-[180px] rounded-full translate-y-1/3" />
       </div>
 
       {/* Page Title */}
