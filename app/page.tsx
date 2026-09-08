@@ -100,7 +100,7 @@ export default function Page() {
 
       {/* ═══ HERO SECTION ═══ (Cuberto-inspired) ═══ */}
       <ParallaxHero>
-        <div className="relative z-20 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full pt-32 pb-24 sm:pt-40 sm:pb-32 lg:pt-48 lg:pb-40 flex flex-col justify-center min-h-[80vh]">
+        <div className="relative z-20 max-w-350 mx-auto px-6 sm:px-8 lg:px-12 w-full pt-32 pb-24 sm:pt-40 sm:pb-32 lg:pt-48 lg:pb-40 flex flex-col justify-center min-h-[80vh]">
           <div className="max-w-4xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
               <span className="inline-block text-white/40 text-[11px] sm:text-xs font-medium tracking-[0.22em] uppercase mb-4 sm:mb-6">
