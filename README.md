@@ -1,65 +1,70 @@
-# MAKTAL Clone
+# MakTal Clone
 
-A modern marketing and web agency landing page inspired by the MAKTAL Technologies website, built with Next.js and React.
+A modern marketing and web agency landing page inspired by the [MAKTAL Technologies](https://maktalseo.com/) website, built with Next.js 16, React 19, and Tailwind CSS.
 
-This project recreates the visual style and structure of the original brand experience, including the hero section, service navigation, portfolio showcase, and call-to-action blocks for digital marketing and website development services.
+This project recreates the visual style and structure of the original brand experience — hero section, services, process, portfolio showcase, team, blog, and conversion-focused CTAs — while layering in scroll-driven motion effects for a polished, agency-grade feel.
 
-## Overview
+## ✨ Features
 
-MAKTAL Clone is a front-end website redesign focused on:
+- **Parallax hero** with gradient orbs and scroll indicator
+- **Floating navigation** with services dropdown and mobile menu
+- **Services section** — web development, digital marketing, and SEO
+- **Process section** — strategy → build → launch timeline
+- **Brand showcase, stats counter & Google reviews** strips
+- **Selected works** — project cards with image/video hover previews
+- **Dedicated works page** (`/works`) with the full project portfolio
+- **Team & blog sections**, plus a floating WhatsApp contact button
+- **Scroll-driven motion** — scroll reveal, blur text, smooth scrolling, page transitions, and a follow-cursor effect
+- **Fully responsive** across mobile, tablet, and desktop
 
-- Responsive landing-page layout
-- Clean modern UI with dark mode styling
-- Service-focused content sections
-- Portfolio/project cards
-- Mobile-friendly navigation
-- Fast performance using Next.js
+## 🛠 Tech Stack
 
-## Tech Stack
+| Layer      | Technology                                   |
+| ---------- | -------------------------------------------- |
+| Framework  | [Next.js](https://nextjs.org) 16 (App Router) |
+| Language   | [TypeScript](https://www.typescriptlang.org) |
+| UI         | [React](https://react.dev) 19                |
+| Styling    | [Tailwind CSS](https://tailwindcss.com) 4    |
+| Animation  | [GSAP](https://gsap.com), [Lenis](https://github.com/darkroomengineering/lenis), [Motion](https://motion.dev) |
+| Icons      | [Lucide](https://lucide.dev)                 |
 
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS
-- Lucide React icons
+## 📁 Project Structure
 
-## Features
-
-- Hero banner with background image and CTA
-- Desktop and mobile navigation
-- Services dropdown menu
-- Works/projects showcase section
-- Digital agency-style marketing layout
-- Contact and conversion-focused call-to-action blocks
-- Fully responsive design for multiple screen sizes
-
-## Project Structure
-
-```bash
+```text
 maktal-clone/
 ├── app/
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
-├── public/
-├── .gitignore
-├── eslint.config.mjs
+│   ├── works/            # Portfolio showcase page
+│   │   ├── data.ts       # Project data + types
+│   │   ├── loading.tsx
+│   │   └── page.tsx
+│   ├── globals.css       # Global styles & Tailwind entry
+│   ├── layout.tsx        # Root layout, fonts & metadata
+│   └── page.tsx          # Homepage
+├── components/
+│   ├── bits/             # Small reusable pieces (e.g. BlurText)
+│   ├── BlogSection/      # Blog preview section
+│   ├── BrandShowcase/    # Brand logo strip
+│   ├── FloatingNav/      # Floating navigation bar
+│   ├── Footer/           # Page footer
+│   ├── GoogleReviews/    # Google reviews strip
+│   ├── ParallaxHero/     # Parallax hero + orbs
+│   ├── ProjectCard/      # Portfolio project card
+│   ├── StatsCounter/     # Animated stats
+│   ├── TeamSection/      # Team grid
+│   ├── ...               # Motion & utility components
+├── public/               # Static assets
 ├── next.config.ts
-├── package.json
 ├── postcss.config.mjs
 ├── tsconfig.json
-└── README.md
+└── package.json
 ```
 
-## Prerequisites
+## 🚀 Getting Started
 
-Before running the project, make sure you have the following installed:
+### Prerequisites
 
-- Node.js 18 or newer
-- npm or yarn
-- Git
-
-## Getting Started
+- **Node.js ≥ 20.9** (required by Next.js 16)
+- npm (or your preferred package manager)
 
 ### 1. Clone the repository
 
@@ -80,44 +85,37 @@ npm install
 npm run dev
 ```
 
-Then open http://localhost:3000 in your browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Available Scripts
+## 📜 Available Scripts
 
-```bash
-npm run dev     # Start the Next.js development server
-npm run build   # Create a production build
-npm run start   # Start the production server
-npm run lint    # Run ESLint checks
-```
+| Command            | Description                          |
+| ------------------ | ------------------------------------ |
+| `npm run dev`      | Start the Next.js development server |
+| `npm run build`    | Create an optimized production build |
+| `npm start`        | Start the production server          |
+| `npm run lint`     | Run ESLint checks                    |
 
-## Production Build
-
-To generate a production build:
+### Production build
 
 ```bash
 npm run build
+npm start
 ```
 
-Then start it with:
+## 📝 Notes
 
-```bash
-npm run start
-```
+This project is a front-end clone/redesign concept intended for demonstration, learning, and UI practice. If you plan to use it as a production client site, update the branding, copy, assets, and contact details to match the actual business.
 
-## Notes
+## 🤝 Contributing
 
-This project is intended as a front-end clone/redesign concept and is best suited for demonstration, learning, and UI practice. If you plan to use it as a production client site, update branding, copy, assets, and contact details to match the actual business.
-
-## Contributing
-
-Pull requests and improvements are welcome. If you plan to contribute:
+Pull requests and improvements are welcome:
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
 4. Submit a pull request
 
-## Contact
+## 📬 Contact
 
-Project repository: https://github.com/abints47/MakTal-Clone
+Project repository: <https://github.com/abints47/MakTal-Clone>
