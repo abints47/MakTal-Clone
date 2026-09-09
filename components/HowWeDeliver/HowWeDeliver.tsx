@@ -427,7 +427,7 @@ export default function HowWeDeliver() {
                 {/* Interactive cursor spotlight sheen on hover */}
                 {isCurrentHovered && (
                   <div
-                    className="absolute inset-0 pointer-events-none transition-opacity duration-300 -z-0"
+                    className="absolute inset-0 pointer-events-none transition-opacity duration-300 z-0"
                     style={{
                       background: `radial-gradient(650px circle at ${mousePos.x}px ${mousePos.y}px, ${
                         isLight ? 'rgba(0, 174, 239, 0.08)' : 'rgba(255, 255, 255, 0.09)'

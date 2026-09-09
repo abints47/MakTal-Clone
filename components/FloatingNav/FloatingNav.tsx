@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 const navLinks = [
-  { label: 'About', href: '/dashboard/about' },
+  { label: 'About', href: '/about' },
   { label: 'Services', href: '#services', hasDropdown: true },
   { label: 'Our Works', href: '#works' },
   { label: 'Blog', href: '#blog' },
