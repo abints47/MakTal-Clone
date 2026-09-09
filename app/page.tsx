@@ -6,6 +6,7 @@ import { Lightbulb, Code2, Rocket, ArrowRight, Globe, TrendingUp, BarChart3, Zap
 import Link from 'next/link';
 import Footer from '@/components/Footer/Footer';
 import BrandShowcase from '@/components/BrandShowcase/BrandShowcase';
+import HowWeDeliver from '@/components/HowWeDeliver/HowWeDeliver';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import WhatsAppFloat from '@/components/WhatsAppFloat/WhatsAppFloat';
 import BlogSection from '@/components/BlogSection/BlogSection';
@@ -42,12 +43,6 @@ const services = [
   },
 ];
 
-const processSteps = [
-  { icon: Lightbulb, label: 'Strategy', desc: 'We start by understanding your business, target audience, and goals — then map out a clear roadmap before touching any code.', step: '01', color: '#00AEEF' },
-  { icon: Code2, label: 'Build', desc: 'Our team designs and develops your project using modern frameworks, with regular check-ins so nothing falls through the cracks.', step: '02', color: '#00AEEF' },
-  { icon: Rocket, label: 'Launch', desc: 'We handle the deployment, run final testing, and stick around post-launch to make sure everything runs smoothly.', step: '03', color: '#00AEEF' },
-];
-
 const features = [
   { icon: Zap, title: 'Lightning Fast', desc: 'Optimized performance with sub-second load times.' },
   { icon: Shield, title: 'Enterprise Security', desc: 'Bank-grade security to protect your data.' },
@@ -60,28 +55,28 @@ const projects = [
     title: 'BlueTerra, UAE', 
     desc: 'Boutique travel company website developed in Next.js and Python', 
     image: 'https://maktalseo.com/wp-content/uploads/2025/10/blueterra-travel-website-development-work-1.avif', 
-    video: 'https://assets.mixkit.co/videos/46635/46635-720.mp4',
+    video: 'https://assets.mixkit.co/videos/4122/4122-720.mp4',
     url: 'https://www.myblueterra.com/' 
   },
   { 
     title: 'Drizzla, USA', 
     desc: 'Outcome-as-a-Service partner website developed in React.js and Python', 
     image: 'https://maktalseo.com/wp-content/uploads/2025/10/drizzla-react-js-website-development-1.avif', 
-    video: 'https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-4174-large.mp4',
+    video: 'https://assets.mixkit.co/videos/46635/46635-720.mp4',
     url: 'https://www.drizzla.com/' 
   },
   { 
     title: 'Solo Flowers, UAE', 
     desc: 'Flower delivery E-commerce website development in WordPress and WooCommerce.', 
     image: 'https://maktalseo.com/wp-content/uploads/2025/10/solo-flowers-ecommerce-website-development.avif', 
-    video: 'https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-pink-rose-blooming-4201-large.mp4',
+    video: 'https://assets.mixkit.co/videos/4120/4120-720.mp4',
     url: 'https://www.soloflowers.ae' 
   },
   { 
     title: 'World of Appliances, Bahrain', 
     desc: 'WordPress based E-commerce website with Shipping and Payment options.', 
     image: 'https://maktalseo.com/wp-content/uploads/2025/10/ecommerce-development-wordpress.avif', 
-    video: 'https://assets.mixkit.co/videos/preview/mixkit-hands-typing-on-a-laptop-keyboard-4171-large.mp4',
+    video: 'https://assets.mixkit.co/videos/4122/4122-720.mp4',
     url: 'https://www.worldofappliancesbh.com/' 
   },
 ];
@@ -90,7 +85,7 @@ const marqueeItems = ['Web Development', 'Digital Marketing', 'SEO Optimization'
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white font-sans relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#050505] text-white font-sans relative overflow-x-clip">
 
       {/* ═══ SCATTERED GRADIENT ORBS (parallax) ═══ */}
       <ParallaxOrbs />
@@ -98,38 +93,53 @@ export default function Page() {
       {/* ═══ FLOATING NAV ═══ */}
       <FloatingNav />
 
-      {/* ═══ HERO SECTION ═══ (Cuberto-inspired) ═══ */}
+      {/* ═══ HERO SECTION ═══  */}
       <ParallaxHero>
-        <div className="relative z-20 max-w-350 mx-auto px-6 sm:px-8 lg:px-12 w-full pt-32 pb-24 sm:pt-40 sm:pb-32 lg:pt-48 lg:pb-40 flex flex-col justify-center min-h-[80vh]">
-          <div className="max-w-4xl">
+        <div className="relative z-20 w-full max-w-[1800px] 2xl:max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 pt-36 pb-28 sm:pt-44 sm:pb-36 lg:pt-52 lg:pb-44 flex flex-col justify-center min-h-[90vh]">
+          <div className="max-w-3xl lg:max-w-4xl text-left">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-              <span className="inline-block text-white/40 text-[11px] sm:text-xs font-medium tracking-[0.22em] uppercase mb-4 sm:mb-6">
-                Digital design & development agency
+              <span className="inline-block text-[#00AEEF] text-xs sm:text-sm font-semibold font-stretch-100% tracking-[0.25em] pl-5 uppercase mb-4 sm:mb-6">
+                MAKTAL TECHNOLOGIES
               </span>
             </motion.div>
 
-            <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.3 }} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-[-0.03em] leading-[1.1] sm:leading-[1.05] mb-6 sm:mb-8">
-              We design and build digital products, brands and websites
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.85, delay: 0.35 }}
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-[3.6rem] xl:text-[4.2rem] font-bold text-white tracking-tight leading-[1.12] sm:leading-[1.08] mb-5 sm:mb-6"
+            >
+              <span className="block">We create digital</span>
+              <span className="block">experiences that move</span>
+              <span className="block">businesses forward.</span>
             </motion.h1>
 
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }} className="text-white/50 text-base sm:text-lg lg:text-xl leading-relaxed max-w-lg lg:max-w-2xl mb-8 sm:mb-10 font-light">
-              For companies ready to move beyond the ordinary. Combining beautiful visuals with measurable business results.
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.55 }}
+              className="text-white/70 text-base sm:text-lg lg:text-xl font-normal leading-relaxed max-w-xl mb-8 sm:mb-10"
+            >
+              Strategy, design, and development for brands{' '}
+              <br className="hidden sm:inline" />
+              ready to grow, connect, and lead.
             </motion.p>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.8 }} className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-              <a href="#works" className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-transparent text-white hover:text-white hover:border-white/40 hover:bg-white/5 px-8 py-3.5 sm:py-4 text-sm sm:text-[15px] font-medium tracking-wide transition-all duration-300">
-                Our Work
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.7 }}
+              className="flex items-center"
+            >
+              <a
+                href="#works"
+                className="group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/35 bg-black/20 backdrop-blur-xs text-white hover:border-white hover:bg-white hover:text-black text-sm sm:text-base font-medium transition-all duration-300 shadow-lg shadow-black/20"
+              >
+                <span>View Our Work</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
             </motion.div>
           </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10 pointer-events-none">
-          <div className="w-5 h-8 rounded-full border border-white/10 flex justify-center pt-1.5">
-            <div className="w-0.5 h-1.5 bg-white/25 rounded-full" />
-          </div>
-          <span className="text-[10px] tracking-[0.2em] text-white/15 uppercase">scroll</span>
         </div>
       </ParallaxHero>
 
@@ -166,7 +176,7 @@ export default function Page() {
       </section>
 
       {/* ═══ SERVICES SECTION ═══ */}
-      <section id="services" className="relative w-full py-24 sm:py-32 lg:py-40">
+      <section id="services" className="relative w-full pt-24 sm:pt-32 lg:pt-40 pb-16 sm:pb-24 lg:pb-32">
         <div className="absolute top-0 right-0 w-125 h-125 bg-[#00AEEF]/3 rounded-full blur-[200px] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -185,18 +195,17 @@ export default function Page() {
             </div>
           </ScrollReveal>
 
-          {/* Wizora-style vertical service list */}
           <div className="max-w-4xl mx-auto">
             {services.map((service, index) => (
               <React.Fragment key={index}>
                 <ScrollReveal delay={index * 100}>
                   <div className="group flex items-start gap-6 sm:gap-10 py-8 sm:py-10 cursor-default">
                     <div className="shrink-0 mt-1 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center transition-all duration-500" style={{ background: `${service.color}10`, border: `1px solid ${service.color}20` }}>
-                      <service.icon className="w-6 h-6" style={{ color: service.color }} />
+                      <service.icon className="w-6 h-6" style={{ color: service.color }}/>
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight group-hover:text-[#00AEEF] transition-colors duration-300">{service.title}</h3>
-                      <div className="mt-2 h-px w-6 transition-all duration-500 group-hover:w-10" style={{ background: `${service.color}40` }} />
+                      <div className="mt-2 h-px w-6 transition-all duration-500 group-hover:w-10" style={{ background: `${service.color}40` }}/>
                       <p className="mt-3 text-white/35 text-sm sm:text-[15px] leading-relaxed max-w-2xl group-hover:text-white/50 transition-colors duration-300">{service.description}</p>
                       <div className="flex flex-wrap gap-2 mt-4">
                         {service.tags.map((tag) => (
@@ -206,71 +215,20 @@ export default function Page() {
                     </div>
                   </div>
                 </ScrollReveal>
-                {index < services.length - 1 && <div className="h-px bg-linear-to-r from-transparent via-white/6 to-transparent" />}
+                {index < services.length - 1 && <div className="h-px bg-linear-to-r from-transparent via-white/6 to-transparent"/>}
               </React.Fragment>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ STICKY DARK CURTAIN + ROUNDED WHITE REVEAL ═══ */}
-      <div className="relative">
-        {/* Sticky dark backdrop that the white section slides up over */}
-        <div className="sticky top-0 h-screen" />
-
-        {/* White section with rounded corners that slides up over the dark */}
-        <div className="relative z-10 -mt-40 bg-white rounded-t-[3rem] sm:rounded-t-[4rem]">
-
-          {/* ═══ HOW WE DELIVER (inside white section) ═══ */}
-          <section className="relative w-full pt-24 sm:pt-32 pb-10 sm:pb-14">
-            <div className="relative max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
-              <ScrollReveal>
-                <div className="text-center mb-16 sm:mb-20">
-                  <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
-                    Our Process
-                  </span>
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
-                    How We <span className="gradient-text">Deliver</span>
-                  </h2>
-                  <p className="mt-5 text-slate-500 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
-                    From initial consultation to final deployment — a hands-on approach that keeps you involved at every stage.
-                  </p>
-                </div>
-              </ScrollReveal>
-
-              <div className="relative">
-                <div className="hidden md:block process-line" />
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-stretch">
-                  {processSteps.map((item, i) => (
-                    <ScrollReveal key={i} delay={i * 200}>
-                      <div className="group relative flex flex-col items-center text-center h-full">
-                        <div className="relative w-full h-full flex flex-col bg-slate-50 border border-slate-200 rounded-2xl p-8 transition-all duration-500 group-hover:border-[#00AEEF]/40 group-hover:shadow-xl group-hover:shadow-[#00AEEF]/10 mb-6">
-                          <span className="font-mono text-[10px] text-slate-400 uppercase tracking-[0.3em] mb-4">{item.step}</span>
-                          <div className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-5 transition-all duration-500 group-hover:scale-110 shrink-0" style={{ background: `${item.color}12`, border: `1px solid ${item.color}20` }}>
-                            <item.icon className="w-6 h-6" style={{ color: item.color }} />
-                          </div>
-                          <h3 className="text-lg font-bold text-slate-900 tracking-tight mb-2">
-                            {item.label}
-                          </h3>
-                          <p className="text-slate-500 text-sm leading-relaxed mt-auto">
-                            {item.desc}
-                          </p>
-                        </div>
-                      </div>
-                    </ScrollReveal>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <BrandShowcase />
-          <StatsCounter />
-        </div>
+      {/* ═══ ROUNDED WHITE SECTION: HOW WE DELIVER + PHILOSOPHY + STATS ═══ */}
+      <div className="relative z-10 -mt-12 sm:-mt-20 bg-white rounded-t-[3rem] sm:rounded-t-[4rem]">
+        <HowWeDeliver />
+        <BrandShowcase />
+        <StatsCounter />
       </div>
 
-      {/* ═══ WORKS SECTION (Cuberto Style) ═══ */}
       <section id="works" className="relative z-20 w-full py-24 sm:py-32 lg:py-48 bg-[#050505] rounded-t-[3rem] sm:rounded-t-[4rem] overflow-hidden -mt-12 sm:-mt-20">
         
         {/* Background Gradient Orbs */}
@@ -281,7 +239,7 @@ export default function Page() {
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="text-center sm:text-left mb-16 sm:mb-24 lg:mb-32">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6 border border-[#00AEEF]/20 rounded-full">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-lg font-semibold tracking-[0.22em] uppercase mb-6">
                 Selected Works
               </span>
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight max-w-3xl">
@@ -319,33 +277,26 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ═══ TEAM ═══ */}
       <TeamSection />
 
-      {/* ═══ BLOG ═══ */}
       <BlogSection />
 
       {/* ═══ TESTIMONIAL QUOTE ═══ */}
-      <section className="relative w-full py-28 sm:py-36 lg:py-44 bg-[#050505] rounded-t-[3rem] sm:rounded-t-[4rem] -mt-12 sm:-mt-20 z-20 overflow-hidden">
+      <section className="relative z-20 w-full py-24 sm:py-32 lg:py-40 bg-[#050505] rounded-t-[3rem] sm:rounded-t-[4rem] -mt-12 sm:-mt-20 overflow-hidden">
+        {/* Subtle glow line at the rounded top edge */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-linear-to-r from-transparent via-[#00AEEF]/20 to-transparent" />
         {/* Atmospheric gradient orbs */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-150 h-150 bg-[#00AEEF]/5 blur-[180px] pointer-events-none rounded-full" />
         <div className="absolute bottom-16 right-0 w-100 h-100 bg-indigo-500/4 blur-[150px] pointer-events-none rounded-full translate-x-1/4" />
         <div className="absolute top-0 left-0 w-75 h-75 bg-[#00AEEF]/3 blur-[120px] pointer-events-none rounded-full -translate-x-1/3 -translate-y-1/3" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
-          {/* Large decorative quote mark */}
           <ScrollReveal>
-            <div className="relative text-center mb-12 sm:mb-16">
-              <span className="block text-[120px] sm:text-[180px] md:text-[220px] leading-none font-serif text-white/50 select-none pointer-events-none -mb-20 sm:-mb-28 md:-mb-36">
-                &ldquo;
+            <div className="text-center mb-10 sm:mb-14">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-xs font-mono tracking-[0.22em] uppercase mb-6">
+                Testimonials
               </span>
-            </div>
-          </ScrollReveal>
-
-          {/* Main quote */}
-          <ScrollReveal delay={100}>
-            <div className="text-center -mt-16 sm:-mt-20 md:-mt-28">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem] font-bold text-white/90 tracking-tight leading-[1.2] max-w-4xl mx-auto">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.2] max-w-4xl mx-auto">
                 Clear process, strong communication,
                 <br className="hidden sm:block" />
                 <span className="text-white/50"> and </span>
@@ -358,7 +309,8 @@ export default function Page() {
         </div>
         
         <GoogleReviews />
-      </section>   
+      </section>
+
       <Footer />
       <WhatsAppFloat />
     </div>

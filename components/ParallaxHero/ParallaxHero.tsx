@@ -33,12 +33,12 @@ export function ParallaxHero({ children }: ParallaxHeroProps) {
           style={{ y: videoY, scale: videoScale }}
           className="w-full h-full origin-center"
         >
-          <video autoPlay loop muted playsInline poster="/images/it.jpg" className="w-full h-full object-cover" style={{ filter: 'saturate(0.85) contrast(1.1) brightness(0.5)' }}>
+          <video autoPlay loop muted playsInline poster="/images/it.jpg" className="w-full h-full object-cover" style={{ filter: 'saturate(0.9) contrast(1.1) brightness(0.65)' }}>
             <source src="https://assets.mixkit.co/videos/46635/46635-720.mp4" type="video/mp4" />
           </video>
         </motion.div>
-        {/* Dark-to-light gradient: left side darker, right side brighter */}
-        <div className="absolute inset-0 bg-linear-to-r from-[#0a0a0a]/80 via-[#0a0a0a]/30 to-transparent" />
+        {/* Dark-to-light gradient: left side darker for left-aligned text readability, right side brighter */}
+        <div className="absolute inset-0 bg-linear-to-r from-[#0a0a0a]/90 via-[#0a0a0a]/45 to-transparent" />
         <motion.div style={{ opacity: overlayOpacity }} className="absolute inset-0 bg-[#0a0a0a]/40" />
       </div>
 
@@ -46,26 +46,24 @@ export function ParallaxHero({ children }: ParallaxHeroProps) {
 
       {/* Minimal Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 pointer-events-none"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.8 }}
       >
-        {/* Mouse icon with animated wheel */}
         <div className="relative w-4 h-6">
-          <svg viewBox="0 0 20 28" className="w-4 h-6 fill-none stroke-white/30 stroke-[1.5]">
+          <svg viewBox="0 0 20 28" className="w-4 h-6 fill-none stroke-white/50 stroke-[1.5]">
             <rect x="2" y="1" width="16" height="26" rx="6" />
             <line x1="10" y1="6" x2="10" y2="10" strokeWidth={1.5} />
           </svg>
           <motion.div
-            className="absolute top-2 left-1/2 -translate-x-1/2 w-0.5 h-1.5 bg-white/40 rounded-full"
+            className="absolute top-2 left-1/2 -translate-x-1/2 w-0.5 h-1.5 bg-white/70 rounded-full"
             animate={{ translateY: [0, 3, 0] }}
             transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}
           />
         </div>
-        {/* SCROLL text only */}
-        <span className="text-[9px] tracking-[0.25em] text-white/20 uppercase font-medium">
-          Scroll
+        <span className="text-[10px] tracking-[0.25em] text-white/60 uppercase font-mono font-medium">
+          SCROLL
         </span>
       </motion.div>
     </section>

@@ -49,7 +49,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "Digital Agency", "Full-stack"],
   },
   {
-    title : "Saifudheen Mak Portfolio",
+    title : "Portfolio ",
     desc : "Website development and digital marketing company website developed in Next.js & React.js",
     image : "https://saifumak.com/storage/2024/10/saifu-freelancer-web-designer-dubai.jpg",
     video: "https://assets.mixkit.co/videos/preview/mixkit-hands-typing-on-a-laptop-keyboard-4171-large.mp4",

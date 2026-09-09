@@ -74,7 +74,7 @@ export default function GoogleReviews() {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden pt-56 sm:pt-80 pb-10 sm:pb-10 ">
+    <section className="relative w-full overflow-hidden pt-16 sm:pt-20 pb-10 sm:pb-10 ">
       {/* Atmospheric gradient orbs matching parent wrapper */}
       <div className="absolute top-1/3 left-1/4 w-125 h-125 bg-[#00AEEF]/4 blur-[160px] pointer-events-none rounded-full" />
       <div className="absolute bottom-10 right-10 w-87.5 h-87.5 bg-indigo-500/3 blur-[140px] pointer-events-none rounded-full" />

@@ -38,7 +38,7 @@ export default function WorksPage() {
         </ScrollReveal>
         <ScrollReveal delay={140}>
           <p className="mt-6 text-white/50 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            A collection of projects we&apos;ve delivered across industries — from travel and e-commerce to SaaS and digital agencies.
+            A collection of projects we&apos;ve delivered across industries from travel and e commerce to SaaS and digital agencies.
           </p>
         </ScrollReveal>
       </section>

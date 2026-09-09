@@ -4,7 +4,7 @@ export default function WorksLoading() {
       {/* Background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 grid-pattern opacity-30" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#00AEEF]/4 rounded-full blur-[200px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-150 bg-[#00AEEF]/4 rounded-full blur-[200px]" />
       </div>
 
       {/* Page Title skeleton */}
@@ -30,7 +30,7 @@ export default function WorksLoading() {
       <section className="relative z-10 max-w-6xl mx-auto px-6 pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="bg-white rounded-2xl overflow-hidden border border-black/[0.06] shadow-sm" style={{ animationDelay: `${i * 100}ms` }}>
+            <div key={i} className="bg-white rounded-2xl overflow-hidden border border-black/6 shadow-sm" style={{ animationDelay: `${i * 100}ms` }}>
               <div className="w-full h-52 sm:h-64 bg-black/5 animate-pulse" />
               <div className="p-5 sm:p-6 space-y-3">
                 <div className="h-5 w-48 bg-black/5 rounded-lg animate-pulse" />

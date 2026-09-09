@@ -70,7 +70,7 @@ export default function TeamSection() {
 
       {/* === Row 1: two images, offset and varied === */}
       <ScrollReveal delay={200}>
-        <div className="hidden md:flex justify-center items-start gap-6 px-6 sm:px-8 lg:px-12 w-full max-w-350 mx-auto">
+        <div className="hidden md:flex justify-center items-start gap-6 sm:gap-8 px-6 sm:px-10 lg:px-16 xl:px-20 w-full max-w-[1800px] 2xl:max-w-7xl mx-auto">
           {/* Card 1 */}
           <div style={{ width: cardLayouts[0].w, marginTop: cardLayouts[0].mt }} className="shrink-0">
             <ScrollReveal delay={240}>
@@ -109,7 +109,7 @@ export default function TeamSection() {
 
       {/* === Row 2: two images, different offsets === */}
       <ScrollReveal delay={380}>
-        <div className="hidden md:flex justify-center items-start gap-6 px-6 sm:px-8 lg:px-12 w-full max-w-350 mx-auto mt-6">
+        <div className="hidden md:flex justify-center items-start gap-6 sm:gap-8 px-6 sm:px-10 lg:px-16 xl:px-20 w-full max-w-[1800px] 2xl:max-w-7xl mx-auto mt-6 sm:mt-8">
           {/* Card 3 */}
           <div style={{ width: cardLayouts[2].w, marginTop: cardLayouts[2].mt }} className="shrink-0">
             <ScrollReveal delay={420}>

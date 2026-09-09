@@ -82,11 +82,11 @@ function StatItem({ value, suffix, label, desc }: { value: number; suffix: strin
 export default function StatsCounter() {
   return (
     <section className="w-full py-24 sm:py-32 lg:py-40 bg-white">
-      <div className="max-w-350 mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
+      <div className="w-full max-w-[1800px] 2xl:max-w-[1920px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20">
+        <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-32">
           
-          {/* Header Area */}
-          <div className="w-full lg:w-5/12 lg:sticky lg:top-32 h-fit">
+          {/* Header Area - Sticky while scrolling stats list */}
+          <div className="w-full lg:w-5/12 lg:sticky lg:top-32 self-start h-fit">
             <ScrollReveal>
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-slate-900 tracking-tight leading-[1.05]">
                 Results <br className="hidden lg:block" />
