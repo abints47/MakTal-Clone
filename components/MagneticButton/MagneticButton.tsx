@@ -28,11 +28,11 @@ export default function MagneticButton({
   const innerRef = useRef<HTMLDivElement>(null);
 
   // quickTo setters — created once, reused on every mousemove (zero overhead)
-  const qx  = useRef<ReturnType<typeof gsap.quickTo>>();
-  const qy  = useRef<ReturnType<typeof gsap.quickTo>>();
-  const qix = useRef<ReturnType<typeof gsap.quickTo>>();
-  const qiy = useRef<ReturnType<typeof gsap.quickTo>>();
-  const qs  = useRef<ReturnType<typeof gsap.quickTo>>();
+  const qx  = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
+  const qy  = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
+  const qix = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
+  const qiy = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
+  const qs  = useRef<ReturnType<typeof gsap.quickTo> | null>(null);
 
   useEffect(() => {
     if (!wrapRef.current || !innerRef.current) return;

@@ -19,6 +19,8 @@ interface BounceCardsProps {
   transformStyles?: string[];
   enableHover?: boolean;
   cardSize?: number;
+  cardWidth?: number;
+  cardHeight?: number;
 }
 
 function parseTransform(str: string): { rotation: number; x: number; y: number } {
@@ -44,21 +46,26 @@ function parseTransform(str: string): { rotation: number; x: number; y: number }
 export default function BounceCards({
   className = '',
   images = [],
-  containerWidth = 780,
-  containerHeight = 420,
+  containerWidth = 860,
+  containerHeight = 480,
   animationDelay = 0.2,
   animationStagger = 0.08,
   easeType = 'elastic.out(1, 0.75)',
   transformStyles = [
-    'rotate(6deg) translate(-230px)',
-    'rotate(2deg) translate(-115px)',
+    'rotate(6deg) translate(-240px)',
+    'rotate(2deg) translate(-120px)',
     'rotate(-5deg) translate(0px)',
-    'rotate(4deg) translate(115px)',
-    'rotate(-6deg) translate(230px)'
+    'rotate(4deg) translate(120px)',
+    'rotate(-6deg) translate(240px)'
   ],
   enableHover = true,
-  cardSize = 300
+  cardSize = 320,
+  cardWidth,
+  cardHeight,
 }: BounceCardsProps) {
+  const finalWidth = cardWidth || cardSize;
+  const finalHeight = cardHeight || Math.round(cardSize * 1.35);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const resetTimerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -193,11 +200,10 @@ export default function BounceCards({
       {images.map((src, idx) => (
         <div
           key={idx}
-          className={`card card-${idx} absolute border-10 border-white rounded-[36px] overflow-hidden cursor-pointer select-none transition-shadow duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)]`}
+          className={`card card-${idx} absolute rounded-[28px] overflow-hidden cursor-pointer select-none border border-white/15 bg-slate-900 shadow-[0_20px_50px_rgba(0,0,0,0.65)] hover:border-[#00AEEF]/50 transition-all duration-500 hover:shadow-[0_24px_60px_rgba(0,174,239,0.25)]`}
           style={{
-            width: `${cardSize}px`,
-            height: `${cardSize}px`,
-            boxShadow: '0 12px 35px rgba(0, 0, 0, 0.45)',
+            width: `${finalWidth}px`,
+            height: `${finalHeight}px`,
             zIndex: 1,
           }}
           onMouseEnter={() => pushSiblings(idx)}
@@ -214,3 +220,4 @@ export default function BounceCards({
     </div>
   );
 }
+
