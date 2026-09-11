@@ -18,6 +18,8 @@ import BlurText from '@/components/bits/BlurText';
 import { ParallaxHero, ParallaxOrbs } from '@/components/ParallaxHero/ParallaxHero';
 
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
+import MagneticButton from '@/components/MagneticButton/MagneticButton';
+
 
 const services = [
   {
@@ -229,53 +231,72 @@ export default function Page() {
         <StatsCounter />
       </div>
 
-      <section id="works" className="relative z-20 w-full py-24 sm:py-32 lg:py-48 bg-[#050505] rounded-t-[3rem] sm:rounded-t-[4rem] overflow-hidden -mt-12 sm:-mt-20">
-        
+      {/* ═══ SELECTED WORKS — Lusion style ═══ */}
+      <section
+        id="works"
+        className="relative z-20 w-full bg-[#050505] rounded-t-[3rem] sm:rounded-t-[4rem] -mt-12 sm:-mt-20 overflow-hidden"
+      >
         {/* Background Gradient Orbs */}
         <div className="absolute top-0 right-0 w-150 h-150 bg-[#00AEEF]/10 blur-[150px] pointer-events-none rounded-full translate-x-1/4 -translate-y-1/4" />
         <div className="absolute top-1/3 left-0 w-125 h-125 bg-indigo-500/10 blur-[150px] pointer-events-none rounded-full -translate-x-1/3" />
         <div className="absolute bottom-0 right-1/4 w-175 h-175 bg-[#00AEEF]/5 blur-[180px] pointer-events-none rounded-full translate-y-1/3" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        {/* ── Split Header ── */}
+        <div className="relative z-10 max-w-384 mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 pt-20 sm:pt-28 lg:pt-36 pb-14 sm:pb-20">
           <ScrollReveal>
-            <div className="text-center sm:text-left mb-16 sm:mb-24 lg:mb-32">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 text-[#00AEEF] text-lg font-semibold tracking-[0.22em] uppercase mb-6">
-                Selected Works
-              </span>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight max-w-3xl">
-                Digital products that <span className="text-white/30 italic font-light">actually work.</span>
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 sm:gap-12">
+              {/* Big title left */}
+              <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold text-white tracking-tight leading-[1.02] max-w-xl">
+                Selected<br />Works
               </h2>
+              {/* Descriptor right */}
+              <p className="text-white/40 text-xs sm:text-sm leading-relaxed max-w-xs font-medium tracking-wide uppercase">
+                A selection of web development and digital marketing projects created for ambitious brands and forward-thinking teams.
+              </p>
             </div>
           </ScrollReveal>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 lg:gap-x-20 lg:gap-y-24 w-full">
-            {projects.map((project, index) => (
-              <div key={index} className={index % 2 !== 0 ? "md:mt-32" : ""}>
-                <ScrollReveal delay={(index % 2) * 100}>
-                  <ProjectCard
-                    title={project.title}
-                    desc={project.desc}
-                    image={project.image}
-                    video={project.video}
-                    url={project.url}
-                  />
-                </ScrollReveal>
-              </div>
+        {/* ── 2-col project grid ── */}
+        <div className="relative z-10 max-w-384 mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 pb-20 sm:pb-28 lg:pb-36">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20 sm:gap-y-24 lg:gap-x-12 lg:gap-y-28 w-full">
+            {projects.map((project, i) => (
+              <ProjectCard
+                key={i}
+                title={project.title}
+                desc={project.desc}
+                image={project.image}
+                video={project.video}
+                url={project.url}
+                tags={['Web', 'Design', 'Development']}
+                index={i}
+              />
             ))}
           </div>
 
+          {/* View all link — Magnetic */}
           <ScrollReveal delay={200}>
-            <div className="flex justify-center sm:justify-start mt-8">
-              <Link href="/works" className="group inline-flex items-center justify-center gap-4 text-white hover:text-[#00AEEF] transition-colors duration-300">
-                <span className="text-lg font-medium tracking-wide">Explore All Cases</span>
-                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-[#00AEEF]/10 group-hover:border-[#00AEEF]/30">
-                  <ArrowRight className="w-5 h-5 text-white group-hover:text-[#00AEEF] group-hover:translate-x-1 transition-all duration-300" />
-                </div>
-              </Link>
+            <div className="flex justify-start mt-16 sm:mt-20">
+              <MagneticButton strength={0.4} innerStrength={0.25}>
+                <Link
+                  href="/works"
+                  className="group inline-flex items-center gap-3 text-white hover:text-[#00AEEF] transition-colors duration-300"
+                >
+                  <span className="text-base font-semibold tracking-wide transition-colors duration-300">
+                    Explore All Cases
+                  </span>
+                  <div className="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center transition-all duration-300 group-hover:bg-[#00AEEF] group-hover:border-[#00AEEF] group-hover:scale-110">
+                    <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform duration-300" />
+                  </div>
+                </Link>
+              </MagneticButton>
             </div>
           </ScrollReveal>
         </div>
       </section>
+
+
+
 
       <TeamSection />
 

@@ -2,6 +2,8 @@
 
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import MagneticButton from '@/components/MagneticButton/MagneticButton';
+
 
 const blogPosts = [
   {
@@ -82,13 +84,15 @@ export default function BlogSection() {
 
         <ScrollReveal delay={200}>
           <div className="flex justify-center mt-12 sm:mt-16">
-            <a
-              href="#blog"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full border border-slate-900/15 bg-transparent text-slate-700 text-sm font-semibold tracking-wide transition-all duration-300 hover:border-[#00AEEF] hover:text-[#00AEEF] hover:bg-[#00AEEF]/5"
-            >
-              View All Posts
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 text-[#00AEEF]" />
-            </a>
+            <MagneticButton strength={0.38} innerStrength={0.2}>
+              <a
+                href="#blog"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-transparent text-slate-700 text-sm font-semibold tracking-wide transition-all duration-300 hover:text-[#00AEEF]"
+              >
+                View All Posts
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 text-[#00AEEF]" />
+              </a>
+            </MagneticButton>
           </div>
         </ScrollReveal>
       </div>

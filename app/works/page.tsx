@@ -3,11 +3,11 @@
 import React, { useState } from 'react';
 import { ExternalLink, ImageIcon } from 'lucide-react';
 import { projects } from './data';
-import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import Footer from '@/components/Footer/Footer';
 import FloatingNav from '@/components/FloatingNav/FloatingNav';
-
+import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import ProjectCard from '@/components/ProjectCard/ProjectCard';
+
 
 const allTags = Array.from(new Set(projects.flatMap((p) => p.tags ?? [])));
 
@@ -75,20 +75,19 @@ export default function WorksPage() {
       </section>
 
       {/* Projects Grid */}
-      <section className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 pb-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12 sm:gap-x-10 sm:gap-y-16 lg:gap-x-16 lg:gap-y-20 w-full">
+      <section className="relative z-10 max-w-[96rem] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20 pb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-12 sm:gap-y-16 w-full">
           {filtered.map((project, index) => (
-            <div key={project.title}>
-              <ScrollReveal delay={(index % 2) * 100}>
-                <ProjectCard
-                  title={project.title}
-                  desc={project.desc}
-                  image={project.image}
-                  video={project.video || ''}
-                  url={project.url}
-                />
-              </ScrollReveal>
-            </div>
+            <ProjectCard
+              key={project.title}
+              title={project.title}
+              desc={project.desc}
+              image={project.image}
+              video={project.video || ''}
+              url={project.url}
+              tags={project.tags}
+              index={index}
+            />
           ))}
         </div>
 

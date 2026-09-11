@@ -1,42 +1,115 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
+import MagneticButton from '@/components/MagneticButton/MagneticButton';
 
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+/* ─── Image data ─── */
 const teamImages = [
-  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-team-working-in-office.png', alt: 'Team collaborating at desks' },
-  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-team-sitting-around-table-chatting.png', alt: 'Team meeting around table' },
-  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-team-brainstorming-ideas.png', alt: 'Team brainstorming session' },
-  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-office-interior.png', alt: 'Office interior' },
+  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-team-working-in-office.png',            alt: 'Team collaborating at desks', label: 'Deep Work'  },
+  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-team-sitting-around-table-chatting.png', alt: 'Team meeting around table',   label: 'Team Sync'  },
+  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-team-brainstorming-ideas.png',          alt: 'Team brainstorming session',  label: 'Brainstorm' },
+  { src: 'https://maktalseo.com/wp-content/uploads/2025/02/Maktal-office-interior.png',                   alt: 'Office interior',             label: 'Our Space'  },
 ];
 
-/* Unique style per card: width, height, rotation, parallax speed, vertical offset */
-const cardLayouts = [
-  { w: '44%', h: '22rem', rotate: -2.5, speed: 0.05,  mt: '0',    mb: '' },
-  { w: '52%', h: '18rem', rotate: 1.8,  speed: -0.04, mt: '6rem', mb: '' },
-  { w: '48%', h: '20rem', rotate: -1.2, speed: 0.04,  mt: '-2rem', mb: '' },
-  { w: '56%', h: '17rem', rotate: 2,    speed: -0.03, mt: '4rem', mb: '' },
-];
+/* Alternating signs create layered depth while scrolling */
+const PARALLAX = [0.06, -0.045, 0.055, -0.04];
 
+/* ─────────────────────────────────────────
+   Reusable card: overflow-hidden container
+   + parallax image wrapper (inset -8%)
+   + hover label pill + cyan accent bar
+   ───────────────────────────────────────── */
+interface PanelProps {
+  idx: number;
+  panelRefs: React.MutableRefObject<(HTMLDivElement | null)[]>;
+  className?: string;
+}
+
+function BentoPanel({ idx, panelRefs, className = '' }: PanelProps) {
+  const img = teamImages[idx];
+  return (
+    <div
+      className={`group relative overflow-hidden rounded-[1.6rem]
+        ring-1 ring-slate-200/90
+        shadow-[0_6px_32px_-6px_rgba(0,0,0,0.13)]
+        hover:ring-[#00AEEF]/60
+        hover:shadow-[0_20px_60px_-8px_rgba(0,174,239,0.28)]
+        transition-[box-shadow,ring-color] duration-700 ease-out
+        cursor-pointer ${className}`}
+    >
+      {/* ─ Parallax wrapper: image is larger than card, shifts on scroll ─ */}
+      <div
+        ref={(el) => { panelRefs.current[idx] = el; }}
+        className="will-change-transform"
+        style={{ position: 'absolute', inset: '-8%' }}
+      >
+        <img
+          src={img.src}
+          alt={img.alt}
+          className="w-full h-full object-cover
+                     transition-transform duration-[1.1s] ease-out
+                     group-hover:scale-[1.07]"
+          loading="lazy"
+        />
+      </div>
+
+      {/* ─ Label pill — slides up on hover ─ */}
+      <div
+        className="absolute bottom-4 left-4 z-10
+                   translate-y-3 opacity-0
+                   group-hover:translate-y-0 group-hover:opacity-100
+                   transition-all duration-500 ease-out"
+      >
+        <span
+          className="inline-flex items-center gap-1.5 px-3 py-1.25
+                     rounded-full bg-white/95 backdrop-blur-md
+                     border border-slate-200/80 shadow-sm
+                     text-slate-700 text-[11px] font-semibold tracking-wide"
+        >
+          <span className="w-1.75 h-1.75 rounded-full bg-[#00AEEF] shrink-0" />
+          {img.label}
+        </span>
+      </div>
+
+      {/* ─ Cyan sweep bar ─ */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-0.75 z-10
+                   bg-linear-to-r from-transparent via-[#00AEEF] to-transparent
+                   scale-x-0 group-hover:scale-x-100
+                   transition-transform duration-700 origin-center"
+      />
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════
+   Main section
+   ═══════════════════════════════════════════════════ */
 export default function TeamSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const imgRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const panelRefs  = useRef<(HTMLDivElement | null)[]>([]);
+  const bentoRef   = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     const onScroll = () => {
       const section = sectionRef.current;
       if (!section) return;
-      const rect = section.getBoundingClientRect();
-      const sectionCenter = rect.top + rect.height / 2;
-      const viewCenter = window.innerHeight / 2;
-      const delta = sectionCenter - viewCenter;
+      const delta =
+        (section.getBoundingClientRect().top + section.offsetHeight / 2) -
+        window.innerHeight / 2;
 
-      imgRefs.current.forEach((el) => {
+      panelRefs.current.forEach((el, i) => {
         if (!el) return;
-        const speed = parseFloat(el.dataset.speed || '0');
-        const rotate = parseFloat(el.dataset.rotate || '0');
-        const offset = delta * speed;
-        el.style.transform = `translateY(${offset}px) rotate(${rotate}deg)`;
+        el.style.transform = `translateY(${delta * PARALLAX[i]}px)`;
       });
     };
 
@@ -45,9 +118,38 @@ export default function TeamSection() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  /* ── GSAP clip-path wipe-in — panels reveal upward one by one ── */
+  useEffect(() => {
+    const bento = bentoRef.current;
+    if (!bento) return;
+
+    const panels = bento.querySelectorAll<HTMLElement>('.bento-panel');
+
+    const ctx = gsap.context(() => {
+      gsap.set(panels, { clipPath: 'inset(100% 0% 0% 0% round 1.6rem)', opacity: 1 });
+
+      gsap.to(panels, {
+        clipPath: 'inset(0% 0% 0% 0% round 1.6rem)',
+        duration: 1.15,
+        ease: 'expo.out',
+        stagger: 0.13,
+        scrollTrigger: {
+          trigger: bento,
+          start: 'top 82%',
+          toggleActions: 'play none none none',
+        },
+      });
+    }, bento);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div ref={sectionRef} className="relative w-full bg-white rounded-t-[2.5rem] sm:rounded-t-[3rem] overflow-hidden py-20 sm:py-28 lg:py-36">
-      {/* Header */}
+    <div
+      ref={sectionRef}
+      className="relative w-full bg-white rounded-t-[2.5rem] sm:rounded-t-[3rem] overflow-hidden py-20 sm:py-28 lg:py-36"
+    >
+      
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-20">
           <ScrollReveal>
@@ -62,115 +164,80 @@ export default function TeamSection() {
           </ScrollReveal>
           <ScrollReveal delay={140}>
             <p className="mt-5 text-slate-500 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto font-light">
-              We have a well-educated team of designers, developers, and digital marketing experts who deliver high-quality work tailored to your needs.
+              We have a well-educated team of designers, developers, and digital
+              marketing experts who deliver high-quality work tailored to your needs.
             </p>
           </ScrollReveal>
         </div>
       </div>
+      
+      
+      <div
+        ref={bentoRef}
+        className="hidden md:grid
+                   px-6 sm:px-10 lg:px-16 xl:px-20
+                   w-full max-w-384 mx-auto
+                   grid-cols-12 gap-3"
+        style={{ gridTemplateRows: '22rem 15rem' }}
+      >
 
-      {/* === Row 1: two images, offset and varied === */}
-      <ScrollReveal delay={200}>
-        <div className="hidden md:flex justify-center items-start gap-6 sm:gap-8 px-6 sm:px-10 lg:px-16 xl:px-20 w-full max-w-[1800px] 2xl:max-w-7xl mx-auto">
-          {/* Card 1 */}
-          <div style={{ width: cardLayouts[0].w, marginTop: cardLayouts[0].mt }} className="shrink-0">
-            <ScrollReveal delay={240}>
-              <div
-                ref={(el) => { imgRefs.current[0] = el; }}
-                data-speed={cardLayouts[0].speed}
-                data-rotate={cardLayouts[0].rotate}
-                className="group relative rounded-2xl overflow-hidden border border-slate-900/10 shadow-2xl shadow-slate-900/15 will-change-transform transition-[box-shadow,border-color] duration-500 hover:shadow-[0_8px_40px_rgba(0,174,239,0.18)] hover:border-[#00AEEF]/30"
-                style={{ height: cardLayouts[0].h }}
-              >
-                <img src={teamImages[0].src} alt={teamImages[0].alt} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" />
-                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent" />
-                
-              </div>
-            </ScrollReveal>
-          </div>
-
-          {/* Card 2 */}
-          <div style={{ width: cardLayouts[1].w, marginTop: cardLayouts[1].mt }} className="shrink-0">
-            <ScrollReveal delay={320}>
-              <div
-                ref={(el) => { imgRefs.current[1] = el; }}
-                data-speed={cardLayouts[1].speed}
-                data-rotate={cardLayouts[1].rotate}
-                className="group relative rounded-2xl overflow-hidden border border-slate-900/10 shadow-2xl shadow-slate-900/15 will-change-transform transition-[box-shadow,border-color] duration-500 hover:shadow-[0_8px_40px_rgba(0,174,239,0.18)] hover:border-[#00AEEF]/30"
-                style={{ height: cardLayouts[1].h }}
-              >
-                <img src={teamImages[1].src} alt={teamImages[1].alt} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" />
-                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent" />
-                
-              </div>
-            </ScrollReveal>
-          </div>
+        <div className="col-span-5 row-span-2 bento-panel">
+          <BentoPanel idx={0} panelRefs={panelRefs} className="w-full h-full" />
         </div>
-      </ScrollReveal>
 
-      {/* === Row 2: two images, different offsets === */}
-      <ScrollReveal delay={380}>
-        <div className="hidden md:flex justify-center items-start gap-6 sm:gap-8 px-6 sm:px-10 lg:px-16 xl:px-20 w-full max-w-[1800px] 2xl:max-w-7xl mx-auto mt-6 sm:mt-8">
-          {/* Card 3 */}
-          <div style={{ width: cardLayouts[2].w, marginTop: cardLayouts[2].mt }} className="shrink-0">
-            <ScrollReveal delay={420}>
-              <div
-                ref={(el) => { imgRefs.current[2] = el; }}
-                data-speed={cardLayouts[2].speed}
-                data-rotate={cardLayouts[2].rotate}
-                className="group relative rounded-2xl overflow-hidden border border-slate-900/10 shadow-2xl shadow-slate-900/15 will-change-transform transition-[box-shadow,border-color] duration-500 hover:shadow-[0_8px_40px_rgba(0,174,239,0.18)] hover:border-[#00AEEF]/30"
-                style={{ height: cardLayouts[2].h }}
-              >
-                <img src={teamImages[2].src} alt={teamImages[2].alt} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" />
-                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent" />
-                
-              </div>
-            </ScrollReveal>
-          </div>
-
-          {/* Card 4 */}
-          <div style={{ width: cardLayouts[3].w, marginTop: cardLayouts[3].mt }} className="shrink-0">
-            <ScrollReveal delay={500}>
-              <div
-                ref={(el) => { imgRefs.current[3] = el; }}
-                data-speed={cardLayouts[3].speed}
-                data-rotate={cardLayouts[3].rotate}
-                className="group relative rounded-2xl overflow-hidden border border-slate-900/10 shadow-2xl shadow-slate-900/15 will-change-transform transition-[box-shadow,border-color] duration-500 hover:shadow-[0_8px_40px_rgba(0,174,239,0.18)] hover:border-[#00AEEF]/30"
-                style={{ height: cardLayouts[3].h }}
-              >
-                <img src={teamImages[3].src} alt={teamImages[3].alt} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]" />
-                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/5 to-transparent" />
-                
-              </div>
-            </ScrollReveal>
-          </div>
+        
+        <div className="col-span-4 row-span-1 bento-panel">
+          <BentoPanel idx={1} panelRefs={panelRefs} className="w-full h-full" />
         </div>
-      </ScrollReveal>
 
-      {/* Mobile — vertical stack */}
-      <ScrollReveal delay={200}>
-        <div className="md:hidden flex flex-col gap-4 px-5">
-          {teamImages.map((img, i) => (
-            <ScrollReveal key={i} delay={240 + i * 80} direction="scale">
-              <div className="relative h-48 rounded-2xl overflow-hidden border border-slate-900/10 shadow-lg shadow-slate-900/10">
-                <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
-                
-              </div>
-            </ScrollReveal>
-          ))}
+
+        <div className="col-span-3 row-span-1 bento-panel">
+          <BentoPanel idx={2} panelRefs={panelRefs} className="w-full h-full" />
         </div>
-      </ScrollReveal>
 
-      {/* CTA */}
+        
+        <div className="col-span-7 row-span-1 bento-panel">
+          <BentoPanel idx={3} panelRefs={panelRefs} className="w-full h-full" />
+        </div>
+      </div>
+
+    
+      <div className="md:hidden flex flex-col gap-3 px-5">
+        {teamImages.map((img, i) => (
+          <ScrollReveal key={i} delay={160 + i * 80}>
+            <div className="group relative h-52 rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-md">
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-full object-cover
+                           transition-transform duration-700 ease-out
+                           group-hover:scale-[1.06]"
+              />
+              <div
+                className="absolute inset-x-0 bottom-0 h-0.75
+                           bg-linear-to-r from-transparent via-[#00AEEF] to-transparent
+                           scale-x-0 group-hover:scale-x-100
+                           transition-transform duration-700 origin-center" />
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <ScrollReveal delay={560}>
           <div className="mt-16 text-center">
-            <a
-              href="#about"
-              className="inline-flex items-center justify-center px-7 py-2.5 rounded-full border border-slate-900/15 bg-transparent text-slate-600 text-sm tracking-wide transition-all duration-300 hover:border-[#00AEEF]/50 hover:text-[#00AEEF] hover:bg-[#00AEEF]/10 font-normal"
-            >
-              Learn More
-            </a>
+            <MagneticButton strength={0.38} innerStrength={0.2}>
+              <a
+                href="#about"
+                className="inline-flex items-center justify-center px-7 py-2.5 rounded-full
+                           border border-slate-900/15 bg-transparent text-slate-600 text-sm
+                           tracking-wide transition-all duration-300
+                           hover:border-[#00AEEF]/50 hover:text-[#00AEEF] hover:bg-[#00AEEF]/10
+                           font-normal"
+              >
+                Learn More
+              </a>
+            </MagneticButton>
           </div>
         </ScrollReveal>
       </div>

@@ -3,6 +3,7 @@
 import FloatingNav from "@/components/FloatingNav/FloatingNav";
 import Footer from "@/components/Footer/Footer";
 import BounceCards from './BounceCards';
+
 import {
   Target,
   Heart,
@@ -140,6 +141,7 @@ export default function AboutPage() {
         {/* Mission Section */}
         <section className="py-20 px-6 sm:px-10 lg:px-16 bg-[#0a0a0a]">
           <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-6">
                 <Target className="w-8 h-8 text-[#00AEEF]" />
@@ -200,6 +202,7 @@ export default function AboutPage() {
         {/* Services Overview */}
         <section className="py-20 px-6 sm:px-10 lg:px-16 bg-[#050505]">
           <div className="max-w-6xl mx-auto">
+
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 What We Do

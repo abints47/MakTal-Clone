@@ -463,8 +463,8 @@ export default function HowWeDeliver() {
                           key={del}
                           className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-medium transition-colors duration-300 ${
                             isLight
-                              ? 'bg-white border border-slate-200 text-slate-700 shadow-xs hover:border-[#00AEEF]/40'
-                              : 'bg-white/5 border border-white/10 text-zinc-300 hover:bg-white/10'
+                              ? 'text-slate-700 shadow-xs hover:bg-[#00AEEF]/40'
+                              : ' text-zinc-300 hover:bg-white/10'
                           }`}
                         >
                           <CheckCircle2
